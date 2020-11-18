@@ -11,7 +11,7 @@ function App() {
       <Layout style={{minHeight: '100vh', position: 'relative'}}>
         <Header/>
 
-        <Content style={{ padding: '0 50px', marginTop: 64, marginBottom: '84px'}}>
+        <Content style={{ padding: '0 50px', marginTop: 48, marginBottom: '84px'}}>
           <Switch>
             <Route exact path='/'>
               <Home />
