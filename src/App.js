@@ -1,33 +1,32 @@
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-import { Button } from 'antd';
+import { Layout } from 'antd';
+import Home from './pages/Home';
+import { Footer, Header } from './components';
 
-
+const { Content } = Layout;
 
 function App() {
   return (
     <Router>
+      <Layout style={{minHeight: '100vh', position: 'relative'}}>
+        <Header/>
 
-      <Switch>
-        <Route exact path='/'>
-          Home
-          <Link to='/cryptos'>
-            <Button>Cryptos</Button>
-          </Link>
-        </Route>
-        <Route exact path='/cryptos'>
-          Cryptos
-          <Link to='/'>
-            <Button>Home</Button>
-          </Link>
-        </Route>
-        <Route path='*'>
-          404
-          <Link to='/'>
-            <Button>Home</Button>
-          </Link>
-        </Route>
-      </Switch>
+        <Content style={{ padding: '0 50px', marginTop: 64, marginBottom: '84px'}}>
+          <Switch>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route exact path='/exchanges'>
+              Exchanges
+            </Route>
+            <Route path='*'>
+              404
+            </Route>
+          </Switch>
+        </Content>
 
+        <Footer />
+      </Layout>
     </Router>
   );
 }
