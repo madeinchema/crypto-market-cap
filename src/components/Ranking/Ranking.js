@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Table, Progress } from 'antd';
+import { Table, Progress, Popover, Space, Row, Col, Typography } from 'antd';
 import './Ranking.css';
 import { getCoinsRanking } from '../../utilities/api';
+import { InfoCircleOutlined } from '@ant-design/icons';
+
+const { Text } = Typography;
 
 const columns = (currency) => {
   return [
@@ -63,7 +66,23 @@ const columns = (currency) => {
       render: (circulatingSupply, coin) => (
         <>
           <div>
-            {circulatingSupply.toLocaleString()}{' '}{currency.toUpperCase()}
+            {coin.total_supply && (
+              <Popover content={(
+                <Space direction='vertical'>
+                  <Row justify='space-between' gutter={24}>
+                    <Col><Text strong>Circulating Supply</Text></Col>
+                    <Col>{circulatingSupply.toLocaleString()}{' '}{coin.symbol.toUpperCase()}</Col>
+                  </Row>
+                  <Row justify='space-between' gutter={24}>
+                    <Col><Text strong>Max Supply</Text></Col>
+                    <Col>{coin.total_supply.toLocaleString()}{' '}{coin.symbol.toUpperCase()}</Col>
+                  </Row>
+                </Space>
+              )}>
+                <InfoCircleOutlined />{' '}
+              </Popover>
+            )}
+            {circulatingSupply.toLocaleString()}{' '}{coin.symbol.toUpperCase()}
           </div>
           {coin.total_supply && (
             <div>
