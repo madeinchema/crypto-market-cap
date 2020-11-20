@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Table } from 'antd';
+import { Table, Progress } from 'antd';
 import './Ranking.css';
 import { getCoinsRanking } from '../../utilities/api';
 
@@ -56,6 +56,28 @@ const columns = (currency) => {
       render: marketCap => `${marketCap.toLocaleString()} ${currency.toUpperCase()}`,
     },
     {
+      title: 'Circulating Supply',
+      dataIndex: 'circulating_supply',
+      key: 'circulating_supply',
+      sorter: (a, b) => a.circulating_supply - b.circulating_supply,
+      render: (circulatingSupply, coin) => (
+        <>
+          <div>
+            {circulatingSupply.toLocaleString()}{' '}{currency.toUpperCase()}
+          </div>
+          {coin.total_supply && (
+            <div>
+              <Progress
+                showInfo={false}
+                percent={(circulatingSupply * 100 / coin.total_supply).toFixed(2)}
+                strokeColor='gray'
+              />
+            </div>
+          )}
+        </>
+      )
+    },
+    {
       title: 'Last 7 Days',
       dataIndex: 'image',
       key: 'image',
@@ -81,8 +103,10 @@ const Ranking = ({ currency = 'usd' }) => {
         // console.log(data)
         setCryptosData(data)
       });
+      console.log(cryptosData)
     }, 1000)
     setLoading(false)
+
   }, [])
 
   return (
