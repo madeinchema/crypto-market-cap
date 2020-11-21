@@ -18,24 +18,7 @@ const columns = (currency) => {
       title: 'Coin',
       dataIndex: 'id',
       key: 'id',
-      render: (symbol, coin) => (
-        <div style={{ display: 'flex', alignContent: 'center'}}>
-          <img
-            alt={`${coin.name} icon`}
-            src={coin.image}
-            style={{ width: 24, height: 24, marginRight: 8 }}
-          />
-          <span style={{ fontWeight: '600', marginRight: 4 }}>
-          {coin.name}
-        </span>
-
-          <span style={{ fontWeight: '600', color: '#8c8c8c' }}>
-          {coin.symbol.toUpperCase()}
-        </span>
-
-
-        </div>
-      ),
+      render: (symbol, coin) => <CoinColumnElement coin={coin}/>,
     },
     {
       title: 'Price',
@@ -63,7 +46,7 @@ const columns = (currency) => {
       dataIndex: 'circulating_supply',
       key: 'circulating_supply',
       sorter: (a, b) => a.circulating_supply - b.circulating_supply,
-      render: (circulatingSupply, coin) => <CirculatingSupplyColumn coin={coin}/>
+      render: (circulatingSupply, coin) => <CirculatingSupplyColumn coin={coin}/>,
     },
     {
       title: 'Last 7 Days',
@@ -77,6 +60,24 @@ const columns = (currency) => {
       },
     },
   ];
+}
+
+function CoinColumnElement({ coin }) {
+  return (
+    <div style={{ display: 'flex', alignContent: 'center' }}>
+      <img
+        alt={`${coin.name} icon`}
+        src={coin.image}
+        style={{ width: 24, height: 24, marginRight: 8 }}
+      />
+      <span style={{ fontWeight: '600', marginRight: 4 }}>
+        {coin.name}
+      </span>
+      <span style={{ fontWeight: '600', color: '#8c8c8c' }}>
+        {coin.symbol.toUpperCase()}
+      </span>
+    </div>
+  )
 }
 
 function CirculatingSupplyColumn({ coin }) {
@@ -130,7 +131,7 @@ function CirculatingSupplyPopover({ coin }) {
         </Row>
       </Space>
     )}>
-      <InfoCircleOutlined />{' '}
+      <InfoCircleOutlined/>{' '}
     </Popover>
   )
 }
