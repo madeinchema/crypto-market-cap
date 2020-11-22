@@ -144,11 +144,7 @@ const Ranking = ({ currency = 'usd' }) => {
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      getCoinsRanking(currency).then(data => {
-        // console.log(data)
-        setCryptosData(data)
-      });
-      console.log(cryptosData)
+      getCoinsRanking(currency).then(data => setCryptosData(data));
     }, 200)
     setLoading(false)
 
@@ -157,10 +153,11 @@ const Ranking = ({ currency = 'usd' }) => {
   return (
     <div>
       <Table
+        columns={columns(currency)}
+        dataSource={cryptosData}
+        rowKey='symbol'
         className='rankingTable'
         loading={loading || !cryptosData}
-        dataSource={cryptosData}
-        columns={columns(currency)}
         pagination={{ defaultPageSize: 20 }}
         scroll={{ x: 'max-content' }}
       />
