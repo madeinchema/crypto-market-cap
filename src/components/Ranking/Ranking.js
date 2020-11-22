@@ -53,9 +53,7 @@ const columns = (currency) => {
       dataIndex: 'image',
       key: 'image',
       render: image => {
-        // TODO: Improve regex
-        let id = image.replace(/(https:\/\/assets.coingecko.com\/coins\/images\/)/, '');
-        id = id.replace(/(?!\d).+/, '');
+        let id = image.match(/\d+/);
         return <img style={{ height: 48 }} alt='coin icon' src={`https://www.coingecko.com/coins/${id}/sparkline`}/>
       },
     },
