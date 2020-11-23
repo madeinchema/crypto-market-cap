@@ -32,7 +32,7 @@ const columns = (currency) => {
       dataIndex: 'price_change_percentage_24h',
       key: 'price_change_percentage_24h',
       sorter: (a, b) => a.price_change_percentage_24h - b.price_change_percentage_24h,
-      render: change => `${change ? change.toFixed(2) : 0} %`,
+      render: change => <ColorizedPriceChange change={change}>{`${change ? change.toFixed(2) : 0} %`}</ColorizedPriceChange>
     },
     {
       title: 'Market Cap',
@@ -60,6 +60,14 @@ const columns = (currency) => {
   ];
 }
 
+function ColorizedPriceChange({ children, change }) {
+  const color = (change < 0)
+    ? '#cf1322'
+    : (change === 0 ? '#8c8c8c' : '#389e0d');
+
+  return <div style={{color: color }}>{children}</div>
+}
+
 function CoinColumnElement({ coin }) {
   return (
     <div style={{ display: 'flex', alignContent: 'center' }}>
@@ -68,10 +76,10 @@ function CoinColumnElement({ coin }) {
         src={coin.image}
         style={{ width: 24, height: 24, marginRight: 8 }}
       />
-      <span style={{ fontWeight: '600', marginRight: 4 }}>
+      <span style={{ fontWeight: '700', marginRight: 4 }}>
         {coin.name}
       </span>
-      <span style={{ fontWeight: '600', color: '#8c8c8c' }}>
+      <span style={{ color: '#8c8c8c' }}>
         {coin.symbol.toUpperCase()}
       </span>
     </div>
@@ -143,7 +151,7 @@ const Ranking = ({ currency = 'usd' }) => {
     setLoading(true);
     setTimeout(() => {
       getCoinsRanking(currency).then(data => setCryptosData(data));
-    }, 200)
+    }, 200);
     setLoading(false)
 
   }, [])
