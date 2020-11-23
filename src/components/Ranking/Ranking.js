@@ -28,11 +28,18 @@ const columns = (currency) => {
       render: price => `${price.toLocaleString()} ${currency.toUpperCase()}`,
     },
     {
-      title: '24h Change',
-      dataIndex: 'price_change_percentage_24h',
-      key: 'price_change_percentage_24h',
-      sorter: (a, b) => a.price_change_percentage_24h - b.price_change_percentage_24h,
-      render: change => <ColorizedPriceChange change={change}>{`${change ? change.toFixed(2) : 0} %`}</ColorizedPriceChange>
+      title: '24h',
+      dataIndex: 'price_change_percentage_24h_in_currency',
+      key: 'price_change_percentage_24h_in_currency',
+      sorter: (a, b) => a.price_change_percentage_24h_in_currency - b.price_change_percentage_24h_in_currency,
+      render: change => <PriceChange change={change}>{`${change ? change.toFixed(2) : 0} %`}</PriceChange>,
+    },
+    {
+      title: '7d',
+      dataIndex: 'price_change_percentage_7d_in_currency',
+      key: 'price_change_percentage_7d_in_currency',
+      sorter: (a, b) => a.price_change_percentage_7d_in_currency - b.price_change_percentage_7d_in_currency,
+      render: change => <PriceChange change={change}>{`${change ? change.toFixed(2) : 0} %`}</PriceChange>,
     },
     {
       title: 'Market Cap',
@@ -52,20 +59,26 @@ const columns = (currency) => {
       title: 'Last 7 Days',
       dataIndex: 'image',
       key: 'image',
-      render: image => {
+      render: ( image, coin ) => {
         let id = image.match(/\d+/);
-        return <img style={{ height: 48 }} alt='coin icon' src={`https://www.coingecko.com/coins/${id}/sparkline`}/>
+        return (
+          <img
+            style={{ height: 48 }}
+            alt={`${coin.symbol} icon`}
+            src={`https://www.coingecko.com/coins/${id}/sparkline`}
+          />
+        )
       },
     },
   ];
 }
 
-function ColorizedPriceChange({ children, change }) {
+function PriceChange({ children, change }) {
   const color = (change < 0)
     ? '#cf1322'
     : (change === 0 ? '#8c8c8c' : '#389e0d');
 
-  return <div style={{color: color }}>{children}</div>
+  return <div style={{ color: color }}>{children}</div>
 }
 
 function CoinColumnElement({ coin }) {
@@ -107,7 +120,6 @@ function CirculatingSupplyColumn({ coin }) {
 }
 
 function CirculatingSupplyPopover({ coin }) {
-
   const getSupplyPercentage = (circulatingSupply, totalSupply) => {
     const percentage = (circulatingSupply * 100) / totalSupply;
     return percentage.toFixed(2);
