@@ -3,6 +3,7 @@ import { Table, Progress, Popover, Space, Row, Col, Typography } from 'antd';
 import './Ranking.css';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import getCoinsRanking from '../../utilities/api';
+import RankingPriceChange from './components/RankingPriceChange';
 
 const { Text } = Typography;
 
@@ -37,9 +38,9 @@ const columns = (currency) => {
         b.price_change_percentage_24h_in_currency,
       // eslint-disable-next-line react/display-name
       render: (change) => (
-        <PriceChange change={change}>{`${
+        <RankingPriceChange change={change}>{`${
           change ? change.toFixed(2) : 0
-        } %`}</PriceChange>
+        } %`}</RankingPriceChange>
       ),
     },
     {
@@ -51,9 +52,9 @@ const columns = (currency) => {
         b.price_change_percentage_7d_in_currency,
       // eslint-disable-next-line react/display-name
       render: (change) => (
-        <PriceChange change={change}>{`${
+        <RankingPriceChange change={change}>{`${
           change ? change.toFixed(2) : 0
-        } %`}</PriceChange>
+        } %`}</RankingPriceChange>
       ),
     },
     {
@@ -92,27 +93,6 @@ const columns = (currency) => {
     },
   ];
 };
-
-function PriceChange({ children, change }) {
-  const hasPriceChangedNegatively = change < 0;
-  const hasPriceChangedPositively = change > 0;
-  const hasPriceChanged = change !== 0;
-
-  const redColor = '#cf1322';
-  const greenColor = '#8c8c8c';
-  const grayColor = '#389e0d';
-
-  let priceChangeColor;
-  if (!hasPriceChanged) {
-    priceChangeColor = grayColor;
-  } else if (hasPriceChangedNegatively) {
-    priceChangeColor = redColor;
-  } else if (hasPriceChangedPositively) {
-    priceChangeColor = greenColor;
-  }
-
-  return <div style={{ color: priceChangeColor }}>{children}</div>;
-}
 
 function CoinColumnElement({ coin }) {
   return (
