@@ -4,6 +4,7 @@ import './Ranking.css';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import getCoinsRanking from '../../utilities/api';
 import RankingPriceChange from './components/PriceChangeColumn';
+import CoinColumn from './components/CoinColumn';
 
 const { Text } = Typography;
 
@@ -20,7 +21,7 @@ const columns = (currency) => {
       dataIndex: 'id',
       key: 'id',
       // eslint-disable-next-line react/display-name
-      render: (symbol, coin) => <CoinColumnElement coin={coin} />,
+      render: (symbol, coin) => <CoinColumn coin={coin} />,
     },
     {
       title: 'Price',
@@ -93,20 +94,6 @@ const columns = (currency) => {
     },
   ];
 };
-
-function CoinColumnElement({ coin }) {
-  return (
-    <div style={{ display: 'flex', alignContent: 'center' }}>
-      <img
-        alt={`${coin.name} icon`}
-        src={coin.image}
-        style={{ width: 24, height: 24, marginRight: 8 }}
-      />
-      <span style={{ fontWeight: '700', marginRight: 4 }}>{coin.name}</span>
-      <span style={{ color: '#8c8c8c' }}>{coin.symbol.toUpperCase()}</span>
-    </div>
-  );
-}
 
 function CirculatingSupplyColumn({ coin }) {
   return (
