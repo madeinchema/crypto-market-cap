@@ -3,7 +3,7 @@ import { Table, Progress, Popover, Space, Row, Col, Typography } from 'antd';
 import './Ranking.css';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import getCoinsRanking from '../../utilities/api';
-import RankingPriceChange from './components/RankingPriceChange';
+import RankingPriceChange from './components/PriceChangeColumn';
 
 const { Text } = Typography;
 
