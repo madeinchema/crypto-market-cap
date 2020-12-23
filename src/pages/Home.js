@@ -1,5 +1,4 @@
-import React from 'react';
-import {Typography} from 'antd';
+import { Typography } from 'antd';
 import Ranking from '../components/Ranking/Ranking';
 
 const { Title } = Typography;
@@ -14,4 +13,3 @@ const Home = () => {
 };
 
 export default Home;
-

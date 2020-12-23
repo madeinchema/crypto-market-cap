@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Table, Typography } from 'antd';
+import { Table } from 'antd';
 import './Ranking.css';
 import getCoinsRanking from '../../utilities/api';
 import RankingPriceChange from './components/PriceChangeColumn';
