@@ -104,7 +104,7 @@ const Ranking = ({ currency = 'usd' }) => {
       getCoinsRanking(currency).then((data) => setCryptosData(data));
     }, 200);
     setLoading(false);
-  }, []);
+  }, [currency]);
 
   return (
     <div>
