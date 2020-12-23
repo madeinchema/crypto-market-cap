@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 
-function RankingPriceChange({ children, change }) {
+function PriceChangeColumn({ children, change }) {
   const hasPriceChangedNegatively = change < 0;
   const hasPriceChangedPositively = change > 0;
   const hasPriceChanged = change !== 0;
 
   const redColor = '#cf1322';
-  const greenColor = '#8c8c8c';
-  const grayColor = '#389e0d';
+  const grayColor = '#8c8c8c';
+  const greenColor = '#389e0d';
 
   let priceChangeColor;
   if (!hasPriceChanged) {
@@ -21,6 +21,13 @@ function RankingPriceChange({ children, change }) {
   return <div style={{ color: priceChangeColor }}>{children}</div>;
 }
 
-RankingPriceChange.propTypes = {};
+PriceChangeColumn.propTypes = {
+  children: PropTypes.node,
+  change: PropTypes.number,
+};
+PriceChangeColumn.defaultProps = {
+  children: undefined,
+  change: undefined,
+};
 
-export default RankingPriceChange;
+export default PriceChangeColumn;
