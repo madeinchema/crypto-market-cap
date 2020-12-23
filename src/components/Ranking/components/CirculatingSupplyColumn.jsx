@@ -98,15 +98,15 @@ CirculatingSupplyColumn.defaultProps = {
 };
 
 CirculatingSupplyPopover.propTypes = {
-  coin: PropTypes.shape({
-    circulating_supply: PropTypes.number,
-    total_supply: PropTypes.number,
-    symbol: PropTypes.string,
-  }),
+  circulatingSupply: PropTypes.number,
+  totalSupply: PropTypes.number,
+  symbol: PropTypes.string,
 };
 
 CirculatingSupplyPopover.defaultProps = {
-  coin: undefined,
+  circulatingSupply: undefined,
+  totalSupply: undefined,
+  symbol: undefined,
 };
 
 export default CirculatingSupplyColumn;
