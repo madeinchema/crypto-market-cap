@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 
 const { Text } = Typography;
 
-const CirculatingSupplyPopover = ({ coin }) => {
-  const getSupplyPercentage = (circulatingSupply, totalSupply) => {
+const CirculatingSupplyPopover = (props) => {
+  const { circulatingSupply, totalSupply, symbol } = props;
+  const getSupplyPercentage = () => {
     const percentage = (circulatingSupply * 100) / totalSupply;
     return percentage.toFixed(2);
   };
@@ -18,17 +19,12 @@ const CirculatingSupplyPopover = ({ coin }) => {
             <Col>
               <Text strong>Percentage</Text>
             </Col>
-            <Col>
-              {getSupplyPercentage(coin.circulating_supply, coin.total_supply)}%
-            </Col>
+            <Col>{getSupplyPercentage(circulatingSupply, totalSupply)}%</Col>
           </Row>
           <div>
             <Progress
               showInfo={false}
-              percent={(
-                (coin.circulating_supply * 100) /
-                coin.total_supply
-              ).toFixed(2)}
+              percent={((circulatingSupply * 100) / totalSupply).toFixed(2)}
               strokeColor="gray"
             />
           </div>
@@ -37,8 +33,7 @@ const CirculatingSupplyPopover = ({ coin }) => {
               <Text strong>Circulating Supply</Text>
             </Col>
             <Col>
-              {coin.circulating_supply.toLocaleString()}{' '}
-              {coin.symbol.toUpperCase()}
+              {circulatingSupply.toLocaleString()} {symbol.toUpperCase()}
             </Col>
           </Row>
           <Row justify="space-between" gutter={24}>
@@ -46,7 +41,7 @@ const CirculatingSupplyPopover = ({ coin }) => {
               <Text strong>Max Supply</Text>
             </Col>
             <Col>
-              {coin.total_supply.toLocaleString()} {coin.symbol.toUpperCase()}
+              {totalSupply.toLocaleString()} {symbol.toUpperCase()}
             </Col>
           </Row>
         </Space>
@@ -57,21 +52,31 @@ const CirculatingSupplyPopover = ({ coin }) => {
   );
 };
 
-const CirculatingSupplyColumn = ({ coin }) => {
+const CirculatingSupplyColumn = (props) => {
+  const { coin } = props;
+  const {
+    circulating_supply: circulatingSupply,
+    total_supply: totalSupply,
+    symbol,
+  } = coin;
+
   return (
     <div>
       <div>
-        {coin.total_supply && <CirculatingSupplyPopover coin={coin} />}
-        {coin.circulating_supply.toLocaleString()} {coin.symbol.toUpperCase()}
+        {totalSupply && (
+          <CirculatingSupplyPopover
+            circulatingSupply={circulatingSupply}
+            totalSupply={totalSupply}
+            symbol={symbol}
+          />
+        )}
+        {circulatingSupply.toLocaleString()} {symbol.toUpperCase()}
       </div>
-      {coin.total_supply && (
+      {totalSupply && (
         <div>
           <Progress
             showInfo={false}
-            percent={(
-              (coin.circulating_supply * 100) /
-              coin.total_supply
-            ).toFixed(2)}
+            percent={((circulatingSupply * 100) / totalSupply).toFixed(2)}
             strokeColor="gray"
           />
         </div>
@@ -80,6 +85,28 @@ const CirculatingSupplyColumn = ({ coin }) => {
   );
 };
 
-CirculatingSupplyColumn.propTypes = {};
+CirculatingSupplyColumn.propTypes = {
+  coin: PropTypes.shape({
+    circulating_supply: PropTypes.number,
+    total_supply: PropTypes.number,
+    symbol: PropTypes.string,
+  }),
+};
+
+CirculatingSupplyColumn.defaultProps = {
+  coin: undefined,
+};
+
+CirculatingSupplyPopover.propTypes = {
+  coin: PropTypes.shape({
+    circulating_supply: PropTypes.number,
+    total_supply: PropTypes.number,
+    symbol: PropTypes.string,
+  }),
+};
+
+CirculatingSupplyPopover.defaultProps = {
+  coin: undefined,
+};
 
 export default CirculatingSupplyColumn;
