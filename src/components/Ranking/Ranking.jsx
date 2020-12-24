@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Table } from 'antd';
-import './Ranking.css';
+import './Ranking.scss';
 import getCoinsRanking from '../../utilities/api';
 import PriceChangeColumn from './components/PriceChangeColumn';
 import CoinColumn from './components/CoinColumn';
