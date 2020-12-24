@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.23",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
