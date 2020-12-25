@@ -1,6 +1,7 @@
 import { Popover, Space, Row, Col, Progress, Typography } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
+import { grey } from '@ant-design/colors';
 
 const { Text } = Typography;
 
@@ -10,6 +11,7 @@ const CirculatingSupplyPopover = (props) => {
     const percentage = (circulatingSupply * 100) / totalSupply;
     return percentage.toFixed(2);
   };
+  const greyColor = grey[1];
 
   return (
     <Popover
@@ -25,7 +27,7 @@ const CirculatingSupplyPopover = (props) => {
             <Progress
               showInfo={false}
               percent={((circulatingSupply * 100) / totalSupply).toFixed(2)}
-              strokeColor="gray"
+              strokeColor={greyColor}
             />
           </div>
           <Row justify="space-between" gutter={24}>
@@ -59,6 +61,7 @@ const CirculatingSupplyColumn = (props) => {
     total_supply: totalSupply,
     symbol,
   } = coin;
+  const greyColor = grey[1];
 
   return (
     <div>
@@ -77,7 +80,7 @@ const CirculatingSupplyColumn = (props) => {
           <Progress
             showInfo={false}
             percent={((circulatingSupply * 100) / totalSupply).toFixed(2)}
-            strokeColor="gray"
+            strokeColor={greyColor}
           />
         </div>
       )}
