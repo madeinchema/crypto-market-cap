@@ -37,11 +37,7 @@ const columns = (currency) => {
         a.price_change_percentage_24h_in_currency -
         b.price_change_percentage_24h_in_currency,
       // eslint-disable-next-line react/display-name
-      render: (change) => (
-        <PriceChangeColumn change={change}>{`${
-          change ? change.toFixed(2) : 0
-        } %`}</PriceChangeColumn>
-      ),
+      render: (change) => <PriceChangeColumn priceChange={change} />,
     },
     {
       title: '7d',
@@ -51,11 +47,7 @@ const columns = (currency) => {
         a.price_change_percentage_7d_in_currency -
         b.price_change_percentage_7d_in_currency,
       // eslint-disable-next-line react/display-name
-      render: (change) => (
-        <PriceChangeColumn change={change}>{`${
-          change ? change.toFixed(2) : 0
-        } %`}</PriceChangeColumn>
-      ),
+      render: (change) => <PriceChangeColumn priceChange={change} />,
     },
     {
       title: 'Market Cap',
