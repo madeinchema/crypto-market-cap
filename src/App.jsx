@@ -6,15 +6,18 @@ import Footer from './components/Footer/Footer';
 
 const { Content } = Layout;
 
+const appStyles = {
+  layout: { minHeight: '100vh', position: 'relative' },
+  content: { padding: '0 3rem', marginTop: '3rem', marginBottom: '5.25rem' },
+};
+
 function App() {
   return (
     <Router>
-      <Layout style={{ minHeight: '100vh', position: 'relative' }}>
+      <Layout style={appStyles.layout}>
         <Header />
 
-        <Content
-          style={{ padding: '0 50px', marginTop: 48, marginBottom: '84px' }}
-        >
+        <Content style={appStyles.content}>
           <Switch>
             <Route exact path="/">
               <Home />
