@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
-import './Header.scss';
 import { Layout, Menu, Typography } from 'antd';
+import './header.scss';
 
 const { Title } = Typography;
 
 const Header = () => {
   return (
-    <Layout.Header className="layout">
+    <Layout.Header>
       <Link to="/">
-        <Title level={3} className="logo" color="white">
+        <Title level={3} className="header__logo">
           Crypto Market Cap
         </Title>
       </Link>
