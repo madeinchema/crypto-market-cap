@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import getCoinsRanking from '../../utilities/api';
 import PriceChangeColumn from './components/PriceChangeColumn';
-import CoinColumn from './components/CoinColumn';
+import CoinColumn from './components/CoinColumn/CoinColumn';
 import CirculatingSupplyColumn from './components/CirculatingSupplyColumn';
 import './Ranking.scss';
 

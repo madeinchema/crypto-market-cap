@@ -1,0 +1,18 @@
+.coin-column {
+  &__container {
+    display: flex;
+    align-content: center;
+  }
+  &__image {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  &__name {
+    font-weight: 700;
+    margin-right: 0.25rem;
+  }
+  &__symbol {
+    color: #8c8c8c;
+  }
+}
