@@ -1,22 +1,22 @@
 // eslint-disable-next-line no-unused-vars
 import styled, { css } from 'styled-components/macro';
 import PropTypes from 'prop-types';
+import { grey, green, red } from '@ant-design/colors';
 
 function PriceChangeColumn({ children, change }) {
   const hasPriceChangedNegatively = change < 0;
   const hasPriceChangedPositively = change > 0;
 
-  const redColor = '#cf1322';
-  const grayColor = '#8c8c8c';
-  const greenColor = '#389e0d';
+  const greyColor = grey[4];
+  const redColor = red[6];
+  const greenColor = green[6];
 
-  let priceChangeColor = grayColor;
+  let priceChangeColor = greyColor;
   if (hasPriceChangedNegatively) {
     priceChangeColor = redColor;
   } else if (hasPriceChangedPositively) {
     priceChangeColor = greenColor;
   }
-
   return <div css={{ color: priceChangeColor }}>{children}</div>;
 }
 
