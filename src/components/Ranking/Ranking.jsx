@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Table } from 'antd';
-import './Ranking.scss';
 import getCoinsRanking from '../../utilities/api';
 import PriceChangeColumn from './components/PriceChangeColumn';
 import CoinColumn from './components/CoinColumn';
 import CirculatingSupplyColumn from './components/CirculatingSupplyColumn';
+import './Ranking.scss';
 
 const columns = (currency) => {
   return [
@@ -13,13 +13,14 @@ const columns = (currency) => {
       dataIndex: 'market_cap_rank',
       key: 'market_cap_rank',
       sorter: (a, b) => a.market_cap_rank - b.market_cap_rank,
+      width: '60px',
     },
     {
       title: 'Coin',
       dataIndex: 'id',
       key: 'id',
       // eslint-disable-next-line react/display-name
-      render: (symbol, coin) => <CoinColumn coin={coin} />,
+      render: (id, coin) => <CoinColumn coin={coin} />,
     },
     {
       title: 'Price',
@@ -107,17 +108,15 @@ const Ranking = ({ currency = 'usd' }) => {
   }, [currency]);
 
   return (
-    <div>
-      <Table
-        columns={columns(currency)}
-        dataSource={cryptosData}
-        rowKey="symbol"
-        className="rankingTable"
-        loading={loading || !cryptosData}
-        pagination={{ defaultPageSize: 20 }}
-        scroll={{ x: 'max-content' }}
-      />
-    </div>
+    <Table
+      columns={columns(currency)}
+      dataSource={cryptosData}
+      rowKey="symbol"
+      className="rankingTable"
+      loading={loading || !cryptosData}
+      pagination={{ defaultPageSize: 20 }}
+      scroll={{ x: 'max-content' }}
+    />
   );
 };
 
