@@ -10,12 +10,20 @@ const getCryptoGlobalData = () => {
     .then(({ data }) => {
       const getCryptoGlobalDataFormatted = () => {
         const {
+          active_cryptocurrencies: activeCryptocurrencies,
           market_cap_change_percentage_24h_usd: marketCapChangePercentage24hUsd,
+          market_cap_percentage: marketCapPercentage,
           total_market_cap: totalMarketCap,
+          total_volume: totalVolume,
+          updated_at: updatedAt,
         } = data;
         return {
-          marketCapChangePercentage24hUsd,
+          activeCryptocurrencies,
           totalMarketCap,
+          marketCapChangePercentage24hUsd,
+          marketCapPercentage,
+          totalVolume,
+          updatedAt,
         };
       };
       const cryptoGlobalDataFormatted = getCryptoGlobalDataFormatted();

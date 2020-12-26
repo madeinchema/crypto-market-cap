@@ -5,7 +5,7 @@ import './dynamic-heading.scss';
 import { getCryptoGlobalData } from '../../../../utilities/api';
 import PriceChangeColumn from '../../../../components/PriceChange/PriceChange';
 
-const { Title, Paragraph } = Typography;
+const { Title, Paragraph, Text } = Typography;
 
 const DynamicHeading = () => {
   const currency = 'usd';
@@ -31,24 +31,26 @@ const DynamicHeading = () => {
         <div className="content">
           <Paragraph className="content--text">
             The global crypto market cap is{' '}
-            <PriceChangeColumn
-              priceChange={
-                cryptoGlobalData &&
-                cryptoGlobalData.totalMarketCap.usd / 1000000000
-              }
-              className="bold"
-              prefix="$"
-              suffix="B"
-            />
+            <Text strong>
+              <PriceChangeColumn
+                priceChange={
+                  cryptoGlobalData &&
+                  cryptoGlobalData.totalMarketCap.usd / 1000000000
+                }
+                prefix="$"
+                suffix="B"
+              />
+            </Text>
             , a{' '}
-            <PriceChangeColumn
-              priceChange={
-                cryptoGlobalData &&
-                cryptoGlobalData.marketCapChangePercentage24hUsd
-              }
-              className="bold"
-              showChange
-            />{' '}
+            <Text strong>
+              <PriceChangeColumn
+                priceChange={
+                  cryptoGlobalData &&
+                  cryptoGlobalData.marketCapChangePercentage24hUsd
+                }
+                showChange
+              />
+            </Text>{' '}
             increase over the last day.{' '}
             <ReadMore
               isOpen={isReadMoreOpen}
@@ -57,15 +59,52 @@ const DynamicHeading = () => {
             />
           </Paragraph>
           {isReadMoreOpen && (
-            <Paragraph className="content--text">
-              The total crypto market volume over the last 24 hours is , which
-              makes a 14.02% increase. The total volume in DeFi is currently
-              $4.83B, 2.50% of the total crypto market 24-hour volume. The
-              volume of all stable coins is now $75.16B, which is 38.90% of the
-              total crypto market 24-hour volume. Bitcoin&apos;s price is
-              currently $24,901.73. Bitcoin’s dominance is currently 68.90%, an
-              increase of 0.90% over the day.
-            </Paragraph>
+            <>
+              <Paragraph className="content--text">
+                <Paragraph className="content--text">
+                  There is a total of{' '}
+                  <Text strong>
+                    {cryptoGlobalData &&
+                      cryptoGlobalData.activeCryptocurrencies}
+                  </Text>{' '}
+                  active cryptocurrencies.
+                </Paragraph>
+                <Paragraph className="content--text">
+                  Bitcoin&apos;s Dominance is{' '}
+                  <Text strong>
+                    <PriceChangeColumn
+                      priceChange={
+                        cryptoGlobalData &&
+                        cryptoGlobalData.marketCapPercentage.btc
+                      }
+                      showChange
+                    />
+                  </Text>{' '}
+                  as of{' '}
+                  <Text strong>
+                    {cryptoGlobalData &&
+                      new Date(
+                        cryptoGlobalData.updatedAt * 1000
+                      ).toLocaleString()}
+                  </Text>
+                  .
+                </Paragraph>
+                <Paragraph className="content--text">
+                  The Total Volume of the cryptocurrency market is{' '}
+                  <Text strong>
+                    <PriceChangeColumn
+                      priceChange={
+                        cryptoGlobalData &&
+                        cryptoGlobalData.totalVolume[currency] / 1000000000
+                      }
+                      prefix="$"
+                      suffix="B"
+                    />
+                  </Text>
+                  .
+                </Paragraph>
+              </Paragraph>
+            </>
           )}
         </div>
       )}
@@ -74,3 +113,12 @@ const DynamicHeading = () => {
 };
 
 export default DynamicHeading;
+
+/**
+ *           activeCryptocurrencies,
+          totalMarketCap,
+          marketCapChangePercentage24hUsd,
+          marketCapPercentage,
+          totalVolume,
+          updatedAt,
+ */
