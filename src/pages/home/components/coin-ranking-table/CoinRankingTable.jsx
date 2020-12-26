@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Table } from 'antd';
-import { getCoinsRanking } from '../../utilities/api';
+import { getCoinsRanking } from '../../../../utilities/api';
 import PriceChangeColumn from './components/PriceChangeColumn';
 import CoinColumn from './components/CoinColumn/CoinColumn';
 import CirculatingSupplyColumn from './components/CirculatingSupplyColumn';
-import './Ranking.scss';
+import './coin-ranking-table.scss';
 
 const columns = (currency) => {
   return [

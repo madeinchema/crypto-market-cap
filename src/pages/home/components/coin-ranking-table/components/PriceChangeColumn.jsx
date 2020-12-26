@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import colors from '../../../theme/colors.module.scss';
+import colors from '../../../../../theme/colors.module.scss';
 
 const PriceChangeColumn = (props) => {
   const { priceChange } = props;
