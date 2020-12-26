@@ -1,0 +1,20 @@
+@import '../../../../theme/colors.module.scss';
+
+.coin-column {
+  &__container {
+    display: flex;
+    align-content: center;
+  }
+  &__image {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  &__name {
+    font-weight: 700;
+    margin-right: 0.25rem;
+  }
+  &__symbol {
+    color: $gray-7;
+  }
+}
