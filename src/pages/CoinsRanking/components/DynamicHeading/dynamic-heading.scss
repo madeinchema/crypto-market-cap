@@ -1,15 +1,18 @@
 @import '../../../../theme/colors.module.scss';
 
 .title.ant-typography {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 .content {
-  margin-bottom: 2.5rem;
-  &--text.ant-typography {
+  margin-bottom: 2rem;
+  max-width: 57rem;
+  &--text-container.ant-typography {
     font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  &--text.ant-typography {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    max-width: 57rem;
   }
 }
 .read-more.ant-typography {

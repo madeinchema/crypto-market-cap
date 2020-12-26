@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Typography } from 'antd';
+import './read-more.scss';
 
 const { Text } = Typography;
 
@@ -9,7 +10,7 @@ const ReadMore = (props) => {
   const toggleIsOpen = () => setIsOpen((prevState) => !prevState);
 
   return (
-    <Text className={className} onClick={toggleIsOpen}>
+    <Text className={`read-more ${className}`} onClick={toggleIsOpen}>
       {isOpen ? 'Read less' : 'Read more'}
     </Text>
   );

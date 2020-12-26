@@ -29,7 +29,7 @@ const DynamicHeading = () => {
       {isLoading && <Skeleton active />}
       {!isLoading && (
         <div className="content">
-          <Paragraph className="content--text">
+          <Paragraph className="content--text-container">
             The global crypto market cap is{' '}
             <Text strong>
               <PriceChangeColumn
@@ -60,7 +60,7 @@ const DynamicHeading = () => {
           </Paragraph>
           {isReadMoreOpen && (
             <>
-              <Paragraph className="content--text">
+              <Paragraph className="content--text-container">
                 <Paragraph className="content--text">
                   There is a total of{' '}
                   <Text strong>
