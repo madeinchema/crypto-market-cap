@@ -1,11 +1,12 @@
 import Ranking from '../../components/ranking/Ranking';
 import DynamicHeading from './components/DynamicHeading/DynamicHeading';
 
-const Home = () => {
+const Home = (props) => {
+  const { currency } = props;
   return (
     <>
       <DynamicHeading />
-      <Ranking />
+      <Ranking currency={currency} />
     </>
   );
 };

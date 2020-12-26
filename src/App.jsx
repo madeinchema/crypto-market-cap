@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import Home from './pages/home/Home';
@@ -11,7 +12,9 @@ const appStyles = {
   content: { padding: '0 3rem', marginTop: '3rem', marginBottom: '5.25rem' },
 };
 
-function App() {
+const App = () => {
+  const [currency, setCurrency] = useState('usd');
+
   return (
     <Router>
       <Layout style={appStyles.layout}>
@@ -20,7 +23,7 @@ function App() {
         <Content style={appStyles.content}>
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Home currency={currency} />
             </Route>
             <Route exact path="/exchanges">
               Exchanges
@@ -33,6 +36,6 @@ function App() {
       </Layout>
     </Router>
   );
-}
+};
 
 export default App;

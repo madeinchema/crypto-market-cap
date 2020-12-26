@@ -86,7 +86,8 @@ const columns = (currency) => {
   ];
 };
 
-const Ranking = ({ currency = 'usd' }) => {
+const Ranking = (props) => {
+  const { currency } = props;
   const [cryptosData, setCryptosData] = useState(null);
   const [loading, setLoading] = useState(null);
 
