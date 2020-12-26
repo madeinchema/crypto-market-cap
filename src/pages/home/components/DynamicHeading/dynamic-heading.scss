@@ -1,19 +1,21 @@
 @import '../../../../theme/colors.module.scss';
 
-.dynamic-heading {
-  &__title.ant-typography {
-    margin-bottom: 0.5rem;
-  }
-  &__content {
+.title.ant-typography {
+  margin-bottom: 0.25rem;
+}
+.content {
+  margin-bottom: 1rem;
+  &--text {
     font-size: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     max-width: 57rem;
   }
-  &__read-more.ant-typography {
-    color: $blue-7;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-color: $blue-7;
-    text-decoration-thickness: 1px;
-  }
+}
+.read-more.ant-typography {
+  color: $blue-7;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: $blue-7;
+  text-decoration-thickness: 1px;
 }
