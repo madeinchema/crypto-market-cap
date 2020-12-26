@@ -3,6 +3,7 @@ import { Skeleton, Typography } from 'antd';
 import ReadMore from '../../../../components/ReadMore/ReadMore';
 import './dynamic-heading.scss';
 import { getCryptoGlobalData } from '../../../../utilities/api';
+import PriceChangeColumn from '../../../../components/PriceChange/PriceChange';
 
 const { Title, Paragraph } = Typography;
 
@@ -16,9 +17,8 @@ const DynamicHeading = () => {
     setIsLoading(true);
     setTimeout(() => {
       getCryptoGlobalData(currency).then((data) => setCryptoGlobalData(data));
-      console.log({ cryptoGlobalData });
       setIsLoading(false);
-    }, 500);
+    }, 200);
   }, []);
 
   return (
@@ -30,13 +30,24 @@ const DynamicHeading = () => {
       {!isLoading && (
         <div className="content">
           <Paragraph className="content--text">
-            The global crypto market cap is $
-            {cryptoGlobalData &&
-              (cryptoGlobalData.totalMarketCap.usd / 1000000000).toFixed(2)}
-            B $671.42B, a{' '}
-            {cryptoGlobalData &&
-              cryptoGlobalData.marketCapChangePercentage24hUsd.toFixed(2)}{' '}
-            % 3.64% increase over the last day.{' '}
+            The global crypto market cap is{' '}
+            <PriceChangeColumn
+              priceChange={
+                cryptoGlobalData &&
+                cryptoGlobalData.totalMarketCap.usd / 1000000000
+              }
+              prefix="$"
+              suffix="B"
+            />
+            , a{' '}
+            <PriceChangeColumn
+              priceChange={
+                cryptoGlobalData &&
+                cryptoGlobalData.marketCapChangePercentage24hUsd
+              }
+              showChange
+            />{' '}
+            increase over the last day.{' '}
             <ReadMore
               isOpen={isReadMoreOpen}
               setIsOpen={setIsReadMoreOpen}
