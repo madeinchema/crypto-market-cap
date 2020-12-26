@@ -1,0 +1,25 @@
+@import '../../theme/colors.module.scss';
+
+.header {
+  &__logo {
+    float: left;
+    margin: 1rem 1.5rem 1rem 0;
+    .ant-row-rtl {
+      float: right;
+      margin: 1rem 0 1rem 1.5rem;
+    }
+    &.ant-typography {
+      color: $gray-3;
+    }
+  }
+}
+
+.site-layout-content {
+  min-height: 17.5rem;
+  padding: 1.5rem;
+  background: $gray-1;
+}
+
+[data-theme='dark'] .site-layout-content {
+  background: $gray-12;
+}
