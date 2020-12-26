@@ -36,6 +36,7 @@ const DynamicHeading = () => {
                 cryptoGlobalData &&
                 cryptoGlobalData.totalMarketCap.usd / 1000000000
               }
+              className="bold"
               prefix="$"
               suffix="B"
             />
@@ -45,6 +46,7 @@ const DynamicHeading = () => {
                 cryptoGlobalData &&
                 cryptoGlobalData.marketCapChangePercentage24hUsd
               }
+              className="bold"
               showChange
             />{' '}
             increase over the last day.{' '}

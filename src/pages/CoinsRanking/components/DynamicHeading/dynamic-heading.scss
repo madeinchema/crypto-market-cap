@@ -4,12 +4,15 @@
   margin-bottom: 0.25rem;
 }
 .content {
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
   &--text {
     font-size: 1rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     max-width: 57rem;
+    .bold {
+      font-weight: 600;
+    }
   }
 }
 .read-more.ant-typography {
