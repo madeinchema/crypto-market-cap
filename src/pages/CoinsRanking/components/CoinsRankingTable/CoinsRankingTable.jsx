@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import { getCoinsRanking } from '../../../../utilities/api';
-import PriceChangeColumn from './components/PriceChangeColumn';
+import PriceChangeColumn from '../../../../components/PriceChange/PriceChange';
 import CoinColumn from './components/CoinsColumn/CoinsColumn';
 import CirculatingSupplyColumn from './components/CirculatingSupplyColumn';
 import './coins-ranking-table.scss';
@@ -37,7 +37,7 @@ const columns = (currency) => {
         a.price_change_percentage_24h_in_currency -
         b.price_change_percentage_24h_in_currency,
       // eslint-disable-next-line react/display-name
-      render: (change) => <PriceChangeColumn priceChange={change} />,
+      render: (change) => <PriceChangeColumn priceChange={change} showChange />,
     },
     {
       title: '7d',
@@ -47,7 +47,7 @@ const columns = (currency) => {
         a.price_change_percentage_7d_in_currency -
         b.price_change_percentage_7d_in_currency,
       // eslint-disable-next-line react/display-name
-      render: (change) => <PriceChangeColumn priceChange={change} />,
+      render: (change) => <PriceChangeColumn priceChange={change} showChange />,
     },
     {
       title: 'Market Cap',

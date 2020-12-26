@@ -1,0 +1,10 @@
+@import '../../theme/colors.module.scss';
+
+.price-change {
+  &.negative {
+    color: $red-7;
+  }
+  &.positive {
+    color: $green-7;
+  }
+}
