@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Table } from 'antd';
-import getCoinsRanking from '../../utilities/api';
-import PriceChangeColumn from './components/PriceChangeColumn';
-import CoinColumn from './components/CoinColumn/CoinColumn';
+import { getCoinsRanking } from '../../../../utilities/api';
+import PriceChangeColumn from '../../../../components/PriceChange/PriceChange';
+import CoinColumn from './components/CoinsColumn/CoinsColumn';
 import CirculatingSupplyColumn from './components/CirculatingSupplyColumn';
-import './Ranking.scss';
+import './coins-ranking-table.scss';
 
 const columns = (currency) => {
   return [
@@ -37,7 +37,7 @@ const columns = (currency) => {
         a.price_change_percentage_24h_in_currency -
         b.price_change_percentage_24h_in_currency,
       // eslint-disable-next-line react/display-name
-      render: (change) => <PriceChangeColumn priceChange={change} />,
+      render: (change) => <PriceChangeColumn priceChange={change} showChange />,
     },
     {
       title: '7d',
@@ -47,7 +47,7 @@ const columns = (currency) => {
         a.price_change_percentage_7d_in_currency -
         b.price_change_percentage_7d_in_currency,
       // eslint-disable-next-line react/display-name
-      render: (change) => <PriceChangeColumn priceChange={change} />,
+      render: (change) => <PriceChangeColumn priceChange={change} showChange />,
     },
     {
       title: 'Market Cap',
@@ -86,7 +86,8 @@ const columns = (currency) => {
   ];
 };
 
-const Ranking = ({ currency = 'usd' }) => {
+const Ranking = (props) => {
+  const { currency } = props;
   const [cryptosData, setCryptosData] = useState(null);
   const [loading, setLoading] = useState(null);
 
