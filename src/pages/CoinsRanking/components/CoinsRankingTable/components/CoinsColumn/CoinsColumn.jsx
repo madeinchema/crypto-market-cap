@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './coin-column.scss';
+import './coins-column.scss';
 
 const CoinColumn = (props) => {
   const { coin } = props;

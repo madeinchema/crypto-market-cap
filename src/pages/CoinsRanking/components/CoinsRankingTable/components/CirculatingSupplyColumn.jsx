@@ -1,7 +1,7 @@
 import { Popover, Space, Row, Col, Progress, Typography } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
-import colors from '../../../theme/colors.module.scss';
+import colors from '../../../../../theme/colors.module.scss';
 
 const { Text } = Typography;
 
