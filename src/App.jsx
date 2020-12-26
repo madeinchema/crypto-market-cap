@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
-import Home from './pages/home/Home';
+import CoinsRanking from './pages/coins-ranking/CoinsRanking';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
@@ -23,7 +23,7 @@ const App = () => {
         <Content style={appStyles.content}>
           <Switch>
             <Route exact path="/">
-              <Home currency={currency} />
+              <CoinsRanking currency={currency} />
             </Route>
             <Route exact path="/exchanges">
               Exchanges

@@ -1,4 +1,4 @@
-import Ranking from './components/coin-ranking-table/CoinRankingTable';
+import Ranking from './components/coins-ranking-table/CoinsRankingTable';
 import DynamicHeading from './components/DynamicHeading/DynamicHeading';
 
 const Home = (props) => {
