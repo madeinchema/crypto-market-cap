@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Skeleton, Typography } from 'antd';
-import ReadMore from '../../../../components/readmore/ReadMore';
+import ReadMore from '../../../../components/ReadMore/ReadMore';
 import './dynamic-heading.scss';
 import { getCryptoGlobalData } from '../../../../utilities/api';
 

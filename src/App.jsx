@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
-import CoinsRanking from './pages/coins-ranking/CoinsRanking';
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
+import CoinsRanking from './pages/CoinsRanking/CoinsRanking';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 const { Content } = Layout;
 
