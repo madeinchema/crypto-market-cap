@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
-import Home from './pages/Home';
+import Home from './pages/home/Home';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
