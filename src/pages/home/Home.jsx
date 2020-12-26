@@ -1,4 +1,4 @@
-import Ranking from '../../components/Ranking/Ranking';
+import Ranking from '../../components/ranking/Ranking';
 import DynamicHeading from './components/DynamicHeading';
 
 const Home = () => {
