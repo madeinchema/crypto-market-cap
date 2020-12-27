@@ -86,7 +86,7 @@ const columns = (currency) => {
   ];
 };
 
-const Ranking = (props) => {
+const CoinsRankingTable = (props) => {
   const { currency } = props;
   const [cryptosData, setCryptosData] = useState(null);
   const [loading, setLoading] = useState(null);
@@ -113,4 +113,4 @@ const Ranking = (props) => {
   );
 };
 
-export default Ranking;
+export default CoinsRankingTable;

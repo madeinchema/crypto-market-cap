@@ -1,4 +1,4 @@
-import Ranking from './components/CoinsRankingTable/CoinsRankingTable';
+import CoinsRankingTable from './components/CoinsRankingTable/CoinsRankingTable';
 import DynamicHeading from './components/DynamicHeading/DynamicHeading';
 
 const Home = (props) => {
@@ -6,7 +6,7 @@ const Home = (props) => {
   return (
     <>
       <DynamicHeading />
-      <Ranking currency={currency} />
+      <CoinsRankingTable currency={currency} />
     </>
   );
 };
