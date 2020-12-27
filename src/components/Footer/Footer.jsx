@@ -1,33 +1,19 @@
 import { Layout, Typography, Row, Col } from 'antd';
+import './footer.scss';
 
 const { Title } = Typography;
 
-const footerStyles = {
-  layout: {
-    textAlign: 'center',
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
-  },
-  title: {
-    margin: '0 auto',
-  },
-  col2: {
-    alignSelf: 'center',
-  },
-};
-
 const Footer = () => {
   return (
-    <Layout.Footer style={footerStyles.layout}>
+    <Layout.Footer className="footer">
       <Row justify="space-between">
         <Col>
-          <Title level={4} style={footerStyles.title}>
-            Crypto Market Cap
+          <Title level={5} className="footer--title">
+            © 2021 Crypto Market Cap. All rights reserved.
           </Title>
         </Col>
-        <Col style={footerStyles.col2}>
-          <Title level={5} style={footerStyles.title}>
+        <Col className="footer--bottom-bar">
+          <Title level={5} className="footer--title">
             <a
               target="_blank"
               rel="noreferrer"
