@@ -18,6 +18,17 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const Break = styled.div`
+  margin-bottom: 2rem;
+  height: 0;
+`;
+
+const StyledLogo = styled(Title)`
+  &.ant-typography {
+    margin: 0;
+  }
+`;
+
 const Footer = ({ children, ...restProps }) => {
   return <Layout.Footer {...restProps}>{children}</Layout.Footer>;
 };
@@ -32,9 +43,9 @@ Footer.Col = function FooterCol({ children, ...restProps }) {
 
 Footer.Logo = function FooterLogo({ children, ...restProps }) {
   return (
-    <Title level={3} {...restProps}>
+    <StyledLogo level={3} {...restProps}>
       {children}
-    </Title>
+    </StyledLogo>
   );
 };
 
@@ -47,7 +58,7 @@ Footer.Link = function FooterLink({ children, ...restProps }) {
 };
 
 Footer.Break = function FooterBreak({ children, ...restProps }) {
-  return <div {...restProps}>{children}</div>;
+  return <Break {...restProps}>{children}</Break>;
 };
 
 export default Footer;
