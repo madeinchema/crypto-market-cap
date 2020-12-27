@@ -1,5 +1,6 @@
 import { Footer } from '../../components';
 import './footer.scss';
+import footerMenuData from './utils/constants/footerMenuData';
 
 const FooterContainer = () => {
   return (
@@ -12,34 +13,17 @@ const FooterContainer = () => {
 
       <Footer.Break />
 
-      <Footer.Row justify="space-between">
-        <Footer.Col xs={24} sm={8} style={{ marginBottom: '2rem' }}>
-          <Footer.Title level={4}>Products</Footer.Title>
-          <Footer.Link href="#">Cryptocurrencies</Footer.Link>
-          <Footer.Link href="#">Exchanges</Footer.Link>
-          <Footer.Link href="#">Compare</Footer.Link>
-          <Footer.Link href="#">Converter</Footer.Link>
-          <Footer.Link href="#">Repository</Footer.Link>
-        </Footer.Col>
-        <Footer.Col xs={24} sm={8} style={{ marginBottom: '2rem' }}>
-          <Footer.Title level={4}>Development</Footer.Title>
-          <Footer.Link href="#">React</Footer.Link>
-          <Footer.Link href="#">CoinGecko API</Footer.Link>
-          <Footer.Link href="#">Ant Design</Footer.Link>
-          <Footer.Link href="#">Axios</Footer.Link>
-          <Footer.Link href="#">React Virtualized</Footer.Link>
+      <Footer.Row justify="space-between" className="footer--menu">
+        <Footer.Col xs={24} sm={8}>
+          <Footer.Menu dataSource={footerMenuData.products} />
         </Footer.Col>
         <Footer.Col xs={24} sm={8}>
-          <Footer.Title level={4}>Other projects</Footer.Title>
-          <Footer.Link href="#">Todolist</Footer.Link>
-          <Footer.Link href="#">Finance Tracker</Footer.Link>
-          <Footer.Link href="#">Pomodoro App</Footer.Link>
-          <Footer.Link href="#">Simple Calculator</Footer.Link>
-          <Footer.Link href="#">Personal Portfolio</Footer.Link>
+          <Footer.Menu dataSource={footerMenuData.development} />
+        </Footer.Col>
+        <Footer.Col xs={24} sm={8}>
+          <Footer.Menu dataSource={footerMenuData.otherProjects} />
         </Footer.Col>
       </Footer.Row>
-
-      <Footer.Break />
 
       <Footer.Row justify="space-between">
         <Footer.Col xs="auto">

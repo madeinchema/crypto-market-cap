@@ -4,4 +4,7 @@
   &.ant-layout-footer {
     background-color: $gray-1;
   }
+  &--menu > div {
+    margin-bottom: 2rem;
+  }
 }
