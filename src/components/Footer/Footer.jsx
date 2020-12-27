@@ -1,30 +1,32 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { Layout, Typography, Row, Col } from 'antd';
-import './footer.scss';
 
 const { Title } = Typography;
+const Footer = ({ children, ...restProps }) => {
+  return <Layout.Footer {...restProps}>{children}</Layout.Footer>;
+};
 
-const Footer = () => {
+Footer.Row = function FooterRow({ children, ...restProps }) {
+  return <Row {...restProps}>{children}</Row>;
+};
+
+Footer.Col = function FooterCol({ children, ...restProps }) {
+  return <Col {...restProps}>{children}</Col>;
+};
+
+Footer.Logo = function FooterLogo({ children, ...restProps }) {
   return (
-    <Layout.Footer className="footer">
-      <Row justify="space-between">
-        <Col>
-          <Title level={5} className="footer--title">
-            © 2021 Crypto Market Cap. All rights reserved.
-          </Title>
-        </Col>
-        <Col className="footer--bottom-bar">
-          <Title level={5} className="footer--title">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://github.com/madeinchema"
-            >
-              @madeinchema
-            </a>
-          </Title>
-        </Col>
-      </Row>
-    </Layout.Footer>
+    <Title level={3} className="footer--logo" {...restProps}>
+      {children}
+    </Title>
+  );
+};
+
+Footer.Title = function FooterTitle({ children, ...restProps }) {
+  return (
+    <Title className="footer--title" {...restProps}>
+      {children}
+    </Title>
   );
 };
 

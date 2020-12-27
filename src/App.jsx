@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import CoinsRanking from './pages/CoinsRanking/CoinsRanking';
-import { Footer, Header } from './components';
+import { Header } from './components';
+import FooterContainer from './containers/Footer';
 
 const { Content } = Layout;
 
@@ -30,7 +31,7 @@ const App = () => {
           </Switch>
         </Content>
 
-        <Footer />
+        <FooterContainer />
       </Layout>
     </Router>
   );

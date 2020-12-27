@@ -1,11 +1,13 @@
-@import '../../theme/colors.module.scss';
+@import '../theme/colors.module.scss';
 
 .footer {
   text-align: center;
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: $gray-1;
+  &.ant-layout-footer {
+    background-color: $gray-1;
+  }
   &--title {
     margin: 0 auto;
   }
