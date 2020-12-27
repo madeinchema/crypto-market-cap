@@ -4,16 +4,11 @@ import { Layout } from 'antd';
 import CoinsRanking from './pages/CoinsRanking/CoinsRanking';
 import { Header } from './components';
 import FooterContainer from './containers/Footer/Footer';
+import './app.scss';
 
 const { Content } = Layout;
 
-const appStyles = {
-  content: {
-    padding: '0 3rem',
-    paddingTop: '3rem',
-    paddingBottom: '3rem',
-  },
-};
+const appStyles = {};
 
 const App = () => {
   const [currency, setCurrency] = useState('usd');
@@ -22,7 +17,7 @@ const App = () => {
     <Router>
       <Layout>
         <Header />
-        <Content style={appStyles.content}>
+        <Content className="app--content">
           <Switch>
             <Route exact path="/">
               <CoinsRanking currency={currency} />
