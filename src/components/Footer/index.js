@@ -35,4 +35,17 @@ Footer.Break = function FooterBreak({ children, ...restProps }) {
   return <Break {...restProps}>{children}</Break>;
 };
 
+Footer.Menu = function FooterMenu({ children, dataSource, ...restProps }) {
+  return (
+    <>
+      <Footer.Title level={4}>{dataSource.label}</Footer.Title>
+      {dataSource.data.map((menuItem) => (
+        <Footer.Link href={menuItem.href} key={menuItem.key}>
+          {menuItem.label}
+        </Footer.Link>
+      ))}
+    </>
+  );
+};
+
 export default Footer;
