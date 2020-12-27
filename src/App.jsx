@@ -8,8 +8,11 @@ import FooterContainer from './containers/Footer';
 const { Content } = Layout;
 
 const appStyles = {
-  layout: { minHeight: '100vh', position: 'relative' },
-  content: { padding: '0 3rem', marginTop: '3rem', marginBottom: '5.25rem' },
+  content: {
+    padding: '0 3rem',
+    paddingTop: '3rem',
+    paddingBottom: '3rem',
+  },
 };
 
 const App = () => {
@@ -17,7 +20,7 @@ const App = () => {
 
   return (
     <Router>
-      <Layout style={appStyles.layout}>
+      <Layout>
         <Header />
         <Content style={appStyles.content}>
           <Switch>
@@ -30,7 +33,6 @@ const App = () => {
             <Route path="*">404</Route>
           </Switch>
         </Content>
-
         <FooterContainer />
       </Layout>
     </Router>
