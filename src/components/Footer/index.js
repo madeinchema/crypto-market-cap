@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import { Layout, Typography, Row, Col } from 'antd';
-import { Logo, Link, Break } from './styles/footer';
-
-const { Title } = Typography;
+import { Logo, Link, Break, Title } from './styles/footer';
 
 const Footer = ({ children, ...restProps }) => {
   return <Layout.Footer {...restProps}>{children}</Layout.Footer>;

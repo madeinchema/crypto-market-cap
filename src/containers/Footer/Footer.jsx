@@ -13,7 +13,7 @@ const FooterContainer = () => {
       <Footer.Break />
 
       <Footer.Row justify="space-between">
-        <Footer.Col span={8}>
+        <Footer.Col xs={24} sm={8} style={{ marginBottom: '2rem' }}>
           <Footer.Title level={4}>Products</Footer.Title>
           <Footer.Link href="#">Cryptocurrencies</Footer.Link>
           <Footer.Link href="#">Exchanges</Footer.Link>
@@ -21,7 +21,7 @@ const FooterContainer = () => {
           <Footer.Link href="#">Converter</Footer.Link>
           <Footer.Link href="#">Repository</Footer.Link>
         </Footer.Col>
-        <Footer.Col span={8}>
+        <Footer.Col xs={24} sm={8} style={{ marginBottom: '2rem' }}>
           <Footer.Title level={4}>Development</Footer.Title>
           <Footer.Link href="#">React</Footer.Link>
           <Footer.Link href="#">CoinGecko API</Footer.Link>
@@ -29,7 +29,7 @@ const FooterContainer = () => {
           <Footer.Link href="#">Axios</Footer.Link>
           <Footer.Link href="#">React Virtualized</Footer.Link>
         </Footer.Col>
-        <Footer.Col span={8}>
+        <Footer.Col xs={24} sm={8}>
           <Footer.Title level={4}>Other projects</Footer.Title>
           <Footer.Link href="#">Todolist</Footer.Link>
           <Footer.Link href="#">Finance Tracker</Footer.Link>
@@ -42,19 +42,19 @@ const FooterContainer = () => {
       <Footer.Break />
 
       <Footer.Row justify="space-between">
-        <Footer.Col>
+        <Footer.Col xs="auto">
           <Footer.Title level={5}>
             © 2021 Crypto Market Cap. All rights reserved.
           </Footer.Title>
         </Footer.Col>
-        <Footer.Col>
+        <Footer.Col xs="auto">
           <Footer.Title level={5}>
             <Footer.Link
               target="_blank"
               rel="noreferrer"
               href="https://github.com/madeinchema"
             >
-              @madeinchema
+              Made in Chema
             </Footer.Link>
           </Footer.Title>
         </Footer.Col>
