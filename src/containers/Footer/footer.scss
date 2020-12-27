@@ -1,0 +1,15 @@
+@import '../../theme/colors.module.scss';
+@import '../../theme/breakpoints.scss';
+
+.footer {
+  &.ant-layout-footer {
+    background-color: $gray-1;
+    @media (max-width: $sm) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  &--menu > div {
+    margin-bottom: 2rem;
+  }
+}

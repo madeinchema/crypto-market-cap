@@ -2,25 +2,22 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import CoinsRanking from './pages/CoinsRanking/CoinsRanking';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import { Header } from './components';
+import FooterContainer from './containers/Footer/Footer';
+import './app.scss';
 
 const { Content } = Layout;
 
-const appStyles = {
-  layout: { minHeight: '100vh', position: 'relative' },
-  content: { padding: '0 3rem', marginTop: '3rem', marginBottom: '5.25rem' },
-};
+const appStyles = {};
 
 const App = () => {
   const [currency, setCurrency] = useState('usd');
 
   return (
     <Router>
-      <Layout style={appStyles.layout}>
+      <Layout>
         <Header />
-
-        <Content style={appStyles.content}>
+        <Content className="app--content">
           <Switch>
             <Route exact path="/">
               <CoinsRanking currency={currency} />
@@ -31,8 +28,7 @@ const App = () => {
             <Route path="*">404</Route>
           </Switch>
         </Content>
-
-        <Footer />
+        <FooterContainer />
       </Layout>
     </Router>
   );
