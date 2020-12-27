@@ -55,13 +55,13 @@ const FooterContainer = () => {
         </Footer.Col>
         <Footer.Col className="footer--bottom-bar">
           <Footer.Title level={5} className="footer--title">
-            <a
+            <Footer.Link
               target="_blank"
               rel="noreferrer"
               href="https://github.com/madeinchema"
             >
               @madeinchema
-            </a>
+            </Footer.Link>
           </Footer.Title>
         </Footer.Col>
       </Footer.Row>
