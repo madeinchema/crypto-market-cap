@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import CoinsRanking from './pages/CoinsRanking/CoinsRanking';
 import { Header } from './components';
-import FooterContainer from './containers/Footer';
+import FooterContainer from './containers/Footer/Footer';
 
 const { Content } = Layout;
 

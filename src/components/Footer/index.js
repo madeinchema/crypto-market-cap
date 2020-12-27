@@ -1,33 +1,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
-import styled from 'styled-components';
 import { Layout, Typography, Row, Col } from 'antd';
-import colors from '../../theme/colors.module.scss';
+import { Logo, Link, Break } from './styles/footer';
 
-const { Title, Link } = Typography;
-
-const StyledLink = styled(Link)`
-  display: block;
-  font-weight: 500;
-  font-size: 1rem;
-  &.ant-typography {
-    color: ${colors.geekblue6};
-    &:hover {
-      color: ${colors.geekblue5};
-    }
-  }
-`;
-
-const Break = styled.div`
-  margin-bottom: 2rem;
-  height: 0;
-`;
-
-const StyledLogo = styled(Title)`
-  &.ant-typography {
-    margin: 0;
-  }
-`;
+const { Title } = Typography;
 
 const Footer = ({ children, ...restProps }) => {
   return <Layout.Footer {...restProps}>{children}</Layout.Footer>;
@@ -43,9 +19,9 @@ Footer.Col = function FooterCol({ children, ...restProps }) {
 
 Footer.Logo = function FooterLogo({ children, ...restProps }) {
   return (
-    <StyledLogo level={3} {...restProps}>
+    <Logo level={3} {...restProps}>
       {children}
-    </StyledLogo>
+    </Logo>
   );
 };
 
@@ -54,7 +30,7 @@ Footer.Title = function FooterTitle({ children, ...restProps }) {
 };
 
 Footer.Link = function FooterLink({ children, ...restProps }) {
-  return <StyledLink {...restProps}>{children}</StyledLink>;
+  return <Link {...restProps}>{children}</Link>;
 };
 
 Footer.Break = function FooterBreak({ children, ...restProps }) {

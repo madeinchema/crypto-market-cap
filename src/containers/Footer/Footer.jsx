@@ -1,4 +1,4 @@
-import { Footer } from '../components';
+import { Footer } from '../../components';
 import './footer.scss';
 
 const FooterContainer = () => {
@@ -47,7 +47,7 @@ const FooterContainer = () => {
             © 2021 Crypto Market Cap. All rights reserved.
           </Footer.Title>
         </Footer.Col>
-        <Footer.Col className="footer--bottom-bar">
+        <Footer.Col>
           <Footer.Title level={5}>
             <Footer.Link
               target="_blank"

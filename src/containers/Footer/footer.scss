@@ -1,8 +1,6 @@
-@import '../theme/colors.module.scss';
+@import '../../theme/colors.module.scss';
 
 .footer {
-  bottom: 0;
-  width: 100%;
   &.ant-layout-footer {
     background-color: $gray-1;
   }
