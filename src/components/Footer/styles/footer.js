@@ -1,8 +1,28 @@
+import React from 'react';
 import styled from 'styled-components';
-import { Typography } from 'antd';
+import { Row as AntdRow, Col as AntdCol, Typography, Layout } from 'antd';
 import colors from '../../../theme/colors.module.scss';
 
 const { Title: AntdTitle, Link: AntdLink } = Typography;
+const { Footer } = Layout;
+
+const Container = styled(Footer)``;
+
+const Row = styled(AntdRow)``;
+
+const Col = styled(AntdCol)``;
+
+const Logo = styled(AntdTitle)`
+  &.ant-typography {
+    margin: 0;
+  }
+`;
+
+const Title = styled(AntdTitle)`
+  &.ant-typography {
+    margin-bottom: 1rem;
+  }
+`;
 
 const Link = styled(AntdLink)`
   display: block;
@@ -22,16 +42,6 @@ const Break = styled.div`
   height: 0;
 `;
 
-const Logo = styled(AntdTitle)`
-  &.ant-typography {
-    margin: 0;
-  }
-`;
+const Menu = styled(React.Fragment)``;
 
-const Title = styled(AntdTitle)`
-  &.ant-typography {
-    margin-bottom: 1rem;
-  }
-`;
-
-export { Link, Break, Logo, Title };
+export { Container, Row, Col, Logo, Title, Link, Break, Menu };
