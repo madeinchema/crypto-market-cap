@@ -10,7 +10,7 @@ const Container = styled(Row)`
   justify-content: space-between;
   padding-left: 1rem;
   padding-right: 1rem;
-  height: 64px;
+  height: 4rem;
   background-color: ${colors.gray1};
   font-size: 1.1rem;
 
@@ -65,6 +65,24 @@ const MenuSider = styled(AntdSider)`
   top: 0;
   right: 0;
   z-index: 3;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  .ant-menu-item:active,
+  .ant-menu-submenu-title:active {
+    background-color: ${colors.geekblue1};
+  }
+`;
+
+const MenuSiderLogo = styled.div`
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  padding: 1.15rem;
+  .ant-typography {
+    padding-left: 0.5rem;
+    display: inline-block;
+  }
+  .logo--text {
+  }
 `;
 
 export {
@@ -76,4 +94,5 @@ export {
   MenuItem,
   MenuLink,
   MenuSider,
+  MenuSiderLogo,
 };
