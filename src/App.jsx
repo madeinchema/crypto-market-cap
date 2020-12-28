@@ -17,7 +17,7 @@ const App = () => {
         <HeaderContainer />
         <Content className="app--content">
           <Switch>
-            <Route exact path="/">
+            <Route exact path={['/', '/currencies']}>
               <CoinsRanking currency={currency} />
             </Route>
             <Route exact path="/exchanges">
