@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import CoinsRanking from './pages/CoinsRanking/CoinsRanking';
-import { Header } from './components';
 import FooterContainer from './containers/Footer/Footer';
+import HeaderContainer from './containers/Header/Header';
 import './app.scss';
 
 const { Content } = Layout;
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Router>
       <Layout>
-        <Header />
+        <HeaderContainer />
         <Content className="app--content">
           <Switch>
             <Route exact path="/">
