@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Row, Col, Typography, Layout } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
 import colors from '../../../theme/colors.module.scss';
 
 const { Title, Link } = Typography;
@@ -29,7 +30,7 @@ const Logo = styled(Title)`
 
 const Menu = styled.div``;
 
-const MenuButton = styled.button`
+const MenuButton = styled(MenuOutlined)`
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     display: none;
   }
