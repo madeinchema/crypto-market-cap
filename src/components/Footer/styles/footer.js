@@ -30,7 +30,7 @@ const Link = styled(AntdLink)`
   font-size: 1rem;
   margin-bottom: 0.5rem;
   &.ant-typography {
-    color: ${colors.geekblue6};
+    color: ${colors.geekblue7};
     &:hover {
       color: ${colors.geekblue5};
     }
