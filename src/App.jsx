@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import CoinsRanking from './pages/CoinsRanking/CoinsRanking';
@@ -8,10 +8,8 @@ import './app.scss';
 
 const { Content } = Layout;
 
-const appStyles = {};
-
 const App = () => {
-  const [currency, setCurrency] = useState('usd');
+  const [currency] = useState('usd');
 
   return (
     <Router>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Table } from 'antd';
 import { getCoinsRanking } from '../../../../utilities/api';
 import PriceChangeColumn from '../../../../components/PriceChange/PriceChange';
@@ -111,6 +112,14 @@ const CoinsRankingTable = (props) => {
       scroll={{ x: 'max-content' }}
     />
   );
+};
+
+CoinsRankingTable.propTypes = {
+  currency: PropTypes.string,
+};
+
+CoinsRankingTable.defaultProps = {
+  currency: undefined,
 };
 
 export default CoinsRankingTable;

@@ -1,10 +1,18 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
-import { Layout, Typography, Row, Col } from 'antd';
-import { Logo, Link, Break, Title } from './styles/footer';
+import {
+  Container,
+  Row,
+  Col,
+  Logo,
+  Title,
+  Link,
+  Break,
+  Menu,
+} from './styles/footer';
 
 const Footer = ({ children, ...restProps }) => {
-  return <Layout.Footer {...restProps}>{children}</Layout.Footer>;
+  return <Container {...restProps}>{children}</Container>;
 };
 
 Footer.Row = function FooterRow({ children, ...restProps }) {
@@ -37,14 +45,16 @@ Footer.Break = function FooterBreak({ children, ...restProps }) {
 
 Footer.Menu = function FooterMenu({ children, dataSource, ...restProps }) {
   return (
-    <>
-      <Footer.Title level={4}>{dataSource.label}</Footer.Title>
+    <Menu>
+      <Footer.Title level={4} {...restProps}>
+        {dataSource.label}
+      </Footer.Title>
       {dataSource.data.map((menuItem) => (
         <Footer.Link href={menuItem.href} key={menuItem.key}>
           {menuItem.label}
         </Footer.Link>
       ))}
-    </>
+    </Menu>
   );
 };
 
