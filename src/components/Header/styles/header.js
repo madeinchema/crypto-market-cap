@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { Row, Col, Typography } from 'antd';
+import { Row, Col, Typography, Layout } from 'antd';
 import colors from '../../../theme/colors.module.scss';
 
 const { Title, Link } = Typography;
+const { Sider: AntdSider } = Layout;
 
 const Container = styled(Row)`
   align-items: center;
@@ -26,13 +27,20 @@ const Logo = styled(Title)`
   }
 `;
 
-const Menu = styled(Row)``;
+const Menu = styled.div``;
 
-const MenuButton = styled.button``;
+const MenuButton = styled.button`
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    display: none;
+  }
+`;
 
 const MenuList = styled(Row)`
   display: flex;
   align-items: center;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    display: none;
+  }
 `;
 
 const MenuItem = styled(Col)``;
@@ -50,4 +58,22 @@ const MenuLink = styled(Link)`
   }
 `;
 
-export { Container, Logo, Menu, MenuButton, MenuList, MenuItem, MenuLink };
+const MenuSider = styled(AntdSider)`
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+`;
+
+export {
+  Container,
+  Logo,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuLink,
+  MenuSider,
+};
