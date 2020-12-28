@@ -1,18 +1,17 @@
 import styled from 'styled-components';
-import { /* Row as AntdRow, Col as AntdCol, */ Typography } from 'antd';
+import { Row, Col, Typography } from 'antd';
 import colors from '../../../theme/colors.module.scss';
 
-const { Title } = Typography;
+const { Title, Link } = Typography;
 
-const Container = styled.div`
-  display: flex;
+const Container = styled(Row)`
+  align-items: center;
+  justify-content: space-between;
   padding-left: 1rem;
   padding-right: 1rem;
   height: 64px;
-  align-items: center;
-  font-size: 1rem;
-  color: ${colors.gray1};
-  background-color: ${colors.geekblue10};
+  background-color: ${colors.gray1};
+  font-size: 1.1rem;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
     padding-left: 3rem;
@@ -22,9 +21,33 @@ const Container = styled.div`
 
 const Logo = styled(Title)`
   &.ant-typography {
-    color: ${colors.gray1};
+    color: ${colors.gray10};
     margin: 0;
   }
 `;
 
-export { Container, Logo };
+const Menu = styled(Row)``;
+
+const MenuButton = styled.button``;
+
+const MenuList = styled(Row)`
+  display: flex;
+  align-items: center;
+`;
+
+const MenuItem = styled(Col)``;
+
+const MenuLink = styled(Link)`
+  &.ant-typography {
+    display: block;
+    margin-bottom: 0.25rem;
+    text-align: middle;
+    color: ${colors.geekblue7};
+    font-weight: 500;
+    :hover {
+      color: ${colors.geekblue5};
+    }
+  }
+`;
+
+export { Container, Logo, Menu, MenuButton, MenuList, MenuItem, MenuLink };
