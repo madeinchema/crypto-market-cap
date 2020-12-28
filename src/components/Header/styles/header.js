@@ -1,5 +1,8 @@
 import styled from 'styled-components';
+import { /* Row as AntdRow, Col as AntdCol, */ Typography } from 'antd';
 import colors from '../../../theme/colors.module.scss';
+
+const { Title } = Typography;
 
 const Container = styled.div`
   display: flex;
@@ -17,4 +20,11 @@ const Container = styled.div`
   }
 `;
 
-export { Container };
+const Logo = styled(Title)`
+  &.ant-typography {
+    color: ${colors.gray1};
+    margin: 0;
+  }
+`;
+
+export { Container, Logo };
