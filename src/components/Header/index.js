@@ -12,6 +12,7 @@ import {
   MenuLink,
   MenuSider,
   MenuSiderLogo,
+  MenuSiderOverlay,
 } from './styles/header';
 
 const Header = ({ children, ...restProps }) => {
@@ -87,6 +88,7 @@ Header.Menu = function HeaderMenu({
           ))}
         </AntdMenu>
       </MenuSider>
+      <MenuSiderOverlay show={!collapsed} onClick={closeSider} />
     </Menu>
   );
 };

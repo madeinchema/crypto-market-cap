@@ -65,7 +65,7 @@ const MenuSider = styled(AntdSider)`
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 3;
+  z-index: 4;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   .ant-menu-item:active,
   .ant-menu-submenu-title:active {
@@ -86,6 +86,21 @@ const MenuSiderLogo = styled.div`
   }
 `;
 
+const MenuSiderOverlay = styled.div`
+  visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+  transition: visibility 0.25s ease-out, opacity 0.25s ease-out;
+  opacity: ${(props) => (props.show ? 1 : 0)};
+`;
+
 export {
   Container,
   Logo,
@@ -96,4 +111,5 @@ export {
   MenuLink,
   MenuSider,
   MenuSiderLogo,
+  MenuSiderOverlay,
 };
