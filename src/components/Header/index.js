@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import { Menu as AntdMenu } from 'antd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Container,
   Logo,
@@ -51,6 +51,17 @@ Header.Menu = function HeaderMenu({
   const openSider = () => {
     setCollapsed(false);
   };
+
+  useEffect(() => {
+    if (collapsed) {
+      document.body.style.overflow = 'unset';
+      document.body.style.paddingRight = '0px';
+    }
+    return () => {
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '15px';
+    };
+  }, [collapsed]);
 
   return (
     <Menu {...restProps}>
