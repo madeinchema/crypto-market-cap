@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Row, Col, Typography, Layout } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 import colors from '../../../theme/colors.module.scss';
 
-const { Title, Link } = Typography;
+const { Title } = Typography;
 const { Sider: AntdSider } = Layout;
 
 const Container = styled(Row)`
@@ -46,17 +47,23 @@ const MenuList = styled(Row)`
 
 const MenuItem = styled(Col)``;
 
-const MenuLink = styled(Link)`
-  &.ant-typography {
-    display: block;
-    margin-bottom: 0.25rem;
-    text-align: middle;
-    color: ${colors.geekblue7};
-    font-weight: 500;
-    :hover {
-      color: ${colors.geekblue5};
-    }
+const menuLinkStyles = css`
+  display: block;
+  margin-bottom: 0.25rem;
+  text-align: middle;
+  color: ${colors.geekblue7};
+  font-weight: 500;
+  :hover {
+    color: ${colors.geekblue5};
   }
+`;
+
+const MenuRouterLink = styled(Link)`
+  ${menuLinkStyles}
+`;
+
+const MenuLink = styled.a`
+  ${menuLinkStyles}
 `;
 
 const MenuSider = styled(AntdSider)`
@@ -67,6 +74,9 @@ const MenuSider = styled(AntdSider)`
   right: 0;
   z-index: 4;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  .ant-menu-item a:not(:disabled) {
+    color: ${colors.geekblue7};
+  }
   .ant-menu-item:active,
   .ant-menu-submenu-title:active {
     background-color: ${colors.geekblue1};
@@ -108,6 +118,7 @@ export {
   MenuButton,
   MenuList,
   MenuItem,
+  MenuRouterLink,
   MenuLink,
   MenuSider,
   MenuSiderLogo,
