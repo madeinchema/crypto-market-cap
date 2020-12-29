@@ -74,9 +74,6 @@ const MenuSider = styled(AntdSider)`
   right: 0;
   z-index: 4;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  .ant-menu-item a:not(:disabled) {
-    color: ${colors.geekblue7};
-  }
   .ant-menu-item:active,
   .ant-menu-submenu-title:active {
     background-color: ${colors.geekblue1};
@@ -94,6 +91,17 @@ const MenuSiderLogo = styled.div`
   }
   .logo--text {
   }
+`;
+
+const MenuSiderMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const MenuSiderMenuItem = styled.div`
+  width: 100%;
+  height: 3rem;
+  padding: 0.5rem 1.15rem;
 `;
 
 const MenuSiderOverlay = styled.div`
@@ -121,6 +129,8 @@ export {
   MenuRouterLink,
   MenuLink,
   MenuSider,
+  MenuSiderMenu,
+  MenuSiderMenuItem,
   MenuSiderLogo,
   MenuSiderOverlay,
 };
