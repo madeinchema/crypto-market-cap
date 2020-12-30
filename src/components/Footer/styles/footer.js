@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Row as AntdRow, Col as AntdCol, Typography, Layout } from 'antd';
 import colors from '../../../theme/colors.module.scss';
@@ -42,6 +41,6 @@ const Break = styled.div`
   height: 0;
 `;
 
-const Menu = styled(React.Fragment)``;
+const Menu = styled.div``;
 
 export { Container, Row, Col, Logo, Title, Link, Break, Menu };
