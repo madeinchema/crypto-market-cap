@@ -70,7 +70,6 @@ Header.Menu = function HeaderMenu({
     const isInternalURL = (path) => {
       const url = new URL(path, window.location.origin);
       const checkIsInternalURL = url.hostname === window.location.hostname;
-      console.log({ path, checkIsInternalURL });
       return checkIsInternalURL;
     };
 
