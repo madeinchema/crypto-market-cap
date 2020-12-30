@@ -46,13 +46,17 @@ Footer.Break = function FooterBreak({ children, ...restProps }) {
 Footer.Menu = function FooterMenu({ children, dataSource, ...restProps }) {
   return (
     <Menu>
-      <Footer.Title level={4} {...restProps}>
+      <Title level={4} {...restProps}>
         {dataSource.label}
-      </Footer.Title>
+      </Title>
       {dataSource.data.map((menuItem) => (
-        <Footer.Link href={menuItem.href} key={menuItem.key}>
+        <Link
+          disabled={menuItem.disabled}
+          href={menuItem.href}
+          key={menuItem.key}
+        >
           {menuItem.label}
-        </Footer.Link>
+        </Link>
       ))}
     </Menu>
   );

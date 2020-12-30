@@ -26,8 +26,8 @@ const headerMenuData = [
   {
     id: 'repository',
     label: 'Repository',
-    href: '/repository',
-    disabled: true,
+    href: 'https://github.com/madeinchema/crypto-market-cap',
+    disabled: false,
   },
 ];
 
