@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import { useEffect, useState } from 'react';
+import { Link } from '..';
 import {
   Container,
   Logo,
@@ -112,7 +113,7 @@ Header.Menu = function HeaderMenu({
           {dataSource.map((menuItem) => (
             <MenuSiderMenuItem key={menuItem.key}>
               <MenuItem key={menuItem.key}>
-                <MenuDynamicLink menuItem={menuItem} />
+                <Link menuItem={menuItem} href={menuItem.href} />
               </MenuItem>
             </MenuSiderMenuItem>
           ))}
