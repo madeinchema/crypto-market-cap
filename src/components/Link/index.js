@@ -13,13 +13,19 @@ const Link = (props) => {
     return checkIsInternalURL;
   };
 
-  return isInternalURL(linkData.href) ? (
-    <RouterLink disabled={linkData.disabled} to={linkData.href}>
-      {linkData.label}
+  return isInternalURL(linkData && linkData.href) ? (
+    <RouterLink
+      disabled={linkData && linkData.disabled}
+      to={linkData && linkData.href}
+    >
+      {linkData && linkData.label}
     </RouterLink>
   ) : (
-    <AntdLink disabled={linkData.disabled} href={linkData.href}>
-      {linkData.label}
+    <AntdLink
+      disabled={linkData && linkData.disabled}
+      href={linkData && linkData.href}
+    >
+      {linkData && linkData.label}
     </AntdLink>
   );
 };
