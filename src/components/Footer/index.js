@@ -51,6 +51,7 @@ Footer.Menu = function FooterMenu({ children, dataSource, ...restProps }) {
       </Title>
       {dataSource.data.map((menuItem) => (
         <Link
+          linkData={menuItem}
           disabled={menuItem.disabled}
           href={menuItem.href}
           key={menuItem.key}
