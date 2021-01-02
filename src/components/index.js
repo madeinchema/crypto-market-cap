@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-export { default as Link } from './Link';
+export { default as CMCLink } from './CMCLink';
 export { default as Footer } from './Footer';
 export { default as Header } from './Header';
 export { default as PriceChange } from './PriceChange/PriceChange';

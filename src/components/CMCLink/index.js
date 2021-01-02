@@ -28,7 +28,7 @@ const StyledAntdLink = styled(AntdLink)`
   }
 `;
 
-const Link = (props) => {
+const CMCLink = (props) => {
   const { linkData } = props;
 
   const isInternalURL = (path) => {
@@ -54,7 +54,6 @@ const Link = (props) => {
   );
 };
 
-Link.propTypes = {};
+CMCLink.propTypes = {};
 
-export default Link;
-export { Link };
+export default CMCLink;
