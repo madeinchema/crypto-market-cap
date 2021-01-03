@@ -48,6 +48,8 @@ const CMCLink = (props) => {
     <StyledAntdLink
       disabled={linkData && linkData.disabled}
       href={linkData && linkData.href}
+      target={linkData && linkData.targetBlank && '_blank'}
+      rel={linkData && linkData.targetBlank && 'noreferrer'}
     >
       {linkData && linkData.label}
     </StyledAntdLink>
