@@ -1,32 +1,5 @@
 import PropTypes from 'prop-types';
-import { Link as RouterLink } from 'react-router-dom';
-import { Typography } from 'antd';
-import styled, { css } from 'styled-components';
-import colors from '../../theme/colors.module.scss';
-
-const { Link: AntdLink } = Typography;
-
-const menuLinkStyles = css`
-  font-size: 1.2rem;
-  display: block;
-  margin-bottom: 0.25rem;
-  text-align: middle;
-  color: ${colors.geekblue7};
-  font-weight: 500;
-  :hover {
-    color: ${colors.geekblue5};
-  }
-`;
-
-const StyledRouterLink = styled(RouterLink)`
-  ${menuLinkStyles}
-`;
-
-const StyledAntdLink = styled(AntdLink)`
-  &.ant-typography {
-    ${menuLinkStyles}
-  }
-`;
+import { StyledAntdLink, StyledRouterLink } from './styles/cmc-link';
 
 const CMCLink = (props) => {
   const { linkData } = props;
