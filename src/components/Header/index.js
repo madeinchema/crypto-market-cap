@@ -8,7 +8,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuRouterLink,
   MenuLink,
   MenuSider,
   MenuSiderMenu,
@@ -65,32 +64,13 @@ Header.Menu = function HeaderMenu({
     };
   }, [collapsed]);
 
-  const MenuDynamicLink = (props) => {
-    const { menuItem } = props;
-    const isInternalURL = (path) => {
-      const url = new URL(path, window.location.origin);
-      const checkIsInternalURL = url.hostname === window.location.hostname;
-      return checkIsInternalURL;
-    };
-
-    return isInternalURL(menuItem.href) ? (
-      <MenuRouterLink disabled={menuItem.disabled} to={menuItem.href}>
-        {menuItem.label}
-      </MenuRouterLink>
-    ) : (
-      <MenuLink disabled={menuItem.disabled} href={menuItem.href}>
-        {menuItem.label}
-      </MenuLink>
-    );
-  };
-
   return (
     <Menu {...restProps}>
       <MenuButton onClick={openSider}>Menu</MenuButton>
       <MenuList gutter={24}>
         {dataSource.map((menuItem) => (
           <MenuItem key={menuItem.key}>
-            <MenuDynamicLink menuItem={menuItem} />
+            <MenuLink linkData={menuItem} href={menuItem.href} />
           </MenuItem>
         ))}
       </MenuList>
@@ -112,7 +92,7 @@ Header.Menu = function HeaderMenu({
           {dataSource.map((menuItem) => (
             <MenuSiderMenuItem key={menuItem.key}>
               <MenuItem key={menuItem.key}>
-                <MenuDynamicLink menuItem={menuItem} />
+                <MenuLink linkData={menuItem} href={menuItem.href} />
               </MenuItem>
             </MenuSiderMenuItem>
           ))}
