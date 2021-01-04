@@ -1,6 +1,6 @@
 import { Footer } from '../../components';
 import './footer.scss';
-import footerMenuData from './utils/constants/footerMenuData';
+import { footerMenuData, footerBottomData } from './utils/constants/footerData';
 
 const FooterContainer = () => {
   return (
@@ -33,13 +33,7 @@ const FooterContainer = () => {
         </Footer.Col>
         <Footer.Col xs="auto">
           <Footer.Title level={5}>
-            <Footer.Link
-              target="_blank"
-              rel="noreferrer"
-              href="https://github.com/madeinchema"
-            >
-              Made in Chema
-            </Footer.Link>
+            <Footer.Link linkData={footerBottomData.author} />
           </Footer.Title>
         </Footer.Col>
       </Footer.Row>

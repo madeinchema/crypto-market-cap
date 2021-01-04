@@ -1,6 +1,6 @@
 import Logo from '../../assets/Logo';
 import { Header } from '../../components';
-import headerMenuData from '../Footer/utils/constants/headerMenuData';
+import headerMenuData from '../Footer/utils/constants/headerData';
 import './header.scss';
 
 const HeaderContainer = () => {

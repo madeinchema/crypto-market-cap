@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Row as AntdRow, Col as AntdCol, Typography, Layout } from 'antd';
-import colors from '../../../theme/colors.module.scss';
+import CMCLink from '../../CMCLink';
 
-const { Title: AntdTitle, Link: AntdLink } = Typography;
+const { Title: AntdTitle } = Typography;
 const { Footer } = Layout;
 
 const Container = styled(Footer)``;
@@ -23,18 +23,7 @@ const Title = styled(AntdTitle)`
   }
 `;
 
-const Link = styled(AntdLink)`
-  display: block;
-  font-weight: 500;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  &.ant-typography {
-    color: ${colors.geekblue7};
-    &:hover {
-      color: ${colors.geekblue5};
-    }
-  }
-`;
+const Link = styled(CMCLink)``;
 
 const Break = styled.div`
   margin-bottom: 2rem;

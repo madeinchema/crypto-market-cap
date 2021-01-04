@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { Row, Col, Typography, Layout } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
 import colors from '../../../theme/colors.module.scss';
+import CMCLink from '../../CMCLink';
 
 const { Title } = Typography;
 const { Sider: AntdSider } = Layout;
@@ -47,24 +47,7 @@ const MenuList = styled(Row)`
 
 const MenuItem = styled(Col)``;
 
-const menuLinkStyles = css`
-  display: block;
-  margin-bottom: 0.25rem;
-  text-align: middle;
-  color: ${colors.geekblue7};
-  font-weight: 500;
-  :hover {
-    color: ${colors.geekblue5};
-  }
-`;
-
-const MenuRouterLink = styled(Link)`
-  ${menuLinkStyles}
-`;
-
-const MenuLink = styled.a`
-  ${menuLinkStyles}
-`;
+const MenuLink = styled(CMCLink)``;
 
 const MenuSider = styled(AntdSider)`
   overflow: auto;
@@ -126,7 +109,6 @@ export {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuRouterLink,
   MenuLink,
   MenuSider,
   MenuSiderMenu,
