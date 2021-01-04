@@ -56,6 +56,14 @@ const CMCLink = (props) => {
   );
 };
 
-CMCLink.propTypes = {};
+CMCLink.propTypes = {
+  linkData: PropTypes.shape({
+    id: PropTypes.string,
+    label: PropTypes.string,
+    href: PropTypes.string,
+    disabled: PropTypes.bool,
+    targetBlank: PropTypes.bool,
+  }).isRequired,
+};
 
 export default CMCLink;
