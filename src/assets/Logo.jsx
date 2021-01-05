@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import PropTypes from 'prop-types';
 import { css } from 'styled-components/macro';
 
