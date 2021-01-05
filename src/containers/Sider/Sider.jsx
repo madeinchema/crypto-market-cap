@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Sider } from '../../components';
 import Logo from '../../assets/Logo';
 
@@ -16,7 +17,7 @@ const SiderContainer = (props) => {
         reverseArrow
         theme="light"
       >
-        <Sider.Logo siderLogo={<Logo />}>CoinMarketCap</Sider.Logo>
+        <Sider.Logo logo={<Logo />}>CoinMarketCap</Sider.Logo>
         <Sider.Menu dataSource={dataSource} />
       </Sider>
       <Sider.Overlay collapsed={collapsed} onCollapse={onCollapse} />
@@ -24,6 +25,16 @@ const SiderContainer = (props) => {
   );
 };
 
-SiderContainer.propTypes = {};
+SiderContainer.propTypes = {
+  dataSource: PropTypes.arrayOf(Object),
+  collapsed: PropTypes.bool,
+  onCollapse: PropTypes.func,
+};
+
+SiderContainer.defaultProps = {
+  dataSource: undefined,
+  collapsed: undefined,
+  onCollapse: undefined,
+};
 
 export default SiderContainer;

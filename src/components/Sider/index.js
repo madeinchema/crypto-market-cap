@@ -36,10 +36,10 @@ Sider.Overlay = function SiderOverlay(props) {
 };
 
 Sider.Logo = function SiderLogo(props) {
-  const { siderLogo, children } = props;
+  const { logo, children } = props;
   return (
     <Logo>
-      {siderLogo}
+      {logo}
       <LogoText level={5}>{children}</LogoText>
     </Logo>
   );
