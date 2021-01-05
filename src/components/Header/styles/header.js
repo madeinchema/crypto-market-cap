@@ -21,7 +21,21 @@ const Container = styled(Row)`
   }
 `;
 
-const Logo = styled(Title)`
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  .ant-typography {
+    padding-left: 0.5rem;
+    display: inline-block;
+  }
+  .logo--text {
+  }
+`;
+
+const LogoText = styled(Title)`
   &.ant-typography {
     color: ${colors.gray10};
     margin: 0;
@@ -48,4 +62,13 @@ const MenuItem = styled(Col)``;
 
 const MenuLink = styled(CMCLink)``;
 
-export { Container, Logo, Menu, MenuButton, MenuList, MenuItem, MenuLink };
+export {
+  Container,
+  Logo,
+  LogoText,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuLink,
+};
