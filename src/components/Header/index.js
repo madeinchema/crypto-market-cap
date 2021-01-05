@@ -3,6 +3,7 @@
 import {
   Container,
   Logo,
+  LogoText,
   Menu,
   MenuButton,
   MenuList,
@@ -22,10 +23,12 @@ const Header = (props) => {
   return <Container {...restProps}>{children}</Container>;
 };
 
-Header.Logo = function HeaderLogo({ children, ...restProps }) {
+Header.Logo = function HeaderLogo(props) {
+  const { logo, children } = props;
   return (
-    <Logo level={3} {...restProps}>
-      {children}
+    <Logo>
+      {logo}
+      <LogoText level={3}>{children}</LogoText>
     </Logo>
   );
 };
