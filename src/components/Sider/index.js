@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
+import PropTypes from 'prop-types';
 import {
   Container,
   Link,
@@ -11,7 +11,7 @@ import {
 } from './styles/sider';
 
 const Sider = (props) => {
-  const { children, collapsed, onCollapse, ...restProps } = props;
+  const { children, collapsed, onCollapse, linkData, ...restProps } = props;
 
   return (
     <Container
@@ -60,7 +60,7 @@ Sider.Menu = function SiderMenu(props) {
   return (
     <Menu>
       {dataSource.map((menuItem) => (
-        <MenuItem key={menuItem.key}>
+        <MenuItem key={menuItem.id}>
           <Link linkData={menuItem} href={menuItem.href} />
         </MenuItem>
       ))}
@@ -68,6 +68,18 @@ Sider.Menu = function SiderMenu(props) {
   );
 };
 
-Sider.propTypes = {};
+Sider.propTypes = {
+  children: PropTypes.node,
+  collapsed: PropTypes.bool,
+  onCollapse: PropTypes.func,
+  linkData: PropTypes.objectOf(Object),
+};
+
+Sider.defaultProps = {
+  children: undefined,
+  collapsed: undefined,
+  onCollapse: undefined,
+  linkData: undefined,
+};
 
 export default Sider;

@@ -54,7 +54,7 @@ Footer.Menu = function FooterMenu({ children, dataSource, ...restProps }) {
           linkData={menuItem}
           disabled={menuItem.disabled}
           href={menuItem.href}
-          key={menuItem.key}
+          key={menuItem.id}
         >
           {menuItem.label}
         </Link>

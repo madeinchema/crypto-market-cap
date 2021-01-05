@@ -40,7 +40,7 @@ Header.Menu = function HeaderMenu(props) {
       <MenuButton onClick={openSider}>Menu</MenuButton>
       <MenuList gutter={24}>
         {dataSource.map((menuItem) => (
-          <MenuItem key={menuItem.key}>
+          <MenuItem key={menuItem.id}>
             <MenuLink linkData={menuItem} href={menuItem.href} />
           </MenuItem>
         ))}
