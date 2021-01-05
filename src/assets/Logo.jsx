@@ -1,9 +1,9 @@
 /* eslint-disable no-shadow */
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components/macro';
+import { css } from 'styled-components/macro';
 
 const Logo = (props) => {
-  const { type, className } = props;
+  const { className } = props;
 
   const logoStyles = css`
     &.logo {
@@ -43,6 +43,12 @@ const Logo = (props) => {
   );
 };
 
-Logo.propTypes = {};
+Logo.propTypes = {
+  className: PropTypes.string,
+};
+
+Logo.defaultProps = {
+  className: undefined,
+};
 
 export default Logo;
