@@ -29,7 +29,7 @@ const HeaderContainer = () => {
 
   return (
     <Header>
-      <Header.Logo>CryptoMarketCap</Header.Logo>
+      <Header.Logo logo={<Logo />}>CoinMarketCap</Header.Logo>
       <Header.Menu
         dataSource={headerMenuData}
         siderLogo={<Logo />}
