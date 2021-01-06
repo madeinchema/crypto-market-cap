@@ -74,12 +74,29 @@ Sider.propTypes = {
   onCollapse: PropTypes.func,
   linkData: PropTypes.objectOf(Object),
 };
-
 Sider.defaultProps = {
   children: undefined,
   collapsed: undefined,
   onCollapse: undefined,
   linkData: undefined,
+};
+
+Sider.Overlay.propTypes = {
+  collapsed: PropTypes.bool,
+  onCollapse: PropTypes.func,
+};
+Sider.Overlay.defaultProps = {
+  collapsed: undefined,
+  onCollapse: undefined,
+};
+
+Sider.Logo.propTypes = {
+  children: PropTypes.node,
+  logo: PropTypes.node,
+};
+Sider.Logo.defaultProps = {
+  children: undefined,
+  logo: undefined,
 };
 
 export default Sider;
