@@ -10,9 +10,7 @@ import {
   Overlay,
 } from './styles/sider';
 
-const Sider = (props) => {
-  const { children, collapsed, onCollapse, linkData, ...restProps } = props;
-
+const Sider = ({ children, collapsed, onCollapse, linkData, ...restProps }) => {
   return (
     <Container
       breakpoint="lg"
@@ -30,35 +28,30 @@ const Sider = (props) => {
   );
 };
 
-Sider.Overlay = function SiderOverlay(props) {
-  const { collapsed, onCollapse } = props;
-  return <Overlay show={!collapsed} onClick={onCollapse} />;
+Sider.Overlay = function SiderOverlay({ collapsed, onCollapse, ...restProps }) {
+  return <Overlay {...restProps} show={!collapsed} onClick={onCollapse} />;
 };
 
-Sider.Logo = function SiderLogo(props) {
-  const { logo, children } = props;
+Sider.Logo = function SiderLogo({ logo, children, ...restProps }) {
   return (
-    <Logo>
+    <Logo {...restProps}>
       {logo}
       <LogoText level={5}>{children}</LogoText>
     </Logo>
   );
 };
 
-Sider.Link = function SiderLink(props) {
-  const { linkData } = props;
-  return <Link linkData={linkData} href={linkData.href} />;
+Sider.Link = function SiderLink({ linkData, ...restProps }) {
+  return <Link linkData={linkData} href={linkData.href} {...restProps} />;
 };
 
-Sider.MenuItem = function SiderMenuItem(props) {
-  const { children, ...restProps } = props;
+Sider.MenuItem = function SiderMenuItem({ children, ...restProps }) {
   return <MenuItem {...restProps}>{children}</MenuItem>;
 };
 
-Sider.Menu = function SiderMenu(props) {
-  const { dataSource } = props;
+Sider.Menu = function SiderMenu({ dataSource, ...restProps }) {
   return (
-    <Menu>
+    <Menu {...restProps}>
       {dataSource.map((menuItem) => (
         <MenuItem key={menuItem.id}>
           <Link linkData={menuItem} href={menuItem.href} />
@@ -116,7 +109,7 @@ Sider.MenuItem.defaultProps = {
 };
 
 Sider.Menu.propTypes = {
-  dataSource: PropTypes.node,
+  dataSource: PropTypes.arrayOf(Object),
 };
 Sider.Menu.defaultProps = {
   dataSource: undefined,
