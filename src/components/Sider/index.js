@@ -99,4 +99,27 @@ Sider.Logo.defaultProps = {
   logo: undefined,
 };
 
+Sider.Link.propTypes = {
+  linkData: PropTypes.shape({
+    href: PropTypes.string,
+  }),
+};
+Sider.Link.defaultProps = {
+  linkData: undefined,
+};
+
+Sider.MenuItem.propTypes = {
+  children: PropTypes.node,
+};
+Sider.MenuItem.defaultProps = {
+  children: undefined,
+};
+
+Sider.Menu.propTypes = {
+  dataSource: PropTypes.node,
+};
+Sider.Menu.defaultProps = {
+  dataSource: undefined,
+};
+
 export default Sider;
