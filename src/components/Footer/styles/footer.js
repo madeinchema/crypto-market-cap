@@ -7,10 +7,6 @@ const { Footer } = Layout;
 
 const Container = styled(Footer)``;
 
-const Row = styled(AntdRow)``;
-
-const Col = styled(AntdCol)``;
-
 const Logo = styled(AntdTitle)`
   &.ant-typography {
     margin: 0;
@@ -32,4 +28,4 @@ const Break = styled.div`
 
 const Menu = styled.div``;
 
-export { Container, Row, Col, Logo, Title, Link, Break, Menu };
+export { Container, Logo, Title, Link, Break, Menu };

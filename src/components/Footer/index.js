@@ -1,26 +1,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
-import {
-  Container,
-  Row,
-  Col,
-  Logo,
-  Title,
-  Link,
-  Break,
-  Menu,
-} from './styles/footer';
+import { Container, Logo, Title, Link, Break, Menu } from './styles/footer';
 
 const Footer = ({ children, ...restProps }) => {
   return <Container {...restProps}>{children}</Container>;
-};
-
-Footer.Row = function FooterRow({ children, ...restProps }) {
-  return <Row {...restProps}>{children}</Row>;
-};
-
-Footer.Col = function FooterCol({ children, ...restProps }) {
-  return <Col {...restProps}>{children}</Col>;
 };
 
 Footer.Logo = function FooterLogo({ children, ...restProps }) {
