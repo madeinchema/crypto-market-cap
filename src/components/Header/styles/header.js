@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Row, Col, Typography } from 'antd';
+import { Row, Typography } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import colors from '../../../theme/colors.module.scss';
 import CMCLink from '../../CMCLink';
@@ -58,17 +58,6 @@ const MenuList = styled(Row)`
   }
 `;
 
-const MenuItem = styled(Col)``;
-
 const MenuLink = styled(CMCLink)``;
 
-export {
-  Container,
-  Logo,
-  LogoText,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuLink,
-};
+export { Container, Logo, LogoText, Menu, MenuButton, MenuList, MenuLink };

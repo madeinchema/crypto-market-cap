@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
+import { Col } from 'antd';
 import {
   Container,
   Logo,
@@ -7,7 +8,6 @@ import {
   Menu,
   MenuButton,
   MenuList,
-  MenuItem,
   MenuLink,
 } from './styles/header';
 
@@ -40,9 +40,9 @@ Header.Menu = function HeaderMenu(props) {
       <MenuButton onClick={openSider}>Menu</MenuButton>
       <MenuList gutter={24}>
         {dataSource.map((menuItem) => (
-          <MenuItem key={menuItem.id}>
+          <Col key={menuItem.id}>
             <MenuLink linkData={menuItem} href={menuItem.href} />
-          </MenuItem>
+          </Col>
         ))}
       </MenuList>
     </Menu>
