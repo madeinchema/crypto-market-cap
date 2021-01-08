@@ -20,15 +20,18 @@ const columns = (currency) => {
       title: 'Coin',
       dataIndex: 'id',
       key: 'id',
-      // eslint-disable-next-line react/display-name
-      render: (id, coin) => <CoinColumn coin={coin} />,
+      render: function coinIdRender(id, coin) {
+        return <CoinColumn coin={coin} />;
+      },
     },
     {
       title: 'Price',
       dataIndex: 'current_price',
       key: 'current_price',
       sorter: (a, b) => a.current_price - b.current_price,
-      render: (price) => `${price.toLocaleString()} ${currency.toUpperCase()}`,
+      render: function coinCurrentPriceRender(price) {
+        return `${price.toLocaleString()} ${currency.toUpperCase()}`;
+      },
     },
     {
       title: '24h',
@@ -37,8 +40,9 @@ const columns = (currency) => {
       sorter: (a, b) =>
         a.price_change_percentage_24h_in_currency -
         b.price_change_percentage_24h_in_currency,
-      // eslint-disable-next-line react/display-name
-      render: (change) => <PriceChangeColumn priceChange={change} showChange />,
+      render: function coinPriceChange24hRender(change) {
+        return <PriceChangeColumn priceChange={change} showChange />;
+      },
     },
     {
       title: '7d',
@@ -47,33 +51,33 @@ const columns = (currency) => {
       sorter: (a, b) =>
         a.price_change_percentage_7d_in_currency -
         b.price_change_percentage_7d_in_currency,
-      // eslint-disable-next-line react/display-name
-      render: (change) => <PriceChangeColumn priceChange={change} showChange />,
+      render: function coinPriceChange7dhRender(change) {
+        return <PriceChangeColumn priceChange={change} showChange />;
+      },
     },
     {
       title: 'Market Cap',
       dataIndex: 'market_cap',
       key: 'market_cap',
       sorter: (a, b) => a.market_cap - b.market_cap,
-      render: (marketCap) =>
-        `${marketCap.toLocaleString()} ${currency.toUpperCase()}`,
+      render: function coinMarketCapRender(marketCap) {
+        return `${marketCap.toLocaleString()} ${currency.toUpperCase()}`;
+      },
     },
     {
       title: 'Circulating Supply',
       dataIndex: 'circulating_supply',
       key: 'circulating_supply',
       sorter: (a, b) => a.circulating_supply - b.circulating_supply,
-      // eslint-disable-next-line react/display-name
-      render: (circulatingSupply, coin) => (
-        <CirculatingSupplyColumn coin={coin} />
-      ),
+      render: function coinCirculatingSupplyRender(circulatingSupply, coin) {
+        return <CirculatingSupplyColumn coin={coin} />;
+      },
     },
     {
       title: 'Last 7 Days',
       dataIndex: 'image',
       key: 'image',
-      // eslint-disable-next-line react/display-name
-      render: (image, coin) => {
+      render: function coin7dChartRender(image, coin) {
         const id = image.match(/\d+/);
         return (
           <img
