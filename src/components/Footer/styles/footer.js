@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Row as AntdRow, Col as AntdCol, Typography, Layout } from 'antd';
-import CMCLink from '../../CMCLink';
+import CMCLink from '../../Link/Link';
 
 const { Title: AntdTitle } = Typography;
 const { Footer } = Layout;

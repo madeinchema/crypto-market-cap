@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Layout, Typography } from 'antd';
-import CMCLink from '../../CMCLink';
+import CMCLink from '../../Link/Link';
 import colors from '../../../theme/colors.module.scss';
 
 const { Sider: AntdSider } = Layout;
