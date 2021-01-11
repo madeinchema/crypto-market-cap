@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import { Col } from 'antd';
 import { Link } from '..';
 import { Container, Button, List } from './styles/menu';
@@ -24,5 +24,20 @@ Menu.List = function HeaderMenu(props) {
     </List>
   );
 };
+
+
+Menu.List.propTypes = {
+  children: PropTypes.node,,
+};
+Menu.List.defaultProps = {
+  children: undefined,
+};
+
+Menu.List.propTypes = {
+  dataSource: PropTypes.arrayOf(Object),
+}
+Menu.List.defaultProps = {
+  dataSource: undefined,
+}
 
 export default Menu;
