@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { Row } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import { Link } from '../..';
 
 const Container = styled.div``;
 
