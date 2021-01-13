@@ -1,5 +1,5 @@
 import { Col, Row } from 'antd';
-import { Footer } from '../../components';
+import { Footer, Link } from '../../components';
 import './footer.scss';
 import { footerMenuData, footerBottomData } from './utils/constants/footerData';
 
@@ -33,9 +33,10 @@ const FooterContainer = () => {
           </Footer.Title>
         </Col>
         <Col xs="auto">
-          <Footer.Title level={5}>
-            <Footer.Link linkData={footerBottomData.author} />
-          </Footer.Title>
+          <Link
+            linkData={footerBottomData.author}
+            href={footerBottomData.author.href}
+          />
         </Col>
       </Row>
     </Footer>
