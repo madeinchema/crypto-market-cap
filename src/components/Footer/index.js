@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
-import { Container, Logo, Title, Link, Break, Menu } from './styles/footer';
+import { Link } from '..';
+import { Container, Logo, Title, Break, Menu } from './styles/footer';
 
 const Footer = ({ children, ...restProps }) => {
   return <Container {...restProps}>{children}</Container>;
@@ -16,10 +17,6 @@ Footer.Logo = function FooterLogo({ children, ...restProps }) {
 
 Footer.Title = function FooterTitle({ children, ...restProps }) {
   return <Title {...restProps}>{children}</Title>;
-};
-
-Footer.Link = function FooterLink({ children, ...restProps }) {
-  return <Link {...restProps}>{children}</Link>;
 };
 
 Footer.Break = function FooterBreak({ children, ...restProps }) {

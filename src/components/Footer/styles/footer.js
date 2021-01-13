@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Row as AntdRow, Col as AntdCol, Typography, Layout } from 'antd';
-import CMCLink from '../../Link/Link';
+import { Typography, Layout } from 'antd';
 
 const { Title: AntdTitle } = Typography;
 const { Footer } = Layout;
@@ -19,8 +18,6 @@ const Title = styled(AntdTitle)`
   }
 `;
 
-const Link = styled(CMCLink)``;
-
 const Break = styled.div`
   margin-bottom: 2rem;
   height: 0;
@@ -28,4 +25,4 @@ const Break = styled.div`
 
 const Menu = styled.div``;
 
-export { Container, Logo, Title, Link, Break, Menu };
+export { Container, Logo, Title, Break, Menu };
