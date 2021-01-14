@@ -12,7 +12,7 @@ Menu.Button = function MenuButton() {
   return <Button />;
 };
 
-Menu.List = function HeaderMenu(props) {
+Menu.List = function MenuList(props) {
   const { dataSource } = props;
   return (
     <List gutter={24}>
@@ -25,19 +25,18 @@ Menu.List = function HeaderMenu(props) {
   );
 };
 
-
-Menu.List.propTypes = {
-  children: PropTypes.node,,
+Menu.propTypes = {
+  children: PropTypes.node,
 };
-Menu.List.defaultProps = {
+Menu.defaultProps = {
   children: undefined,
 };
 
 Menu.List.propTypes = {
   dataSource: PropTypes.arrayOf(Object),
-}
+};
 Menu.List.defaultProps = {
   dataSource: undefined,
-}
+};
 
 export default Menu;
