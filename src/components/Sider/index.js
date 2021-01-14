@@ -1,12 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
+import { Menu } from '..';
 import {
   Container,
   Link,
   Logo,
   LogoText,
-  Menu,
-  MenuItem,
+  // Menu,
+  // MenuItem,
   Overlay,
 } from './styles/sider';
 
@@ -45,20 +46,8 @@ Sider.Link = function SiderLink({ linkData, ...restProps }) {
   return <Link linkData={linkData} href={linkData.href} {...restProps} />;
 };
 
-Sider.MenuItem = function SiderMenuItem({ children, ...restProps }) {
-  return <MenuItem {...restProps}>{children}</MenuItem>;
-};
-
 Sider.Menu = function SiderMenu({ dataSource, ...restProps }) {
-  return (
-    <Menu {...restProps}>
-      {dataSource.map((menuItem) => (
-        <MenuItem key={menuItem.id}>
-          <Link linkData={menuItem} href={menuItem.href} />
-        </MenuItem>
-      ))}
-    </Menu>
-  );
+  return <Menu.List dataSource={dataSource} />;
 };
 
 Sider.propTypes = {
@@ -99,13 +88,6 @@ Sider.Link.propTypes = {
 };
 Sider.Link.defaultProps = {
   linkData: undefined,
-};
-
-Sider.MenuItem.propTypes = {
-  children: PropTypes.node,
-};
-Sider.MenuItem.defaultProps = {
-  children: undefined,
 };
 
 Sider.Menu.propTypes = {
