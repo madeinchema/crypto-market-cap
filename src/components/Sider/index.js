@@ -1,15 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
 import { Menu } from '..';
-import {
-  Container,
-  Link,
-  Logo,
-  LogoText,
-  // Menu,
-  // MenuItem,
-  Overlay,
-} from './styles/sider';
+import { Container, Logo, LogoText, Overlay } from './styles/sider';
 
 const Sider = ({ children, collapsed, onCollapse, linkData, ...restProps }) => {
   return (
@@ -40,10 +32,6 @@ Sider.Logo = function SiderLogo({ logo, children, ...restProps }) {
       <LogoText level={5}>{children}</LogoText>
     </Logo>
   );
-};
-
-Sider.Link = function SiderLink({ linkData, ...restProps }) {
-  return <Link linkData={linkData} href={linkData.href} {...restProps} />;
 };
 
 Sider.Menu = function SiderMenu({ dataSource, ...restProps }) {
@@ -79,15 +67,6 @@ Sider.Logo.propTypes = {
 Sider.Logo.defaultProps = {
   children: undefined,
   logo: undefined,
-};
-
-Sider.Link.propTypes = {
-  linkData: PropTypes.shape({
-    href: PropTypes.string,
-  }),
-};
-Sider.Link.defaultProps = {
-  linkData: undefined,
 };
 
 Sider.Menu.propTypes = {
