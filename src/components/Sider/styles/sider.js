@@ -39,17 +39,6 @@ const LogoText = styled(Title)`
   }
 `;
 
-const Menu = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const MenuItem = styled.div`
-  width: 100%;
-  height: 3rem;
-  padding: 0.5rem 1.15rem;
-`;
-
 const Overlay = styled.div`
   visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
   height: 100%;
@@ -65,4 +54,4 @@ const Overlay = styled.div`
   transition: visibility 0.25s ease-out, opacity 0.25s ease-out;
 `;
 
-export { Container, Logo, LogoText, Menu, MenuItem, Overlay };
+export { Container, Logo, LogoText, Overlay };
