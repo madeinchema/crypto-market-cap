@@ -1,9 +1,8 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
 import { Menu } from '..';
 import { Container, Logo, LogoText, Overlay } from './styles/sider';
 
-const Sider = ({ children, collapsed, onCollapse, linkData, ...restProps }) => {
+const Sider = ({ children, collapsed, onCollapse }) => {
   return (
     <Container
       breakpoint="lg"
@@ -14,27 +13,26 @@ const Sider = ({ children, collapsed, onCollapse, linkData, ...restProps }) => {
       collapsedWidth={1}
       reverseArrow
       theme="light"
-      {...restProps}
     >
       {children}
     </Container>
   );
 };
 
-Sider.Overlay = function SiderOverlay({ collapsed, onCollapse, ...restProps }) {
-  return <Overlay {...restProps} show={!collapsed} onClick={onCollapse} />;
+Sider.Overlay = function SiderOverlay({ collapsed, onCollapse }) {
+  return <Overlay show={!collapsed} onClick={onCollapse} />;
 };
 
-Sider.Logo = function SiderLogo({ logo, children, ...restProps }) {
+Sider.Logo = function SiderLogo({ logo, children }) {
   return (
-    <Logo {...restProps}>
+    <Logo>
       {logo}
       <LogoText level={5}>{children}</LogoText>
     </Logo>
   );
 };
 
-Sider.Menu = function SiderMenu({ dataSource, ...restProps }) {
+Sider.Menu = function SiderMenu({ dataSource }) {
   return <Menu.List dataSource={dataSource} />;
 };
 
@@ -42,13 +40,11 @@ Sider.propTypes = {
   children: PropTypes.node,
   collapsed: PropTypes.bool,
   onCollapse: PropTypes.func,
-  linkData: PropTypes.objectOf(Object),
 };
 Sider.defaultProps = {
   children: undefined,
   collapsed: undefined,
   onCollapse: undefined,
-  linkData: undefined,
 };
 
 Sider.Overlay.propTypes = {
