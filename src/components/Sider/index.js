@@ -1,5 +1,6 @@
+import { Col, List } from 'antd';
 import PropTypes from 'prop-types';
-import { Menu } from '..';
+import { Link } from '..';
 import { Container, Logo, LogoText, Overlay } from './styles/sider';
 
 const Sider = ({ children, collapsed, onCollapse }) => {
@@ -32,8 +33,18 @@ Sider.Logo = function SiderLogo({ logo, children }) {
   );
 };
 
-Sider.Menu = function SiderMenu({ dataSource }) {
-  return <Menu.List dataSource={dataSource} />;
+Sider.Menu = function SiderMenu(props) {
+  const { dataSource } = props;
+  return (
+    <List gutter={24}>
+      {dataSource &&
+        dataSource.map((menuItem) => (
+          <Col key={menuItem.id}>
+            <Link linkData={menuItem} href={menuItem.href} />
+          </Col>
+        ))}
+    </List>
+  );
 };
 
 Sider.propTypes = {
