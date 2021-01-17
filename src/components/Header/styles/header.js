@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Row, Typography } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
 import colors from '../../../theme/colors.module.scss';
 
 const { Title } = Typography;
@@ -41,20 +40,4 @@ const LogoText = styled(Title)`
   }
 `;
 
-const Menu = styled.div``;
-
-const MenuButton = styled(MenuOutlined)`
-  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-    display: none;
-  }
-`;
-
-const MenuList = styled(Row)`
-  display: flex;
-  align-items: center;
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    display: none;
-  }
-`;
-
-export { Container, Logo, LogoText, Menu, MenuButton, MenuList };
+export { Container, Logo, LogoText };

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { MenuOutlined } from '@ant-design/icons';
+import { Space } from 'antd';
 
 const Container = styled.div``;
 
@@ -9,10 +10,8 @@ const Button = styled(MenuOutlined)`
   }
 `;
 
-const List = styled.ul`
-  display: flex;
-  align-items: center;
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+const List = styled(Space)`
+  @media (max-width: ${(props) => props.theme.breakpoints[props.breakpoint]}) {
     display: none;
   }
 `;
