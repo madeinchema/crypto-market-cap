@@ -14,9 +14,24 @@ Menu.Button = function MenuButton(props) {
 };
 
 Menu.List = function MenuList(props) {
-  const { dataSource } = props;
+  const {
+    dataSource,
+    breakpoint,
+    align,
+    direction,
+    spaceSize,
+    split,
+    wrap,
+  } = props;
   return (
-    <List gutter={24}>
+    <List
+      breakpoint={breakpoint}
+      align={align}
+      direction={direction}
+      spaceSize={spaceSize}
+      split={split}
+      wrap={wrap}
+    >
       {dataSource.map((menuItem) => (
         <Col key={menuItem.id}>
           <Link linkData={menuItem} href={menuItem.href} />
@@ -42,9 +57,29 @@ Menu.Button.defaultProps = {
 
 Menu.List.propTypes = {
   dataSource: PropTypes.arrayOf(Object),
+  breakpoint: PropTypes.string,
+  align: PropTypes.string,
+  direction: PropTypes.string,
+  spaceSize: PropTypes.oneOfType(
+    PropTypes.number,
+    PropTypes.arrayOf(
+      PropTypes.oneOfType(
+        PropTypes.number,
+        PropTypes.oneOf(['small', 'middle', 'large'])
+      )
+    )
+  ),
+  split: PropTypes.node,
+  wrap: PropTypes.bool,
 };
 Menu.List.defaultProps = {
   dataSource: undefined,
+  breakpoint: undefined,
+  align: undefined,
+  direction: undefined,
+  spaceSize: undefined,
+  split: undefined,
+  wrap: undefined,
 };
 
 export default Menu;
