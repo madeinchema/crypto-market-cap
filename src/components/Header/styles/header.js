@@ -1,11 +1,8 @@
-import styled, { css } from 'styled-components';
-import { Row, Col, Typography, Layout } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
+import styled from 'styled-components';
+import { Row, Typography } from 'antd';
 import colors from '../../../theme/colors.module.scss';
-import CMCLink from '../../CMCLink';
 
 const { Title } = Typography;
-const { Sider: AntdSider } = Layout;
 
 const Container = styled(Row)`
   align-items: center;
@@ -22,52 +19,12 @@ const Container = styled(Row)`
   }
 `;
 
-const Logo = styled(Title)`
-  &.ant-typography {
-    color: ${colors.gray10};
-    margin: 0;
-  }
-`;
-
-const Menu = styled.div``;
-
-const MenuButton = styled(MenuOutlined)`
-  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-    display: none;
-  }
-`;
-
-const MenuList = styled(Row)`
-  display: flex;
-  align-items: center;
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    display: none;
-  }
-`;
-
-const MenuItem = styled(Col)``;
-
-const MenuLink = styled(CMCLink)``;
-
-const MenuSider = styled(AntdSider)`
-  overflow: auto;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 4;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  .ant-menu-item:active,
-  .ant-menu-submenu-title:active {
-    background-color: ${colors.geekblue1};
-  }
-`;
-
-const MenuSiderLogo = styled.div`
+const Logo = styled.div`
   display: flex;
   align-items: center;
   height: 4rem;
-  padding: 1.15rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   .ant-typography {
     padding-left: 0.5rem;
     display: inline-block;
@@ -76,43 +33,11 @@ const MenuSiderLogo = styled.div`
   }
 `;
 
-const MenuSiderMenu = styled.div`
-  display: flex;
-  flex-direction: column;
+const LogoText = styled(Title)`
+  &.ant-typography {
+    color: ${colors.gray10};
+    margin: 0;
+  }
 `;
 
-const MenuSiderMenuItem = styled.div`
-  width: 100%;
-  height: 3rem;
-  padding: 0.5rem 1.15rem;
-`;
-
-const MenuSiderOverlay = styled.div`
-  visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 3;
-  opacity: ${(props) => (props.show ? 1 : 0)};
-  transition: visibility 0.25s ease-out, opacity 0.25s ease-out;
-`;
-
-export {
-  Container,
-  Logo,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuLink,
-  MenuSider,
-  MenuSiderMenu,
-  MenuSiderMenuItem,
-  MenuSiderLogo,
-  MenuSiderOverlay,
-};
+export { Container, Logo, LogoText };
