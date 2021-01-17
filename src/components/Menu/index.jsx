@@ -28,7 +28,7 @@ Menu.List = function MenuList(props) {
       breakpoint={breakpoint}
       align={align}
       direction={direction}
-      spaceSize={spaceSize}
+      size={spaceSize}
       split={split}
       wrap={wrap}
     >
