@@ -8,8 +8,9 @@ const Menu = (props) => {
   return <Container>{children}</Container>;
 };
 
-Menu.Button = function MenuButton() {
-  return <Button />;
+Menu.Button = function MenuButton(props) {
+  const { onClick } = props;
+  return <Button onClick={onClick} />;
 };
 
 Menu.List = function MenuList(props) {
@@ -30,6 +31,13 @@ Menu.propTypes = {
 };
 Menu.defaultProps = {
   children: undefined,
+};
+
+Menu.Button.propTypes = {
+  onClick: PropTypes.func,
+};
+Menu.Button.defaultProps = {
+  onClick: undefined,
 };
 
 Menu.List.propTypes = {
