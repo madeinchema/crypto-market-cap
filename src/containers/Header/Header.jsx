@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Logo from '../../assets/Logo';
-import { Header } from '../../components';
+import { Header, Menu } from '../../components';
 import headerMenuData from '../Footer/utils/constants/headerData';
 import SiderContainer from '../Sider/Sider';
 import './header.scss';
@@ -30,16 +30,22 @@ const HeaderContainer = () => {
   return (
     <Header>
       <Header.Logo logo={<Logo />}>CoinMarketCap</Header.Logo>
-      <Header.Menu
-        dataSource={headerMenuData}
-        siderLogo={<Logo />}
-        logoText="CryptoMarketCap"
-        openSider={openSider}
-      />
+
+      <Menu>
+        <Menu.Button onClick={openSider} />
+        <Menu.List
+          dataSource={headerMenuData}
+          breakpoint="lg"
+          spaceSize="middle"
+        />
+      </Menu>
+
       <SiderContainer
         dataSource={headerMenuData}
         onCollapse={closeSider}
         collapsed={collapsed}
+        logo={<Logo />}
+        logoText="CryptoMarketCap"
       />
     </Header>
   );
