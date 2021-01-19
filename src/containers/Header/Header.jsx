@@ -31,14 +31,14 @@ const HeaderContainer = () => {
     <Header>
       <Header.Logo logo={<Logo />}>CoinMarketCap</Header.Logo>
 
-      <Menu>
-        <Menu.Button onClick={openSider} />
-        <Menu.List
-          dataSource={headerMenuData}
-          breakpoint="lg"
-          spaceSize="middle"
-        />
-      </Menu>
+      <Header.Menu
+        menuButtonProps={{ openSider }}
+        menuListProps={{
+          dataSource: headerMenuData,
+          breakpoint: 'lg',
+          spaceSize: 'middle',
+        }}
+      />
 
       <SiderContainer
         dataSource={headerMenuData}
