@@ -1,5 +1,5 @@
 import { Col, Row } from 'antd';
-import { Footer, Link } from '../../components';
+import { Footer, Link, Menu } from '../../components';
 import './footer.scss';
 import { footerMenuData, footerBottomData } from './utils/constants/footerData';
 
@@ -16,13 +16,28 @@ const FooterContainer = () => {
 
       <Row justify="space-between" className="footer--menu">
         <Col xs={24} sm={8}>
-          <Footer.Menu dataSource={footerMenuData.products} />
+          <Menu>
+            <Menu.List
+              dataSource={footerMenuData.products.data}
+              direction="vertical"
+            />
+          </Menu>
         </Col>
         <Col xs={24} sm={8}>
-          <Footer.Menu dataSource={footerMenuData.development} />
+          <Menu>
+            <Menu.List
+              dataSource={footerMenuData.development.data}
+              direction="vertical"
+            />
+          </Menu>
         </Col>
         <Col xs={24} sm={8}>
-          <Footer.Menu dataSource={footerMenuData.otherProjects} />
+          <Menu>
+            <Menu.List
+              dataSource={footerMenuData.otherProjects.data}
+              direction="vertical"
+            />
+          </Menu>
         </Col>
       </Row>
 
