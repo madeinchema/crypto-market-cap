@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
+import { Menu } from '..';
 import { Container, Logo, LogoText } from './styles/header';
 
 const Header = (props) => {
@@ -21,6 +22,24 @@ Header.Logo = function HeaderLogo(props) {
       {logo}
       <LogoText level={3}>{children}</LogoText>
     </Logo>
+  );
+};
+
+Header.Menu = function HeaderMenu({
+  menuProps,
+  menuButtonProps,
+  menuListProps,
+}) {
+  return (
+    <Menu {...menuProps}>
+      <Menu.Button onClick={menuButtonProps.openSider} {...menuButtonProps} />
+      <Menu.List
+        dataSource={menuListProps.dataSource}
+        breakpoint={menuListProps.breakpoint || 'lg'}
+        spaceSize={menuListProps.spaceSize || 'middle'}
+        {...menuListProps}
+      />
+    </Menu>
   );
 };
 
