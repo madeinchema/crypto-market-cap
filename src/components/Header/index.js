@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
+import PropTypes from 'prop-types';
 import { Menu } from '..';
 import { Container, Logo, LogoText } from './styles/header';
 
@@ -41,6 +41,20 @@ Header.Menu = function HeaderMenu({
       />
     </Menu>
   );
+};
+
+Header.propTypes = {
+  children: PropTypes.node,
+  dataSource: PropTypes.arrayOf(Object),
+  siderLogo: PropTypes.node,
+  logoText: PropTypes.string,
+  openSider: PropTypes.func.isRequired,
+};
+Header.defaultProps = {
+  children: undefined,
+  dataSource: undefined,
+  siderLogo: undefined,
+  logoText: undefined,
 };
 
 export default Header;
