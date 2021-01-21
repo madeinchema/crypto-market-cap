@@ -25,13 +25,9 @@ Header.Logo = function HeaderLogo(props) {
   );
 };
 
-Header.Menu = function HeaderMenu({
-  menuProps,
-  menuButtonProps,
-  menuListProps,
-}) {
+Header.Menu = function HeaderMenu({ menuButtonProps, menuListProps }) {
   return (
-    <Menu {...menuProps}>
+    <Menu>
       <Menu.Button onClick={menuButtonProps.openSider} {...menuButtonProps} />
       <Menu.List
         dataSource={menuListProps.dataSource}
@@ -55,6 +51,21 @@ Header.defaultProps = {
   dataSource: undefined,
   siderLogo: undefined,
   logoText: undefined,
+};
+
+Header.Menu.propTypes = {
+  menuButtonProps: PropTypes.shape({
+    openSider: PropTypes.func,
+  }),
+  menuListProps: PropTypes.shape({
+    dataSource: PropTypes.arrayOf(Object),
+    breakpoint: PropTypes.string,
+    spaceSize: PropTypes.string,
+  }),
+};
+Header.Menu.defaultProps = {
+  menuButtonProps: undefined,
+  menuListProps: undefined,
 };
 
 export default Header;
