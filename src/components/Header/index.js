@@ -53,6 +53,15 @@ Header.defaultProps = {
   logoText: undefined,
 };
 
+Header.Logo.propTypes = {
+  logo: PropTypes.node,
+  children: PropTypes.node,
+};
+Header.Logo.defaultProps = {
+  logo: undefined,
+  children: undefined,
+};
+
 Header.Menu.propTypes = {
   menuButtonProps: PropTypes.shape({
     openSider: PropTypes.func,
