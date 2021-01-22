@@ -4,8 +4,6 @@ import './footer.scss';
 import { footerMenuData, footerBottomData } from './utils/constants/footerData';
 
 const FooterContainer = () => {
-  const { products, development, otherProjects } = footerMenuData;
-
   return (
     <Footer className="footer">
       <Row justify="space-between">
@@ -17,21 +15,17 @@ const FooterContainer = () => {
       <Footer.Break />
 
       <Row justify="space-between" className="footer--menu">
-        <Col xs={24} sm={8}>
-          <Menu>
-            <Menu.List dataSource={products.data} direction="vertical" />
-          </Menu>
-        </Col>
-        <Col xs={24} sm={8}>
-          <Menu>
-            <Menu.List dataSource={development.data} direction="vertical" />
-          </Menu>
-        </Col>
-        <Col xs={24} sm={8}>
-          <Menu>
-            <Menu.List dataSource={otherProjects.data} direction="vertical" />
-          </Menu>
-        </Col>
+        {Object.keys(footerMenuData).map((section) => (
+          <Col xs={24} sm={8} key={section}>
+            <Menu>
+              <Menu.List
+                dataSource={footerMenuData[section].data}
+                direction="vertical"
+                spaceSize="small"
+              />
+            </Menu>
+          </Col>
+        ))}
       </Row>
 
       <Row justify="space-between">
