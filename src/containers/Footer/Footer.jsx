@@ -1,7 +1,9 @@
-import { Col, Row } from 'antd';
+import { Col, Row, Typography } from 'antd';
 import { Footer, Link, Menu } from '../../components';
 import './footer.scss';
 import { footerMenuData, footerBottomData } from './utils/constants/footerData';
+
+const { Title } = Typography;
 
 const FooterContainer = () => {
   return (
@@ -18,6 +20,7 @@ const FooterContainer = () => {
         {Object.keys(footerMenuData).map((section) => (
           <Col xs={24} sm={8} key={section}>
             <Menu>
+              <Title level={3}>{footerMenuData[section].label}</Title>
               <Menu.List
                 dataSource={footerMenuData[section].data}
                 direction="vertical"
