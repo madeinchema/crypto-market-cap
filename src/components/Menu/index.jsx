@@ -32,11 +32,12 @@ Menu.List = function MenuList(props) {
       split={split}
       wrap={wrap}
     >
-      {dataSource.map((menuItem) => (
-        <Col key={menuItem.id}>
-          <Link linkData={menuItem} href={menuItem.href} />
-        </Col>
-      ))}
+      {dataSource &&
+        dataSource.map((menuItem) => (
+          <Col key={menuItem.id}>
+            <Link linkData={menuItem} href={menuItem.href} />
+          </Col>
+        ))}
     </List>
   );
 };
@@ -56,7 +57,7 @@ Menu.Button.defaultProps = {
 };
 
 Menu.List.propTypes = {
-  dataSource: PropTypes.arrayOf(Object),
+  dataSource: PropTypes.arrayOf(Object).isRequired,
   breakpoint: PropTypes.string,
   align: PropTypes.string,
   direction: PropTypes.string,
@@ -73,7 +74,6 @@ Menu.List.propTypes = {
   wrap: PropTypes.bool,
 };
 Menu.List.defaultProps = {
-  dataSource: undefined,
   breakpoint: undefined,
   align: undefined,
   direction: undefined,
