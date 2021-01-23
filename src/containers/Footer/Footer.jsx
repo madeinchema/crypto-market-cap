@@ -1,7 +1,9 @@
-import { Col, Row } from 'antd';
-import { Footer, Link } from '../../components';
+import { Col, Row, Typography } from 'antd';
+import { Footer, Link, Menu } from '../../components';
 import './footer.scss';
 import { footerMenuData, footerBottomData } from './utils/constants/footerData';
+
+const { Title } = Typography;
 
 const FooterContainer = () => {
   return (
@@ -15,15 +17,18 @@ const FooterContainer = () => {
       <Footer.Break />
 
       <Row justify="space-between" className="footer--menu">
-        <Col xs={24} sm={8}>
-          <Footer.Menu dataSource={footerMenuData.products} />
-        </Col>
-        <Col xs={24} sm={8}>
-          <Footer.Menu dataSource={footerMenuData.development} />
-        </Col>
-        <Col xs={24} sm={8}>
-          <Footer.Menu dataSource={footerMenuData.otherProjects} />
-        </Col>
+        {Object.keys(footerMenuData).map((section) => (
+          <Col xs={24} sm={8} key={section}>
+            <Menu>
+              <Title level={3}>{footerMenuData[section].label}</Title>
+              <Menu.List
+                dataSource={footerMenuData[section].data}
+                direction="vertical"
+                spaceSize="small"
+              />
+            </Menu>
+          </Col>
+        ))}
       </Row>
 
       <Row justify="space-between">
