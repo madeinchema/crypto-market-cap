@@ -1,4 +1,5 @@
 import { Col, Row, Typography } from 'antd';
+import Logo from '../../assets/Logo';
 import { Footer, Link, Menu } from '../../components';
 import './footer.scss';
 import { footerMenuData, footerBottomData } from './utils/constants/footerData';
@@ -10,7 +11,7 @@ const FooterContainer = () => {
     <Footer className="footer">
       <Row justify="space-between">
         <Col>
-          <Footer.Logo>Crypto Market Cap</Footer.Logo>
+          <Footer.Logo logo={<Logo />}>CryptoMarketCap</Footer.Logo>
         </Col>
       </Row>
 
