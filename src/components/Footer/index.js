@@ -1,16 +1,18 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import { Link } from '..';
-import { Container, Logo, Title, Break, Menu } from './styles/footer';
+import { Container, Logo, LogoText, Title, Break, Menu } from './styles/footer';
 
 const Footer = ({ children, ...restProps }) => {
   return <Container {...restProps}>{children}</Container>;
 };
 
-Footer.Logo = function FooterLogo({ children, ...restProps }) {
+Footer.Logo = function FooterLogo(props) {
+  const { logo, children } = props;
   return (
-    <Logo level={3} {...restProps}>
-      {children}
+    <Logo>
+      {logo}
+      <LogoText level={3}>{children}</LogoText>
     </Logo>
   );
 };
