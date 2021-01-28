@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getCoinData } from '../../utilities/api';
+import { getCoinDataFromApi } from '../../utilities/api';
 
 const Currency = () => {
   const [coinData, setCoinData] = useState(undefined);
@@ -8,7 +8,7 @@ const Currency = () => {
 
   useEffect(() => {
     if (id) {
-      getCoinData(id).then((data) => setCoinData(data));
+      getCoinDataFromApi(id).then((data) => setCoinData(data));
     }
   }, [id]);
 

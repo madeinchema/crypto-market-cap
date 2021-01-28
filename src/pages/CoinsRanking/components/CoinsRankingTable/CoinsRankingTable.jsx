@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'antd';
-import { getCoinsRanking } from '../../../../utilities/api';
+import { getCoinsRankingFromApi } from '../../../../utilities/api';
 import PriceChangeColumn from '../../../../components/PriceChange/PriceChange';
 import CoinColumn from './components/CoinsColumn/CoinsColumn';
 import CirculatingSupplyColumn from './components/CirculatingSupplyColumn';
@@ -100,7 +100,7 @@ const CoinsRankingTable = (props) => {
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      getCoinsRanking(currency).then((data) => setCryptosData(data));
+      getCoinsRankingFromApi(currency).then((data) => setCryptosData(data));
     }, 200);
     setLoading(false);
   }, [currency]);
