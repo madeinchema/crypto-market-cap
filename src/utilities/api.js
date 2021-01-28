@@ -1,11 +1,13 @@
+const COINGECKO_API_URL = 'https://api.coingecko.com/api/v3';
+
 const getCoinsRanking = (currency) => {
   return fetch(
-    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&price_change_percentage=24h,7d`
+    `${COINGECKO_API_URL}/coins/markets?vs_currency=${currency}&price_change_percentage=24h,7d`
   ).then((res) => res.json());
 };
 
 const getCryptoGlobalData = () => {
-  return fetch(`https://api.coingecko.com/api/v3/global`)
+  return fetch(`${COINGECKO_API_URL}/global`)
     .then((res) => res.json())
     .then(({ data }) => {
       const getCryptoGlobalDataFormatted = () => {
@@ -31,4 +33,20 @@ const getCryptoGlobalData = () => {
     });
 };
 
-export { getCoinsRanking, getCryptoGlobalData };
+const getCoinData = (coinId) => {
+  return fetch(`${COINGECKO_API_URL}/coins/${coinId}`)
+    .then((res) => res.json())
+    .then((data) => {
+      const getCoinDataFormatted = () => {
+        const { symbol, name } = data;
+        return {
+          symbol,
+          name,
+        };
+      };
+      const coinDataFormatted = getCoinDataFormatted();
+      return coinDataFormatted;
+    });
+};
+
+export { getCoinsRanking, getCryptoGlobalData, getCoinData };
