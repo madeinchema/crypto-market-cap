@@ -38,10 +38,13 @@ const getCoinDataFromApi = (coinId) => {
     .then((res) => res.json())
     .then((data) => {
       const getCoinDataFormatted = () => {
-        const { symbol, name } = data;
+        const { symbol, name, image, description, links } = data;
         return {
           symbol,
           name,
+          image,
+          description: description.en,
+          links,
         };
       };
       const coinDataFormatted = getCoinDataFormatted();
