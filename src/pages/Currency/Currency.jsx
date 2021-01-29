@@ -18,6 +18,7 @@ const Currency = () => {
 
   return !isLoading && coinData ? (
     <div>
+      <img src={coinData.image.small} alt="coin icon" />
       <div>
         {coinData.name} - {coinData.symbol}
       </div>
