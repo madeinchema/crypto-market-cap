@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Spin } from 'antd';
+import { Spin, Typography } from 'antd';
 import { getCoinDataFromApi } from '../../utilities/api';
+
+const { Title } = Typography;
 
 const Currency = () => {
   const [coinData, setCoinData] = useState(undefined);
@@ -19,9 +21,9 @@ const Currency = () => {
   return !isLoading && coinData ? (
     <div>
       <img src={coinData.image.small} alt="coin icon" />
-      <div>
-        {coinData.name} - {coinData.symbol}
-      </div>
+      <Title level={2}>
+        {coinData.name} - {coinData.symbol.toUpperCase()}
+      </Title>
     </div>
   ) : (
     <Spin />
