@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Spin, Tag, Typography } from 'antd';
+import { Space, Spin, Tag, Typography } from 'antd';
 import { getCoinDataFromApi } from '../../utilities/api';
 
 const { Title } = Typography;
@@ -11,8 +11,12 @@ const Currency = () => {
   const { id } = useParams();
 
   const currencyStyles = {
+    title: {
+      margin: 0,
+    },
     tag: {
       fontSize: '1rem',
+      fontWeight: 700,
     },
   };
 
@@ -25,13 +29,15 @@ const Currency = () => {
   }, [id]);
 
   return !isLoading && coinData ? (
-    <div>
+    <Space align="center">
       <img src={coinData.image.small} alt="coin icon" />
-      <Title level={2}>
-        {coinData.name}
+      <Space align="center">
+        <Title level={2} style={currencyStyles.title}>
+          {coinData.name}
+        </Title>
         <Tag style={currencyStyles.tag}>{coinData.symbol.toUpperCase()}</Tag>
-      </Title>
-    </div>
+      </Space>
+    </Space>
   ) : (
     <Spin />
   );
