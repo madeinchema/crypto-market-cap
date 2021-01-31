@@ -52,8 +52,36 @@ const getCoinDataFromApi = (coinId) => {
     });
 };
 
+const getCoinPriceDataFromApi = (coinId) => {
+  return fetch(
+    `${COINGECKO_API_URL}/simple/price?ids=${coinId}&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true" -H "accept: application/json"`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      const getCoinDataFormatted = () => {
+        const {
+          usd,
+          usd_market_cap: usdMarketCap,
+          usd_24h_vol: usd24hVol,
+          usd_24h_change: usd24hChange,
+          last_updated_at: lastUpdatedAt,
+        } = data[coinId];
+        return {
+          usd,
+          usdMarketCap,
+          usd24hVol,
+          usd24hChange,
+          lastUpdatedAt,
+        };
+      };
+      const coinDataFormatted = getCoinDataFormatted();
+      return coinDataFormatted;
+    });
+};
+
 export {
   getCoinsRankingFromApi,
   getCryptoGlobalDataFromApi,
   getCoinDataFromApi,
+  getCoinPriceDataFromApi,
 };
