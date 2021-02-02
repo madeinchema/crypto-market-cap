@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Col, Row, Space, Spin, Tag, Typography } from 'antd';
+import { Card, Col, Row, Space, Spin, Statistic, Tag, Typography } from 'antd';
 import {
   getCoinDataFromApi,
   getCoinPriceDataFromApi,
@@ -34,35 +34,58 @@ const Currency = () => {
   }, [id]);
 
   return !isLoading && coinData && coinPriceData ? (
-    <Row>
-      <Col span={24}>
-        <Space align="center">
-          <img src={coinData.image.small} alt="coin icon" />
-          <Title level={2} style={currencyStyles.title}>
-            {coinData.name}
-          </Title>
-          <Tag style={currencyStyles.tag}>{coinData.symbol.toUpperCase()}</Tag>
+    <Space size="large" direction="vertical">
+      <Row>
+        <Col span={24}>
+          <Space align="center">
+            <img src={coinData.image.small} alt="coin icon" />
+            <Title level={2} style={currencyStyles.title}>
+              {coinData.name}
+            </Title>
+            <Tag style={currencyStyles.tag}>
+              {coinData.symbol.toUpperCase()}
+            </Tag>
+          </Space>
+        </Col>
+      </Row>
+      <Row>
+        <Space>
+          <Col span="auto">
+            <Card>
+              <Statistic
+                title="Market Cap"
+                prefix="USD"
+                value={coinPriceData.usdMarketCap}
+                precision={2}
+                style={currencyStyles.title}
+              />
+            </Card>
+          </Col>
+          <Col span="auto">
+            <Card>
+              <Statistic
+                title="24h Volume"
+                prefix="USD"
+                value={coinPriceData.usd24hVol}
+                precision={2}
+                style={currencyStyles.title}
+              />
+            </Card>
+          </Col>
+          <Col span="auto">
+            <Card>
+              <Statistic
+                title="24h Change"
+                suffix="%"
+                value={coinPriceData.usd24hChange}
+                precision={2}
+                style={currencyStyles.title}
+              />
+            </Card>
+          </Col>
         </Space>
-      </Col>
-
-      <Col span={24}>
-        <Space align="center">
-          <Title level={2} style={currencyStyles.title}>
-            {coinPriceData.usdMarketCap}
-          </Title>
-        </Space>
-      </Col>
-
-      <Col span={24}>
-        <Space align="center" direction="vertical">
-          <Title style={currencyStyles.tag}>{coinPriceData.usd24hVol}</Title>
-          <Title style={currencyStyles.tag}>{coinPriceData.usd24hChange}</Title>
-          <Title style={currencyStyles.tag}>
-            {coinPriceData.lastUpdatedAt}
-          </Title>
-        </Space>
-      </Col>
-    </Row>
+      </Row>
+    </Space>
   ) : (
     <Spin />
   );
