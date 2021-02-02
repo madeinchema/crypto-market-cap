@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Card, Col, Row, Space, Spin, Statistic, Tag, Typography } from 'antd';
+import {
+  Card,
+  Col,
+  Row,
+  Space,
+  Skeleton,
+  Statistic,
+  Tag,
+  Typography,
+} from 'antd';
 import {
   getCoinDataFromApi,
   getCoinPriceDataFromApi,
@@ -87,7 +96,7 @@ const Currency = () => {
       </Row>
     </Space>
   ) : (
-    <Spin />
+    <Skeleton active avatar paragraph={{ rows: 4 }} />
   );
 };
 
