@@ -27,6 +27,10 @@ const Currency = () => {
     title: {
       margin: 0,
     },
+    symbol: {
+      opacity: 0.5,
+      fontSize: '1.5rem',
+    },
     tag: {
       fontSize: '1rem',
       fontWeight: 700,
@@ -46,14 +50,21 @@ const Currency = () => {
     <Space size="large" direction="vertical">
       <Row>
         <Col span={24}>
-          <Space align="center">
+          <Space>
             <img src={coinData.image.small} alt="coin icon" />
-            <Title level={2} style={currencyStyles.title}>
-              {coinData.name}
-            </Title>
-            <Tag style={currencyStyles.tag}>
-              {coinData.symbol.toUpperCase()}
-            </Tag>
+            <Space align="start" direction="vertical">
+              <div>
+                <Title level={2} style={currencyStyles.title}>
+                  {coinData.name}{' '}
+                  <span style={currencyStyles.symbol}>
+                    {coinData.symbol.toUpperCase()}
+                  </span>
+                </Title>
+              </div>
+              <Tag style={currencyStyles.tag}>
+                Rank #{coinData.marketCapRank}
+              </Tag>
+            </Space>
           </Space>
         </Col>
       </Row>
