@@ -34,17 +34,33 @@ const getCryptoGlobalDataFromApi = () => {
 };
 
 const getCoinDataFromApi = (coinId) => {
-  return fetch(`${COINGECKO_API_URL}/coins/${coinId}`)
+  return fetch(
+    `${COINGECKO_API_URL}/coins/${coinId}?tickers=true&market_data=true&community_data=true&developer_data=true&sparkline=true`
+  )
     .then((res) => res.json())
     .then((data) => {
       const getCoinDataFormatted = () => {
-        const { symbol, name, image, description, links } = data;
+        const {
+          symbol,
+          name,
+          image,
+          description,
+          links,
+          market_cap_rank: marketCapRank,
+          market_data: {
+            market_cap: { usd: usdMarketCap },
+            market_cap_change_percentage_24h: usd24hChange,
+          },
+        } = data;
         return {
           symbol,
           name,
           image,
           description: description.en,
           links,
+          marketCapRank,
+          usdMarketCap,
+          usd24hChange,
         };
       };
       const coinDataFormatted = getCoinDataFormatted();
@@ -59,23 +75,13 @@ const getCoinPriceDataFromApi = (coinId) => {
     .then((res) => res.json())
     .then((data) => {
       const getCoinDataFormatted = () => {
-        const {
-          usd,
-          usd_market_cap: usdMarketCap,
-          usd_24h_vol: usd24hVol,
-          usd_24h_change: usd24hChange,
-          last_updated_at: lastUpdatedAt,
-        } = data[coinId];
+        const { usd_24h_vol: usd24hVol } = data[coinId];
         return {
-          usd,
-          usdMarketCap,
           usd24hVol,
-          usd24hChange,
-          lastUpdatedAt,
         };
       };
-      const coinDataFormatted = getCoinDataFormatted();
-      return coinDataFormatted;
+      const coinPriceDataFormatted = getCoinDataFormatted();
+      return coinPriceDataFormatted;
     });
 };
 

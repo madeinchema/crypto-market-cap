@@ -75,7 +75,7 @@ const Currency = () => {
               <Statistic
                 title="Market Cap"
                 prefix="USD"
-                value={coinPriceData.usdMarketCap}
+                value={coinData.usdMarketCap}
                 precision={2}
                 style={currencyStyles.title}
               />
@@ -97,7 +97,7 @@ const Currency = () => {
               <Statistic
                 title="24h Change"
                 suffix="%"
-                value={coinPriceData.usd24hChange}
+                value={coinData.usd24hChange}
                 precision={2}
                 style={currencyStyles.title}
               />
