@@ -47,28 +47,24 @@ const Currency = () => {
   }, [id]);
 
   return !isLoading && coinData && coinPriceData ? (
-    <Space size="large" direction="vertical">
-      <Row>
-        <Col span={24}>
-          <Space>
-            <img src={coinData.image.small} alt="coin icon" />
-            <Space align="start" direction="vertical">
-              <div>
-                <Title level={2} style={currencyStyles.title}>
-                  {coinData.name}{' '}
-                  <span style={currencyStyles.symbol}>
-                    {coinData.symbol.toUpperCase()}
-                  </span>
-                </Title>
-              </div>
-              <Tag style={currencyStyles.tag}>
-                Rank #{coinData.marketCapRank}
-              </Tag>
-            </Space>
+    <Row justify="space-between">
+      <Col lg={24} xl={8}>
+        <Space>
+          <img src={coinData.image.small} alt="coin icon" />
+          <Space align="start" direction="vertical">
+            <div>
+              <Title level={2} style={currencyStyles.title}>
+                {coinData.name}{' '}
+                <span style={currencyStyles.symbol}>
+                  {coinData.symbol.toUpperCase()}
+                </span>
+              </Title>
+            </div>
+            <Tag style={currencyStyles.tag}>Rank #{coinData.marketCapRank}</Tag>
           </Space>
-        </Col>
-      </Row>
-      <Row>
+        </Space>
+      </Col>
+      <Col lg={24} xl={16}>
         <Space>
           <Col span="auto">
             <Card>
@@ -104,8 +100,8 @@ const Currency = () => {
             </Card>
           </Col>
         </Space>
-      </Row>
-    </Space>
+      </Col>
+    </Row>
   ) : (
     <Skeleton active avatar paragraph={{ rows: 4 }} />
   );
