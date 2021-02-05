@@ -47,8 +47,8 @@ const Currency = () => {
   }, [id]);
 
   return !isLoading && coinData && coinPriceData ? (
-    <Row justify="space-between">
-      <Col lg={24} xl={8}>
+    <Row justify="space-between" gutter={[0, 24]}>
+      <Col span="auto">
         <Space>
           <img src={coinData.image.small} alt="coin icon" />
           <Space align="start" direction="vertical">
@@ -64,9 +64,10 @@ const Currency = () => {
           </Space>
         </Space>
       </Col>
-      <Col lg={24} xl={16}>
-        <Space>
-          <Col span="auto">
+
+      <Col span="auto">
+        <Row>
+          <Col flex="auto">
             <Card>
               <Statistic
                 title="Market Cap"
@@ -77,7 +78,8 @@ const Currency = () => {
               />
             </Card>
           </Col>
-          <Col span="auto">
+
+          <Col flex="auto">
             <Card>
               <Statistic
                 title="24h Volume"
@@ -88,7 +90,8 @@ const Currency = () => {
               />
             </Card>
           </Col>
-          <Col span="auto">
+
+          <Col flex="auto">
             <Card>
               <Statistic
                 title="24h Change"
@@ -99,7 +102,7 @@ const Currency = () => {
               />
             </Card>
           </Col>
-        </Space>
+        </Row>
       </Col>
     </Row>
   ) : (
