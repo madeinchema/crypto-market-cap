@@ -85,9 +85,32 @@ const getCoinPriceDataFromApi = (coinId) => {
     });
 };
 
+const getCoinChartDataFromApi = (coinId) => {
+  return fetch(
+    `${COINGECKO_API_URL}/coins/${coinId}/ohlc?vs_currency=usd&days=30`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      const getCoinChartDataFormatted = () => {
+        return data.map((candlestick) => {
+          return {
+            trade_date: candlestick[0],
+            open: candlestick[1],
+            high: candlestick[2],
+            low: candlestick[3],
+            close: candlestick[4],
+          };
+        });
+      };
+      const coinChartDataFormatted = getCoinChartDataFormatted();
+      return coinChartDataFormatted;
+    });
+};
+
 export {
   getCoinsRankingFromApi,
   getCryptoGlobalDataFromApi,
   getCoinDataFromApi,
   getCoinPriceDataFromApi,
+  getCoinChartDataFromApi,
 };
