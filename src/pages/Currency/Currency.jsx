@@ -47,7 +47,7 @@ const Currency = () => {
   }, [id]);
 
   return !isLoading && coinData && coinPriceData ? (
-    <Row justify="space-between" gutter={[0, 24]}>
+    <Row justify="space-between" align="middle" gutter={[0, 24]}>
       <Col span="auto">
         <Space>
           <img src={coinData.image.small} alt="coin icon" />
