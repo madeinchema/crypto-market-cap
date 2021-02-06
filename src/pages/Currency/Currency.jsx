@@ -10,9 +10,11 @@ import {
   Tag,
   Typography,
 } from 'antd';
+import { Stock } from '@ant-design/charts';
 import {
   getCoinDataFromApi,
   getCoinPriceDataFromApi,
+  getCoinChartDataFromApi,
 } from '../../utilities/api';
 
 const { Title } = Typography;
@@ -20,6 +22,7 @@ const { Title } = Typography;
 const Currency = () => {
   const [coinData, setCoinData] = useState(undefined);
   const [coinPriceData, setCoinPriceData] = useState(undefined);
+  const [coinChartData, setCoinChartData] = useState(undefined);
   const [isLoading, setIsLoading] = useState(undefined);
   const { id } = useParams();
 
@@ -42,65 +45,87 @@ const Currency = () => {
       setIsLoading(true);
       getCoinDataFromApi(id).then((data) => setCoinData(data));
       getCoinPriceDataFromApi(id).then((data) => setCoinPriceData(data));
+      getCoinChartDataFromApi(id).then((data) => setCoinChartData(data));
       setIsLoading(false);
     }
   }, [id]);
 
   return !isLoading && coinData && coinPriceData ? (
-    <Row justify="space-between" align="middle" gutter={[0, 24]}>
-      <Col span="auto">
-        <Space>
-          <img src={coinData.image.small} alt="coin icon" />
-          <Space align="start" direction="vertical">
-            <div>
-              <Title level={2} style={currencyStyles.title}>
-                {coinData.name}{' '}
-                <span style={currencyStyles.symbol}>
-                  {coinData.symbol.toUpperCase()}
-                </span>
-              </Title>
-            </div>
-            <Tag style={currencyStyles.tag}>Rank #{coinData.marketCapRank}</Tag>
-          </Space>
-        </Space>
+    <Row>
+      <Col span={24}>
+        <Row justify="space-between" align="middle" gutter={[0, 24]}>
+          <Col span="auto">
+            <Space>
+              <img src={coinData.image.small} alt="coin icon" />
+              <Space align="start" direction="vertical">
+                <div>
+                  <Title level={2} style={currencyStyles.title}>
+                    {coinData.name}{' '}
+                    <span style={currencyStyles.symbol}>
+                      {coinData.symbol.toUpperCase()}
+                    </span>
+                  </Title>
+                </div>
+                <Tag style={currencyStyles.tag}>
+                  Rank #{coinData.marketCapRank}
+                </Tag>
+              </Space>
+            </Space>
+          </Col>
+
+          <Col span="auto">
+            <Row>
+              <Col flex="auto">
+                <Card>
+                  <Statistic
+                    title="Market Cap"
+                    prefix="USD"
+                    value={coinData.usdMarketCap}
+                    precision={2}
+                    style={currencyStyles.title}
+                  />
+                </Card>
+              </Col>
+
+              <Col flex="auto">
+                <Card>
+                  <Statistic
+                    title="24h Volume"
+                    prefix="USD"
+                    value={coinPriceData.usd24hVol}
+                    precision={2}
+                    style={currencyStyles.title}
+                  />
+                </Card>
+              </Col>
+
+              <Col flex="auto">
+                <Card>
+                  <Statistic
+                    title="24h Change"
+                    suffix="%"
+                    value={coinData.usd24hChange}
+                    precision={2}
+                    style={currencyStyles.title}
+                  />
+                </Card>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
       </Col>
-
-      <Col span="auto">
+      <Col span={24}>
         <Row>
-          <Col flex="auto">
-            <Card>
-              <Statistic
-                title="Market Cap"
-                prefix="USD"
-                value={coinData.usdMarketCap}
-                precision={2}
-                style={currencyStyles.title}
+          <Col span={24}>
+            {coinChartData && (
+              <Stock
+                width="100%"
+                height={400}
+                data={coinChartData}
+                xField="trade_date"
+                yField={['open', 'close', 'high', 'low']}
               />
-            </Card>
-          </Col>
-
-          <Col flex="auto">
-            <Card>
-              <Statistic
-                title="24h Volume"
-                prefix="USD"
-                value={coinPriceData.usd24hVol}
-                precision={2}
-                style={currencyStyles.title}
-              />
-            </Card>
-          </Col>
-
-          <Col flex="auto">
-            <Card>
-              <Statistic
-                title="24h Change"
-                suffix="%"
-                value={coinData.usd24hChange}
-                precision={2}
-                style={currencyStyles.title}
-              />
-            </Card>
+            )}
           </Col>
         </Row>
       </Col>
