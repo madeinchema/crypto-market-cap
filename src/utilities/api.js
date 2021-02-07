@@ -1,3 +1,5 @@
+import * as dayjs from 'dayjs';
+
 const COINGECKO_API_URL = 'https://api.coingecko.com/api/v3';
 
 const getCoinsRankingFromApi = (currency) => {
@@ -93,8 +95,11 @@ const getCoinChartDataFromApi = (coinId) => {
     .then((data) => {
       const getCoinChartDataFormatted = () => {
         return data.map((candlestick) => {
+          const tradeDateFormatted = dayjs(candlestick[0]).format(
+            'YYYY-MM-DD HH:mm'
+          );
           return {
-            trade_date: candlestick[0],
+            trade_date: tradeDateFormatted,
             open: candlestick[1],
             high: candlestick[2],
             low: candlestick[3],
