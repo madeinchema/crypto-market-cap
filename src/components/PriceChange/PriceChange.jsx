@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './price-change.scss';
 
-const PriceChangeColumn = (props) => {
+const PriceChange = (props) => {
   const { priceChange, suffix, prefix, className, showChange } = props;
   const hasPriceChanged = priceChange && priceChange !== 0;
   const hasPriceChangedNegatively = priceChange && priceChange < 0;
@@ -16,7 +16,6 @@ const PriceChangeColumn = (props) => {
 
   return (
     <span
-      // style={hasPriceChanged && priceChangeStyle}
       className={`price-change ${className || ''} ${
         showChange && priceChangeClassName
       }`}
@@ -28,14 +27,14 @@ const PriceChangeColumn = (props) => {
   );
 };
 
-PriceChangeColumn.propTypes = {
+PriceChange.propTypes = {
   priceChange: PropTypes.number,
   prefix: PropTypes.string,
   suffix: PropTypes.string,
   className: PropTypes.string,
   showChange: PropTypes.bool,
 };
-PriceChangeColumn.defaultProps = {
+PriceChange.defaultProps = {
   priceChange: undefined,
   prefix: undefined,
   suffix: '%',
@@ -43,4 +42,4 @@ PriceChangeColumn.defaultProps = {
   showChange: undefined,
 };
 
-export default PriceChangeColumn;
+export default PriceChange;
