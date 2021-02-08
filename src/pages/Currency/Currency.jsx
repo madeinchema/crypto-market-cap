@@ -16,6 +16,7 @@ import {
   getCoinPriceDataFromApi,
   getCoinChartDataFromApi,
 } from '../../utilities/api';
+import './currency.scss';
 
 const { Title } = Typography;
 
@@ -25,20 +26,6 @@ const Currency = () => {
   const [coinChartData, setCoinChartData] = useState(undefined);
   const [isLoading, setIsLoading] = useState(undefined);
   const { id } = useParams();
-
-  const currencyStyles = {
-    title: {
-      margin: 0,
-    },
-    symbol: {
-      opacity: 0.5,
-      fontSize: '1.5rem',
-    },
-    tag: {
-      fontSize: '1rem',
-      fontWeight: 700,
-    },
-  };
 
   useEffect(() => {
     if (id) {
@@ -59,14 +46,14 @@ const Currency = () => {
               <img src={coinData.image.small} alt="coin icon" />
               <Space align="start" direction="vertical">
                 <div>
-                  <Title level={2} style={currencyStyles.title}>
+                  <Title level={2} className="currency__title">
                     {coinData.name}{' '}
-                    <span style={currencyStyles.symbol}>
+                    <span className="currency__symbol">
                       {coinData.symbol.toUpperCase()}
                     </span>
                   </Title>
                 </div>
-                <Tag style={currencyStyles.tag}>
+                <Tag className="currency__tag">
                   Rank #{coinData.marketCapRank}
                 </Tag>
               </Space>
@@ -82,7 +69,7 @@ const Currency = () => {
                     prefix="USD"
                     value={coinData.usdMarketCap}
                     precision={2}
-                    style={currencyStyles.title}
+                    className="currency__title"
                   />
                 </Card>
               </Col>
@@ -94,7 +81,7 @@ const Currency = () => {
                     prefix="USD"
                     value={coinPriceData.usd24hVol}
                     precision={2}
-                    style={currencyStyles.title}
+                    className="currency__title"
                   />
                 </Card>
               </Col>
@@ -106,7 +93,7 @@ const Currency = () => {
                     suffix="%"
                     value={coinData.usd24hChange}
                     precision={2}
-                    style={currencyStyles.title}
+                    className="currency__title"
                   />
                 </Card>
               </Col>
@@ -134,7 +121,5 @@ const Currency = () => {
     <Skeleton active avatar paragraph={{ rows: 4 }} />
   );
 };
-
-Currency.propTypes = {};
 
 export default Currency;
