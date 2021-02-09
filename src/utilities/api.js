@@ -77,9 +77,10 @@ const getCoinPriceDataFromApi = (coinId) => {
     .then((res) => res.json())
     .then((data) => {
       const getCoinDataFormatted = () => {
-        const { usd_24h_vol: usd24hVol } = data[coinId];
+        const { usd_24h_vol: usd24hVol, usd: usdPrice } = data[coinId];
         return {
           usd24hVol,
+          usdPrice,
         };
       };
       const coinPriceDataFormatted = getCoinDataFormatted();
