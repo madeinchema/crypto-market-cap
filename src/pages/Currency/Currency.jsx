@@ -61,43 +61,57 @@ const Currency = () => {
           </Col>
 
           <Col span="auto">
-            <Row>
-              <Col flex="auto">
-                <Card>
+            <Space size="middle">
+              <Row align="middle">
+                <Col flex="auto">
                   <Statistic
-                    title="Market Cap"
+                    title="Price"
                     prefix="USD"
-                    value={coinData.usdMarketCap}
+                    value={coinPriceData.usdPrice}
                     precision={2}
-                    className="currency__title"
+                    className="currency__price"
                   />
-                </Card>
-              </Col>
+                </Col>
+              </Row>
 
-              <Col flex="auto">
-                <Card>
-                  <Statistic
-                    title="24h Volume"
-                    prefix="USD"
-                    value={coinPriceData.usd24hVol}
-                    precision={2}
-                    className="currency__title"
-                  />
-                </Card>
-              </Col>
+              <Row align="middle">
+                <Col flex="auto">
+                  <Card>
+                    <Statistic
+                      title="Market Cap"
+                      prefix="USD"
+                      value={coinData.usdMarketCap}
+                      precision={2}
+                      className="currency__title"
+                    />
+                  </Card>
+                </Col>
 
-              <Col flex="auto">
-                <Card>
-                  <Statistic
-                    title="24h Change"
-                    suffix="%"
-                    value={coinData.usd24hChange}
-                    precision={2}
-                    className="currency__title"
-                  />
-                </Card>
-              </Col>
-            </Row>
+                <Col flex="auto">
+                  <Card>
+                    <Statistic
+                      title="24h Volume"
+                      prefix="USD"
+                      value={coinPriceData.usd24hVol}
+                      precision={2}
+                      className="currency__title"
+                    />
+                  </Card>
+                </Col>
+
+                <Col flex="auto">
+                  <Card>
+                    <Statistic
+                      title="24h Change"
+                      suffix="%"
+                      value={coinData.usd24hChange}
+                      precision={2}
+                      className="currency__title"
+                    />
+                  </Card>
+                </Col>
+              </Row>
+            </Space>
           </Col>
         </Row>
       </Col>
