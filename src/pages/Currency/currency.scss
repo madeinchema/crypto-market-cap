@@ -1,5 +1,7 @@
 .currency__title {
-  margin: 0;
+  &.ant-typography {
+    margin: 0;
+  }
 }
 
 .currency__symbol {
