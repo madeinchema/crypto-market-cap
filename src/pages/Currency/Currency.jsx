@@ -40,30 +40,29 @@ const Currency = () => {
   return !isLoading && coinData && coinPriceData ? (
     <Row>
       <Col span={24}>
-        <Row justify="space-between" align="middle" gutter={[0, 24]}>
-          <Col span="auto">
-            <Space>
-              <img src={coinData.image.small} alt="coin icon" />
-              <Space align="start" direction="vertical">
-                <div>
-                  <Title level={2} className="currency__title">
-                    {coinData.name}{' '}
-                    <span className="currency__symbol">
-                      {coinData.symbol.toUpperCase()}
-                    </span>
-                  </Title>
-                </div>
-                <Tag className="currency__tag">
-                  Rank #{coinData.marketCapRank}
-                </Tag>
-              </Space>
-            </Space>
-          </Col>
-
-          <Col span="auto">
-            <Space size="middle">
-              <Row align="middle">
-                <Col flex="auto">
+        <Row justify="space-between" align="middle" gutter={[24, 24]}>
+          <Col span="auto" flex="1">
+            <Row align="middle">
+              <Col span="auto" flex="auto">
+                <Space align="center">
+                  <img src={coinData.image.small} alt="coin icon" />
+                  <Space align="start" direction="vertical">
+                    <div>
+                      <Title level={2} className="currency__title">
+                        {coinData.name}{' '}
+                        <span className="currency__symbol">
+                          {coinData.symbol.toUpperCase()}
+                        </span>
+                      </Title>
+                    </div>
+                    <Tag className="currency__tag">
+                      Rank #{coinData.marketCapRank}
+                    </Tag>
+                  </Space>
+                </Space>
+              </Col>
+              <Col flex="auto">
+                <Row align="middle" justify="end">
                   <Statistic
                     title="Price"
                     prefix="USD"
@@ -71,9 +70,13 @@ const Currency = () => {
                     precision={2}
                     className="currency__price"
                   />
-                </Col>
-              </Row>
+                </Row>
+              </Col>
+            </Row>
+          </Col>
 
+          <Col span="auto">
+            <Space size="middle">
               <Row align="middle">
                 <Col flex="auto">
                   <Card>
@@ -115,6 +118,7 @@ const Currency = () => {
           </Col>
         </Row>
       </Col>
+
       <Col span={24}>
         <Row>
           <Col span={24}>
