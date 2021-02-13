@@ -3,6 +3,7 @@ import { Row, Col, Spin } from 'antd';
 import { Stock } from '@ant-design/charts';
 import { useParams } from 'react-router-dom';
 import { getCoinChartDataFromApi } from '../../../utilities/api';
+import '../currency.scss';
 
 const CurrencyPriceChart = () => {
   const [coinChartData, setCoinChartData] = useState(undefined);
@@ -30,7 +31,7 @@ const CurrencyPriceChart = () => {
       </Col>
     </Row>
   ) : (
-    <Row style={{ height: '200px' }} justify="center" align="middle">
+    <Row className="currency-price-chart" justify="center" align="middle">
       <Col span="auto">
         <Spin size="large" />
       </Col>
