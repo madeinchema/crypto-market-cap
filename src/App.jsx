@@ -13,6 +13,7 @@ import HeaderContainer from './containers/Header/Header';
 import theme from './theme/theme';
 import Currency from './pages/Currency/Currency';
 import './app.scss';
+import ScrollToTop from './utilities/ScrollToTop';
 
 const { Content } = Layout;
 
@@ -25,6 +26,7 @@ const App = () => {
         <HeaderContainer />
         <Layout>
           <Content className="app--content">
+            <ScrollToTop />
             <Switch>
               <Route exact path="/">
                 <CoinsRanking currency={currency} />
