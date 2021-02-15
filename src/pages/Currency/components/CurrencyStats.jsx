@@ -34,7 +34,7 @@ const CurrencyStats = () => {
 
   return !isLoading && coinData && coinPriceData ? (
     <Row justify="space-between" align="middle" gutter={[24, 24]}>
-      <Col span="auto" flex="1">
+      <Col flex="1" lg={{ span: 24 }} xl={{ span: 12 }}>
         <Row align="middle">
           <Col span="auto" flex="auto">
             <Space align="center">
@@ -68,7 +68,7 @@ const CurrencyStats = () => {
         </Row>
       </Col>
 
-      <Col span="auto">
+      <Col lg={{ span: 24 }} xl={{ span: 12 }}>
         <Space size="middle">
           <Row align="middle">
             <Col flex="auto">
