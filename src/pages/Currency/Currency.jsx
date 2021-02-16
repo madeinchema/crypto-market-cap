@@ -5,7 +5,7 @@ import CurrencyPriceChart from './components/CurrencyPriceChart';
 
 const Currency = () => {
   return (
-    <Row>
+    <Row gutter={[24, 24]}>
       <Col span={24}>
         <CurrencyStats />
       </Col>

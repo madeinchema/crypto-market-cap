@@ -34,7 +34,7 @@ const CurrencyStats = () => {
 
   return !isLoading && coinData && coinPriceData ? (
     <Row justify="space-between" align="middle" gutter={[24, 24]}>
-      <Col flex="1" lg={{ span: 24 }} xl={{ span: 12 }}>
+      <Col flex="1" xs={{ span: 24 }} xl={{ span: 24 }} xxl={{ span: 12 }}>
         <Row align="middle">
           <Col span="auto" flex="auto">
             <Space align="center">
@@ -68,46 +68,44 @@ const CurrencyStats = () => {
         </Row>
       </Col>
 
-      <Col lg={{ span: 24 }} xl={{ span: 12 }}>
-        <Space size="middle">
-          <Row align="middle">
-            <Col flex="auto">
-              <Card>
-                <Statistic
-                  title="Market Cap"
-                  prefix="USD"
-                  value={coinData.usdMarketCap}
-                  precision={2}
-                  className="currency__title"
-                />
-              </Card>
-            </Col>
+      <Col xs={{ span: 24 }} xl={{ span: 24 }} xxl={{ span: 12 }}>
+        <Row align="middle">
+          <Col flex="auto">
+            <Card>
+              <Statistic
+                title="Market Cap"
+                prefix="USD"
+                value={coinData.usdMarketCap}
+                precision={2}
+                className="currency__title"
+              />
+            </Card>
+          </Col>
 
-            <Col flex="auto">
-              <Card>
-                <Statistic
-                  title="24h Volume"
-                  prefix="USD"
-                  value={coinPriceData.usd24hVol}
-                  precision={2}
-                  className="currency__title"
-                />
-              </Card>
-            </Col>
+          <Col flex="auto">
+            <Card>
+              <Statistic
+                title="24h Volume"
+                prefix="USD"
+                value={coinPriceData.usd24hVol}
+                precision={2}
+                className="currency__title"
+              />
+            </Card>
+          </Col>
 
-            <Col flex="auto">
-              <Card>
-                <Statistic
-                  title="24h Change"
-                  suffix="%"
-                  value={coinData.usd24hChange}
-                  precision={2}
-                  className="currency__title"
-                />
-              </Card>
-            </Col>
-          </Row>
-        </Space>
+          <Col flex="auto">
+            <Card>
+              <Statistic
+                title="24h Change"
+                suffix="%"
+                value={coinData.usd24hChange}
+                precision={2}
+                className="currency__title"
+              />
+            </Card>
+          </Col>
+        </Row>
       </Col>
     </Row>
   ) : (
