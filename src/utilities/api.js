@@ -88,9 +88,9 @@ const getCoinPriceDataFromApi = (coinId) => {
     });
 };
 
-const getCoinChartDataFromApi = (coinId) => {
+const getCoinChartDataFromApi = (coinId, timeFrame) => {
   return fetch(
-    `${COINGECKO_API_URL}/coins/${coinId}/ohlc?vs_currency=usd&days=30`
+    `${COINGECKO_API_URL}/coins/${coinId}/ohlc?vs_currency=usd&days=${timeFrame}`
   )
     .then((res) => res.json())
     .then((data) => {
