@@ -2,23 +2,9 @@ import { useEffect, useState } from 'react';
 import { Row, Col, Spin, Radio } from 'antd';
 import { Stock } from '@ant-design/charts';
 import { useParams } from 'react-router-dom';
-import { getCoinChartDataFromApi } from '../../../utilities/api';
-import '../currency.scss';
-
-const TIME_FRAMES = {
-  '1y': {
-    daysQty: 365,
-    label: '1y',
-  },
-  '30d': {
-    daysQty: 30,
-    label: '30d',
-  },
-  '24hs': {
-    daysQty: 1,
-    label: '24hs',
-  },
-};
+import { getCoinChartDataFromApi } from '../../../../utilities/api';
+import { TIME_FRAMES, TIME_FRAMES_OPTIONS } from './constants/timeFrames';
+import '../../currency.scss';
 
 const CurrencyPriceChart = () => {
   const [timeFrame, setTimeFrame] = useState(TIME_FRAMES['30d']);
@@ -41,19 +27,13 @@ const CurrencyPriceChart = () => {
     setTimeFrame(TIME_FRAMES[selectedTimeFrame]);
   };
 
-  const options = [
-    { label: '24hs', value: '24hs' },
-    { label: '30d', value: '30d' },
-    { label: '1y', value: '1y' },
-  ];
-
   return !isLoading && coinChartData ? (
     <Row>
       <Col span={24}>
         <Row justify="end">
           <Col>
             <Radio.Group
-              options={options}
+              options={TIME_FRAMES_OPTIONS}
               optionType="button"
               buttonStyle="solid"
               value={timeFrame.label}

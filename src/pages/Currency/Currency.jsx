@@ -1,7 +1,7 @@
 import { Col, Row } from 'antd';
 import './currency.scss';
 import CurrencyStats from './components/CurrencyStats';
-import CurrencyPriceChart from './components/CurrencyPriceChart';
+import CurrencyPriceChart from './components/CurrencyPriceChart/CurrencyPriceChart';
 
 const Currency = () => {
   return (
