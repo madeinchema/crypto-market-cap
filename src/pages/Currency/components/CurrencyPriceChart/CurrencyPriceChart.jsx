@@ -7,24 +7,29 @@ import { TIME_FRAMES, TIME_FRAMES_OPTIONS } from './constants/timeFrames';
 import '../../currency.scss';
 
 const CurrencyPriceChart = () => {
-  const [timeFrame, setTimeFrame] = useState(TIME_FRAMES['30d']);
+  const [selectedTimeFrame, setSelectedTimeFrame] = useState(
+    TIME_FRAMES['30d']
+  );
   const [coinChartData, setCoinChartData] = useState(undefined);
   const [isLoading, setIsLoading] = useState(undefined);
   const { id: coinId } = useParams();
 
   useEffect(() => {
-    if (coinId) {
-      setIsLoading(true);
-      getCoinChartDataFromApi(coinId, timeFrame.daysQty).then((data) =>
-        setCoinChartData(data)
-      );
-      setIsLoading(false);
-    }
-  }, [coinId, timeFrame.daysQty]);
+    (function loadCoinChartDataFromApi() {
+      if (coinId) {
+        setIsLoading(true);
+        getCoinChartDataFromApi(
+          coinId,
+          selectedTimeFrame.daysQty
+        ).then((data) => setCoinChartData(data));
+        setIsLoading(false);
+      }
+    })();
+  }, [coinId, selectedTimeFrame.daysQty]);
 
-  const handleTimeFrame = (event) => {
-    const selectedTimeFrame = event.target.value;
-    setTimeFrame(TIME_FRAMES[selectedTimeFrame]);
+  const handleSelectedTimeFrame = (event) => {
+    const newSelectedTimeFrame = event.target.value;
+    setSelectedTimeFrame(TIME_FRAMES[newSelectedTimeFrame]);
   };
 
   return !isLoading && coinChartData ? (
@@ -36,8 +41,8 @@ const CurrencyPriceChart = () => {
               options={TIME_FRAMES_OPTIONS}
               optionType="button"
               buttonStyle="solid"
-              value={timeFrame.label}
-              onChange={handleTimeFrame}
+              value={selectedTimeFrame.label}
+              onChange={handleSelectedTimeFrame}
             />
           </Col>
         </Row>
