@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Row, Col, Spin, Radio } from 'antd';
 import { Stock } from '@ant-design/charts';
-import { useParams } from 'react-router-dom';
 import { getCoinChartDataFromApi } from '../../../../utilities/api';
 import { TIME_FRAMES, TIME_FRAMES_OPTIONS } from './constants/timeFrames';
 import '../../currency.scss';
@@ -15,16 +15,16 @@ const CurrencyPriceChart = () => {
   const { id: coinId } = useParams();
 
   useEffect(() => {
-    (function loadCoinChartDataFromApi() {
-      if (coinId) {
+    if (coinId) {
+      (function loadCoinChartDataFromApi() {
         setIsLoading(true);
         getCoinChartDataFromApi(
           coinId,
           selectedTimeFrame.daysQty
         ).then((data) => setCoinChartData(data));
         setIsLoading(false);
-      }
-    })();
+      })();
+    }
   }, [coinId, selectedTimeFrame.daysQty]);
 
   const handleSelectedTimeFrame = (event) => {
