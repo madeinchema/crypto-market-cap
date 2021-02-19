@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Col, Row, Space, Statistic, Tag, Typography, Skeleton } from 'antd';
 
 const CurrencyInfo = (props) => {
@@ -41,6 +42,30 @@ const CurrencyInfo = (props) => {
   ) : (
     <Skeleton active avatar paragraph={{ rows: 4 }} />
   );
+};
+
+CurrencyInfo.propTypes = {
+  isLoading: PropTypes.bool,
+  coinData: PropTypes.shape({
+    description: PropTypes.string,
+    image: PropTypes.objectOf(PropTypes.string),
+    links: PropTypes.instanceOf(Object),
+    marketCapRank: PropTypes.number,
+    name: PropTypes.string,
+    symbol: PropTypes.string,
+    usd24hChange: PropTypes.number,
+    usdMarketCap: PropTypes.number,
+  }),
+  coinPriceData: PropTypes.shape({
+    usd24hVol: PropTypes.number,
+    usdPrice: PropTypes.number,
+  }),
+};
+
+CurrencyInfo.defaultProps = {
+  isLoading: false,
+  coinData: undefined,
+  coinPriceData: undefined,
 };
 
 export default CurrencyInfo;
