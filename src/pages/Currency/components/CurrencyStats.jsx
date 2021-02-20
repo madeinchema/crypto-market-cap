@@ -45,7 +45,7 @@ const CurrencyStats = (props) => {
       </Row>
     </Col>
   ) : (
-    <Skeleton active avatar paragraph={{ rows: 4 }} />
+    <Skeleton active paragraph={{ rows: 1 }} />
   );
 };
 

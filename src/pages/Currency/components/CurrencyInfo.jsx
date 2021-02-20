@@ -40,7 +40,7 @@ const CurrencyInfo = (props) => {
       </Row>
     </Col>
   ) : (
-    <Skeleton active avatar paragraph={{ rows: 4 }} />
+    <Skeleton active avatar paragraph={{ rows: 1 }} />
   );
 };
 
