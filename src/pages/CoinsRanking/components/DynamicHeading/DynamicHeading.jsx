@@ -115,12 +115,3 @@ const DynamicHeading = () => {
 }
 
 export default DynamicHeading
-
-/**
- *           activeCryptocurrencies,
-          totalMarketCap,
-          marketCapChangePercentage24hUsd,
-          marketCapPercentage,
-          totalVolume,
-          updatedAt,
- */
