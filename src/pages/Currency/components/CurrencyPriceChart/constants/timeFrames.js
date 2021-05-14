@@ -11,12 +11,12 @@ const TIME_FRAMES = {
     daysQty: 1,
     label: '24hs',
   },
-};
+}
 
 const TIME_FRAMES_OPTIONS = [
   { label: '24hs', value: '24hs' },
   { label: '30d', value: '30d' },
   { label: '1y', value: '1y' },
-];
+]
 
-export { TIME_FRAMES, TIME_FRAMES_OPTIONS };
+export { TIME_FRAMES, TIME_FRAMES_OPTIONS }

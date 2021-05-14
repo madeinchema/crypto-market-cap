@@ -1,27 +1,27 @@
-import { useEffect, useState } from 'react';
-import { Skeleton, Typography } from 'antd';
-import ReadMore from '../../../../components/ReadMore/ReadMore';
-import './dynamic-heading.scss';
-import { getCryptoGlobalDataFromApi } from '../../../../utilities/api';
-import { PriceChange } from '../../../../components';
+import { useEffect, useState } from 'react'
+import { Skeleton, Typography } from 'antd'
+import ReadMore from '../../../../components/ReadMore/ReadMore'
+import './dynamic-heading.scss'
+import { getCryptoGlobalDataFromApi } from '../../../../utilities/api'
+import { PriceChange } from '../../../../components'
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph, Text } = Typography
 
 const DynamicHeading = () => {
-  const currency = 'usd';
-  const [isReadMoreOpen, setIsReadMoreOpen] = useState(undefined);
-  const [cryptoGlobalData, setCryptoGlobalData] = useState(undefined);
-  const [isLoading, setIsLoading] = useState(undefined);
+  const currency = 'usd'
+  const [isReadMoreOpen, setIsReadMoreOpen] = useState(undefined)
+  const [cryptoGlobalData, setCryptoGlobalData] = useState(undefined)
+  const [isLoading, setIsLoading] = useState(undefined)
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true)
     setTimeout(() => {
-      getCryptoGlobalDataFromApi(currency).then((data) =>
+      getCryptoGlobalDataFromApi(currency).then(data =>
         setCryptoGlobalData(data)
-      );
-      setIsLoading(false);
-    }, 200);
-  }, []);
+      )
+      setIsLoading(false)
+    }, 200)
+  }, [])
 
   return (
     <>
@@ -111,10 +111,10 @@ const DynamicHeading = () => {
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default DynamicHeading;
+export default DynamicHeading
 
 /**
  *           activeCryptocurrencies,

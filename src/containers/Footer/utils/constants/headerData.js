@@ -34,6 +34,6 @@ const headerMenuData = [
     disabled: false,
     targetBlank: true,
   },
-];
+]
 
-export default headerMenuData;
+export default headerMenuData
