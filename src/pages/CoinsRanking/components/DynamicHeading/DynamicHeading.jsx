@@ -13,18 +13,18 @@ const DynamicHeading = () => {
   const [isReadMore, setIsReadMore] = useState(undefined)
   const dispatch = useDispatch()
   const marketData = useSelector(state => state.marketData)
-  const isDataLoaded = !marketData.loading && marketData.data.length > 0
+  const isDataLoaded = !marketData.loading && marketData.data
 
   useEffect(() => {
     dispatch(fetchMarketData())
   }, [dispatch])
 
   return (
-    <p>
+    <>
       <Title level={2} className="title">
         Today&apos;s Cryptocurrency Prices by Market Cap
       </Title>
-      {marketData.loading && <Skeleton active />}
+      {!isDataLoaded && <Skeleton active />}
       {isDataLoaded && (
         <div className="content">
           <Paragraph className="content--text-container">
@@ -36,7 +36,7 @@ const DynamicHeading = () => {
                 suffix="B"
               />
             </Text>
-            , a{' '}
+            {', a '}
             <Text strong>
               <PriceChange
                 priceChange={marketData.data.marketCapChangePercentage24hUsd}
@@ -66,9 +66,10 @@ const DynamicHeading = () => {
                       showChange
                     />
                   </Text>{' '}
-                  as of{' '}
+                  {'as of '}
                   <Text strong>
-                    new Date( marketData.data.updatedAt * 1000
+                    {new Date(
+                      marketData.data.updatedAt * 1000
                     ).toLocaleString()}
                   </Text>
                   .
@@ -91,7 +92,7 @@ const DynamicHeading = () => {
           )}
         </div>
       )}
-    </p>
+    </>
   )
 }
 
