@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { Skeleton, Typography } from 'antd';
 import ReadMore from '../../../../components/ReadMore/ReadMore';
 import './dynamic-heading.scss';
-import { getCryptoGlobalData } from '../../../../utilities/api';
-import PriceChangeColumn from '../../../../components/PriceChange/PriceChange';
+import { getCryptoGlobalDataFromApi } from '../../../../utilities/api';
+import { PriceChange } from '../../../../components';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -16,7 +16,9 @@ const DynamicHeading = () => {
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
-      getCryptoGlobalData(currency).then((data) => setCryptoGlobalData(data));
+      getCryptoGlobalDataFromApi(currency).then((data) =>
+        setCryptoGlobalData(data)
+      );
       setIsLoading(false);
     }, 200);
   }, []);
@@ -32,7 +34,7 @@ const DynamicHeading = () => {
           <Paragraph className="content--text-container">
             The global crypto market cap is{' '}
             <Text strong>
-              <PriceChangeColumn
+              <PriceChange
                 priceChange={
                   cryptoGlobalData &&
                   cryptoGlobalData.totalMarketCap.usd / 1000000000
@@ -43,7 +45,7 @@ const DynamicHeading = () => {
             </Text>
             , a{' '}
             <Text strong>
-              <PriceChangeColumn
+              <PriceChange
                 priceChange={
                   cryptoGlobalData &&
                   cryptoGlobalData.marketCapChangePercentage24hUsd
@@ -72,7 +74,7 @@ const DynamicHeading = () => {
                 <Paragraph className="content--text">
                   Bitcoin&apos;s Dominance is{' '}
                   <Text strong>
-                    <PriceChangeColumn
+                    <PriceChange
                       priceChange={
                         cryptoGlobalData &&
                         cryptoGlobalData.marketCapPercentage.btc
@@ -92,7 +94,7 @@ const DynamicHeading = () => {
                 <Paragraph className="content--text">
                   The Total Volume of the cryptocurrency market is{' '}
                   <Text strong>
-                    <PriceChangeColumn
+                    <PriceChange
                       priceChange={
                         cryptoGlobalData &&
                         cryptoGlobalData.totalVolume[currency] / 1000000000

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'antd';
-import { getCoinsRanking } from '../../../../utilities/api';
-import PriceChangeColumn from '../../../../components/PriceChange/PriceChange';
+import { getCoinsRankingFromApi } from '../../../../utilities/api';
+import { PriceChange } from '../../../../components';
 import CoinColumn from './components/CoinsColumn/CoinsColumn';
 import CirculatingSupplyColumn from './components/CirculatingSupplyColumn';
 import './coins-ranking-table.scss';
@@ -41,7 +41,7 @@ const columns = (currency) => {
         a.price_change_percentage_24h_in_currency -
         b.price_change_percentage_24h_in_currency,
       render: function coinPriceChange24hRender(change) {
-        return <PriceChangeColumn priceChange={change} showChange />;
+        return <PriceChange priceChange={change} showChange />;
       },
     },
     {
@@ -52,7 +52,7 @@ const columns = (currency) => {
         a.price_change_percentage_7d_in_currency -
         b.price_change_percentage_7d_in_currency,
       render: function coinPriceChange7dhRender(change) {
-        return <PriceChangeColumn priceChange={change} showChange />;
+        return <PriceChange priceChange={change} showChange />;
       },
     },
     {
@@ -100,7 +100,7 @@ const CoinsRankingTable = (props) => {
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      getCoinsRanking(currency).then((data) => setCryptosData(data));
+      getCoinsRankingFromApi(currency).then((data) => setCryptosData(data));
     }, 200);
     setLoading(false);
   }, [currency]);
