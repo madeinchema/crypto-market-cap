@@ -26,7 +26,7 @@ const CurrencyInfo = (props) => {
             </Space>
           </Space>
         </Col>
-        <Col flex="auto">
+        <Col xs={{ flex: 1 }}>
           <Row align="middle" justify="end">
             <Statistic
               title="Price"
