@@ -1,44 +1,37 @@
 import { useEffect, useState } from 'react'
 import { Skeleton, Typography } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
 import ReadMore from '../../../../components/ReadMore/ReadMore'
 import './dynamic-heading.scss'
-import { getCryptoGlobalDataFromApi } from '../../../../utilities/api'
 import { PriceChange } from '../../../../components'
+import { fetchMarketData } from '../../../../redux/slices/marketDataSlice'
 
 const { Title, Paragraph, Text } = Typography
 
 const DynamicHeading = () => {
   const currency = 'usd'
-  const [isReadMoreOpen, setIsReadMoreOpen] = useState(undefined)
-  const [cryptoGlobalData, setCryptoGlobalData] = useState(undefined)
-  const [isLoading, setIsLoading] = useState(undefined)
+  const [isReadMore, setIsReadMore] = useState(undefined)
+  const dispatch = useDispatch()
+  const marketData = useSelector(state => state.marketData)
+  const isDataLoaded = !marketData.loading && marketData.data.length > 0
 
   useEffect(() => {
-    setIsLoading(true)
-    setTimeout(() => {
-      getCryptoGlobalDataFromApi(currency).then(data =>
-        setCryptoGlobalData(data)
-      )
-      setIsLoading(false)
-    }, 200)
-  }, [])
+    dispatch(fetchMarketData())
+  }, [dispatch])
 
   return (
-    <>
+    <p>
       <Title level={2} className="title">
         Today&apos;s Cryptocurrency Prices by Market Cap
       </Title>
-      {isLoading && <Skeleton active />}
-      {!isLoading && (
+      {marketData.loading && <Skeleton active />}
+      {isDataLoaded && (
         <div className="content">
           <Paragraph className="content--text-container">
             The global crypto market cap is{' '}
             <Text strong>
               <PriceChange
-                priceChange={
-                  cryptoGlobalData &&
-                  cryptoGlobalData.totalMarketCap.usd / 1000000000
-                }
+                priceChange={marketData.data.totalMarketCap.usd / 1000000000}
                 prefix="$"
                 suffix="B"
               />
@@ -46,48 +39,37 @@ const DynamicHeading = () => {
             , a{' '}
             <Text strong>
               <PriceChange
-                priceChange={
-                  cryptoGlobalData &&
-                  cryptoGlobalData.marketCapChangePercentage24hUsd
-                }
+                priceChange={marketData.data.marketCapChangePercentage24hUsd}
                 showChange
               />
             </Text>{' '}
             increase over the last day.{' '}
             <ReadMore
-              isOpen={isReadMoreOpen}
-              setIsOpen={setIsReadMoreOpen}
+              isOpen={isReadMore}
+              setIsOpen={setIsReadMore}
               className="read-more"
             />
           </Paragraph>
-          {isReadMoreOpen && (
+          {isReadMore && (
             <>
               <Paragraph className="content--text-container">
                 <Paragraph className="content--text">
                   There is a total of{' '}
-                  <Text strong>
-                    {cryptoGlobalData &&
-                      cryptoGlobalData.activeCryptocurrencies}
-                  </Text>{' '}
+                  <Text strong>{marketData.data.activeCryptocurrencies}</Text>{' '}
                   active cryptocurrencies.
                 </Paragraph>
                 <Paragraph className="content--text">
                   Bitcoin&apos;s Dominance is{' '}
                   <Text strong>
                     <PriceChange
-                      priceChange={
-                        cryptoGlobalData &&
-                        cryptoGlobalData.marketCapPercentage.btc
-                      }
+                      priceChange={marketData.data.marketCapPercentage.btc}
                       showChange
                     />
                   </Text>{' '}
                   as of{' '}
                   <Text strong>
-                    {cryptoGlobalData &&
-                      new Date(
-                        cryptoGlobalData.updatedAt * 1000
-                      ).toLocaleString()}
+                    new Date( marketData.data.updatedAt * 1000
+                    ).toLocaleString()}
                   </Text>
                   .
                 </Paragraph>
@@ -96,8 +78,7 @@ const DynamicHeading = () => {
                   <Text strong>
                     <PriceChange
                       priceChange={
-                        cryptoGlobalData &&
-                        cryptoGlobalData.totalVolume[currency] / 1000000000
+                        marketData.data.totalVolume[currency] / 1000000000
                       }
                       prefix="$"
                       suffix="B"
@@ -110,7 +91,7 @@ const DynamicHeading = () => {
           )}
         </div>
       )}
-    </>
+    </p>
   )
 }
 
