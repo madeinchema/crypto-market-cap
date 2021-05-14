@@ -1,16 +1,16 @@
-import { Popover, Space, Row, Col, Progress, Typography } from 'antd';
-import { InfoCircleOutlined } from '@ant-design/icons';
-import PropTypes from 'prop-types';
-import colors from '../../../../../theme/colors.module.scss';
+import { Popover, Space, Row, Col, Progress, Typography } from 'antd'
+import { InfoCircleOutlined } from '@ant-design/icons'
+import PropTypes from 'prop-types'
+import colors from '../../../../../theme/colors.module.scss'
 
-const { Text } = Typography;
+const { Text } = Typography
 
-const CirculatingSupplyPopover = (props) => {
-  const { circulatingSupply, totalSupply, symbol } = props;
+const CirculatingSupplyPopover = props => {
+  const { circulatingSupply, totalSupply, symbol } = props
   const getSupplyPercentage = () => {
-    const percentage = (circulatingSupply * 100) / totalSupply;
-    return percentage.toFixed(2);
-  };
+    const percentage = (circulatingSupply * 100) / totalSupply
+    return percentage.toFixed(2)
+  }
 
   return (
     <Popover
@@ -50,16 +50,16 @@ const CirculatingSupplyPopover = (props) => {
     >
       <InfoCircleOutlined />{' '}
     </Popover>
-  );
-};
+  )
+}
 
-const CirculatingSupplyColumn = (props) => {
-  const { coin } = props;
+const CirculatingSupplyColumn = props => {
+  const { coin } = props
   const {
     circulating_supply: circulatingSupply,
     total_supply: totalSupply,
     symbol,
-  } = coin;
+  } = coin
 
   return (
     <div>
@@ -83,8 +83,8 @@ const CirculatingSupplyColumn = (props) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 CirculatingSupplyColumn.propTypes = {
   coin: PropTypes.shape({
@@ -92,22 +92,22 @@ CirculatingSupplyColumn.propTypes = {
     total_supply: PropTypes.number,
     symbol: PropTypes.string,
   }),
-};
+}
 
 CirculatingSupplyColumn.defaultProps = {
   coin: undefined,
-};
+}
 
 CirculatingSupplyPopover.propTypes = {
   circulatingSupply: PropTypes.number,
   totalSupply: PropTypes.number,
   symbol: PropTypes.string,
-};
+}
 
 CirculatingSupplyPopover.defaultProps = {
   circulatingSupply: undefined,
   totalSupply: undefined,
   symbol: undefined,
-};
+}
 
-export default CirculatingSupplyColumn;
+export default CirculatingSupplyColumn

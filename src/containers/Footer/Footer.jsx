@@ -1,10 +1,10 @@
-import { Col, Row, Typography } from 'antd';
-import Logo from '../../assets/Logo';
-import { Footer, Link, Menu } from '../../components';
-import './footer.scss';
-import { footerMenuData, footerBottomData } from './utils/constants/footerData';
+import { Col, Row, Typography } from 'antd'
+import Logo from '../../assets/Logo'
+import { Footer, Link, Menu } from '../../components'
+import './footer.scss'
+import { footerMenuData, footerBottomData } from './utils/constants/footerData'
 
-const { Title } = Typography;
+const { Title } = Typography
 
 const FooterContainer = () => {
   return (
@@ -18,7 +18,7 @@ const FooterContainer = () => {
       <Footer.Break />
 
       <Row justify="space-between" className="footer--menu">
-        {Object.keys(footerMenuData).map((section) => (
+        {Object.keys(footerMenuData).map(section => (
           <Col xs={24} sm={8} key={section}>
             <Menu>
               <Title level={3}>{footerMenuData[section].label}</Title>
@@ -46,7 +46,7 @@ const FooterContainer = () => {
         </Col>
       </Row>
     </Footer>
-  );
-};
+  )
+}
 
-export default FooterContainer;
+export default FooterContainer

@@ -1,31 +1,31 @@
-import { useEffect, useState } from 'react';
-import Logo from '../../assets/Logo';
-import { Header, Menu } from '../../components';
-import headerMenuData from '../Footer/utils/constants/headerData';
-import SiderContainer from '../Sider/Sider';
-import './header.scss';
+import { useEffect, useState } from 'react'
+import Logo from '../../assets/Logo'
+import { Header } from '../../components'
+import headerMenuData from '../Footer/utils/constants/headerData'
+import SiderContainer from '../Sider/Sider'
+import './header.scss'
 
 const HeaderContainer = () => {
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(true)
 
   const closeSider = () => {
-    setCollapsed(true);
-  };
+    setCollapsed(true)
+  }
 
   const openSider = () => {
-    setCollapsed(false);
-  };
+    setCollapsed(false)
+  }
 
   useEffect(() => {
     if (collapsed) {
-      document.body.style.overflow = 'unset';
-      document.body.style.paddingRight = '0px';
+      document.body.style.overflow = 'unset'
+      document.body.style.paddingRight = '0px'
     }
     return () => {
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = '15px';
-    };
-  }, [collapsed]);
+      document.body.style.overflow = 'hidden'
+      document.body.style.paddingRight = '15px'
+    }
+  }, [collapsed])
 
   return (
     <Header>
@@ -48,7 +48,7 @@ const HeaderContainer = () => {
         logoText="CryptoMarketCap"
       />
     </Header>
-  );
-};
+  )
+}
 
-export default HeaderContainer;
+export default HeaderContainer

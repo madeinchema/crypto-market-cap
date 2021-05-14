@@ -1,15 +1,15 @@
-import PropTypes from 'prop-types';
-import { Menu, Sider } from '../../components';
-import Logo from '../../assets/Logo';
+import PropTypes from 'prop-types'
+import { Menu, Sider } from '../../components'
+import Logo from '../../assets/Logo'
 
-const SiderContainer = (props) => {
-  const { dataSource, collapsed, onCollapse } = props;
+const SiderContainer = props => {
+  const { dataSource, collapsed, onCollapse } = props
 
   const siderContainerStyles = {
     menu: {
       padding: '1.15rem',
     },
-  };
+  }
 
   return (
     <>
@@ -32,19 +32,19 @@ const SiderContainer = (props) => {
       </Sider>
       <Sider.Overlay collapsed={collapsed} onCollapse={onCollapse} />
     </>
-  );
-};
+  )
+}
 
 SiderContainer.propTypes = {
   dataSource: PropTypes.arrayOf(Object),
   collapsed: PropTypes.bool,
   onCollapse: PropTypes.func,
-};
+}
 
 SiderContainer.defaultProps = {
   dataSource: undefined,
   collapsed: undefined,
   onCollapse: undefined,
-};
+}
 
-export default SiderContainer;
+export default SiderContainer

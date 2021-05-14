@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import { Col, Row, Space, Statistic, Tag, Typography, Skeleton } from 'antd';
+import PropTypes from 'prop-types'
+import { Col, Row, Space, Statistic, Tag, Typography, Skeleton } from 'antd'
 
-const CurrencyInfo = (props) => {
-  const { isLoading, coinData, coinPriceData } = props;
-  const { Title } = Typography;
+const CurrencyInfo = props => {
+  const { isLoading, coinData, coinPriceData } = props
+  const { Title } = Typography
 
   return !isLoading && coinData && coinPriceData ? (
     <Col flex="1" xs={{ span: 24 }} xl={{ span: 24 }} xxl={{ span: 12 }}>
@@ -41,8 +41,8 @@ const CurrencyInfo = (props) => {
     </Col>
   ) : (
     <Skeleton active avatar paragraph={{ rows: 1 }} />
-  );
-};
+  )
+}
 
 CurrencyInfo.propTypes = {
   isLoading: PropTypes.bool,
@@ -60,12 +60,12 @@ CurrencyInfo.propTypes = {
     usd24hVol: PropTypes.number,
     usdPrice: PropTypes.number,
   }),
-};
+}
 
 CurrencyInfo.defaultProps = {
   isLoading: false,
   coinData: undefined,
   coinPriceData: undefined,
-};
+}
 
-export default CurrencyInfo;
+export default CurrencyInfo

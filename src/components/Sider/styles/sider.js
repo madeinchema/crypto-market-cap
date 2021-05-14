@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import { Layout, Typography } from 'antd';
-import colors from '../../../theme/colors.module.scss';
+import styled from 'styled-components'
+import { Layout, Typography } from 'antd'
+import colors from '../../../theme/colors.module.scss'
 
-const { Sider: AntdSider } = Layout;
-const { Title } = Typography;
+const { Sider: AntdSider } = Layout
+const { Title } = Typography
 
 const Container = styled(AntdSider)`
   overflow: auto;
@@ -17,7 +17,7 @@ const Container = styled(AntdSider)`
   .ant-menu-submenu-title:active {
     background-color: ${colors.geekblue1};
   }
-`;
+`
 
 const Logo = styled.div`
   display: flex;
@@ -30,17 +30,17 @@ const Logo = styled.div`
   }
   .logo--text {
   }
-`;
+`
 
 const LogoText = styled(Title)`
   &.ant-typography {
     color: ${colors.gray10};
     margin: 0;
   }
-`;
+`
 
 const Overlay = styled.div`
-  visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
+  visibility: ${props => (props.show ? 'visible' : 'hidden')};
   height: 100%;
   width: 100%;
   position: fixed;
@@ -50,8 +50,8 @@ const Overlay = styled.div`
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 3;
-  opacity: ${(props) => (props.show ? 1 : 0)};
+  opacity: ${props => (props.show ? 1 : 0)};
   transition: visibility 0.25s ease-out, opacity 0.25s ease-out;
-`;
+`
 
-export { Container, Logo, LogoText, Overlay };
+export { Container, Logo, LogoText, Overlay }
