@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Table } from 'antd'
-import { getCoinsRankingFromApi } from '../../../../utilities/api'
+import { useDispatch, useSelector } from 'react-redux'
 import { PriceChange } from '../../../../components'
 import CoinColumn from './components/CoinsColumn/CoinsColumn'
 import CirculatingSupplyColumn from './components/CirculatingSupplyColumn'
 import './coins-ranking-table.scss'
+import { fetchCoins } from '../../../../redux/slices/coinsSlice'
 
 const columns = currency => {
   return [
@@ -93,28 +94,28 @@ const columns = currency => {
 
 const CoinsRankingTable = props => {
   const { currency } = props
-  const [cryptosData, setCryptosData] = useState(null)
-  const [loading, setLoading] = useState(null)
+  const dispatch = useDispatch()
 
-  // TODO: Get ALL the coins and update the table's navigation accordingly
+  const coins = useSelector(state => state.coins)
+
   useEffect(() => {
-    setLoading(true)
-    setTimeout(() => {
-      getCoinsRankingFromApi(currency).then(data => setCryptosData(data))
-    }, 200)
-    setLoading(false)
-  }, [currency])
+    dispatch(fetchCoins())
+  }, [dispatch])
 
   return (
-    <Table
-      columns={columns(currency)}
-      dataSource={cryptosData}
-      rowKey="symbol"
-      className="rankingTable"
-      loading={loading || !cryptosData}
-      pagination={{ defaultPageSize: 20 }}
-      scroll={{ x: 'max-content' }}
-    />
+    <>
+      {coins.data && (
+        <Table
+          columns={columns(currency)}
+          dataSource={coins.data}
+          rowKey="symbol"
+          className="rankingTable"
+          loading={coins.loading}
+          pagination={{ defaultPageSize: 20 }}
+          scroll={{ x: 'max-content' }}
+        />
+      )}
+    </>
   )
 }
 

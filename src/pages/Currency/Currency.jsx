@@ -1,43 +1,35 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Col, Row } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchCurrentCoin } from '../../redux/slices/currentCoinSlice'
+
 import CurrencyInfo from './components/CurrencyInfo'
 import CurrencyStats from './components/CurrencyStats'
 import CurrencyPriceChart from './components/CurrencyPriceChart/CurrencyPriceChart'
 import './currency.scss'
-import {
-  getCoinDataFromApi,
-  getCoinPriceDataFromApi,
-} from '../../utilities/api'
 
 const Currency = () => {
-  const [isLoading, setIsLoading] = useState(undefined)
-  const [coinData, setCoinData] = useState(undefined)
-  const [coinPriceData, setCoinPriceData] = useState(undefined)
   const { id: coinId } = useParams()
+  const dispatch = useDispatch()
+  const currentCoin = useSelector(state => state.currentCoin)
+  const isDataReady =
+    !currentCoin.loading &&
+    currentCoin.data &&
+    Object.keys(currentCoin.data).length > 0
 
   useEffect(() => {
-    ;(function getCurrencyData() {
-      setIsLoading(true)
-      getCoinDataFromApi(coinId).then(data => setCoinData(data))
-      getCoinPriceDataFromApi(coinId).then(data => setCoinPriceData(data))
-      setIsLoading(false)
-    })()
-  }, [coinId])
+    dispatch(fetchCurrentCoin(coinId))
+  }, [coinId, dispatch])
 
   return (
     <Row gutter={[24, 24]}>
       <Col span={24}>
         <Row justify="space-between" align="middle" gutter={[24, 24]}>
-          <CurrencyInfo
-            isLoading={isLoading}
-            coinData={coinData}
-            coinPriceData={coinPriceData}
-          />
+          <CurrencyInfo isDataReady={isDataReady} coinData={currentCoin.data} />
           <CurrencyStats
-            isLoading={isLoading}
-            coinData={coinData}
-            coinPriceData={coinPriceData}
+            isDataReady={isDataReady}
+            coinData={currentCoin.data}
           />
         </Row>
       </Col>
