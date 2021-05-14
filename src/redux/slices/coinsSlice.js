@@ -17,7 +17,7 @@ export const coinsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [fetchCoins.pending]: (state, action) => {
+    [fetchCoins.pending]: state => {
       state.loading = true
       state.error = null
     },
