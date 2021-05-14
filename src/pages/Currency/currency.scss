@@ -1,0 +1,23 @@
+.currency__title {
+  &.ant-typography {
+    margin: 0;
+  }
+}
+
+.currency__price {
+  font-weight: 700;
+}
+
+.currency__symbol {
+  opacity: 0.5;
+  font-size: 1.5rem;
+}
+
+.currency__tag {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.currency-price-chart {
+  height: 7rem;
+}

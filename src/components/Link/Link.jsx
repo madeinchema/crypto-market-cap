@@ -1,10 +1,5 @@
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import { Link as RouterLink } from 'react-router-dom';
-import { Typography } from 'antd';
-import themeColors from '../../theme/colors.module.scss';
-
-const { Link: AntdLink } = Typography;
+import { StyledAntdLink, StyledRouterLink } from './styles';
 
 const CMCLink = (props) => {
   const { linkData, fontSize, align, colors } = props;
@@ -15,32 +10,13 @@ const CMCLink = (props) => {
     return checkIsInternalURL;
   };
 
-  const linkStyles = css`
-    font-size: ${fontSize || '1.2rem'};
-    display: block;
-    margin-bottom: 0.25rem;
-    text-align: ${align || ''};
-    color: ${colors?.base || themeColors.geekblue7};
-    font-weight: 500;
-    :hover {
-      color: ${colors?.hover || themeColors.geekblue5};
-    }
-  `;
-
-  const StyledRouterLink = styled(RouterLink)`
-    ${linkStyles}
-  `;
-
-  const StyledAntdLink = styled(AntdLink)`
-    &.ant-typography {
-      ${linkStyles}
-    }
-  `;
-
   return isInternalURL(linkData && linkData.href) ? (
     <StyledRouterLink
       disabled={linkData && linkData.disabled}
       to={linkData && linkData.href}
+      align={align}
+      fontSize={fontSize}
+      colors={colors}
     >
       {linkData && linkData.label}
     </StyledRouterLink>
@@ -50,6 +26,9 @@ const CMCLink = (props) => {
       href={linkData && linkData.href}
       target={linkData && linkData.targetBlank && '_blank'}
       rel={linkData && linkData.targetBlank && 'noreferrer'}
+      align={align}
+      fontSize={fontSize}
+      colors={colors}
     >
       {linkData && linkData.label}
     </StyledAntdLink>
@@ -78,4 +57,4 @@ CMCLink.defaultProps = {
   colors: undefined,
 };
 
-export { CMCLink as default, CMCLink as Link };
+export default CMCLink;

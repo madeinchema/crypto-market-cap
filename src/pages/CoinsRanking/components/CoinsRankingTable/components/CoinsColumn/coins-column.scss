@@ -4,6 +4,9 @@
   &__container {
     display: flex;
     align-content: center;
+    a {
+      color: inherit;
+    }
   }
   &__image {
     width: 1.5rem;

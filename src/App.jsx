@@ -10,9 +10,10 @@ import { ThemeProvider } from 'styled-components';
 import CoinsRanking from './pages/CoinsRanking/CoinsRanking';
 import FooterContainer from './containers/Footer/Footer';
 import HeaderContainer from './containers/Header/Header';
-
-import './app.scss';
 import theme from './theme/theme';
+import Currency from './pages/Currency/Currency';
+import './app.scss';
+import ScrollToTop from './utilities/ScrollToTop';
 
 const { Content } = Layout;
 
@@ -25,6 +26,7 @@ const App = () => {
         <HeaderContainer />
         <Layout>
           <Content className="app--content">
+            <ScrollToTop />
             <Switch>
               <Route exact path="/">
                 <CoinsRanking currency={currency} />
@@ -32,7 +34,10 @@ const App = () => {
               <Route exact path="/exchanges">
                 Exchanges
               </Route>
-              <Route path="/cryptocurrencies">
+              <Route exact path="/currencies/:id">
+                <Currency />
+              </Route>
+              <Route path={['/cryptocurrencies', '/currencies']}>
                 <Redirect to="/" />
               </Route>
               <Route path="*">404</Route>
