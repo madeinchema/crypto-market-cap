@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import { css } from 'styled-components/macro';
+import PropTypes from 'prop-types'
+import { css } from 'styled-components/macro'
 
-const Logo = (props) => {
-  const { className } = props;
+const Logo = props => {
+  const { className } = props
 
   const logoStyles = css`
     &.logo {
@@ -16,7 +16,7 @@ const Logo = (props) => {
         fill: #ffffff;
       }
     }
-  `;
+  `
 
   return (
     <svg
@@ -39,15 +39,15 @@ const Logo = (props) => {
         className="logo--letter"
       />
     </svg>
-  );
-};
+  )
+}
 
 Logo.propTypes = {
   className: PropTypes.string,
-};
+}
 
 Logo.defaultProps = {
   className: undefined,
-};
+}
 
-export default Logo;
+export default Logo

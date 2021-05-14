@@ -122,7 +122,7 @@ const footerMenuData = {
       },
     ],
   },
-};
+}
 
 const footerBottomData = {
   author: {
@@ -132,6 +132,6 @@ const footerBottomData = {
     disabled: false,
     targetBlank: true,
   },
-};
+}
 
-export { footerMenuData, footerBottomData };
+export { footerMenuData, footerBottomData }

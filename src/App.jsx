@@ -1,24 +1,24 @@
-import { useState } from 'react';
+import { useState } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-} from 'react-router-dom';
-import { Layout } from 'antd';
-import { ThemeProvider } from 'styled-components';
-import CoinsRanking from './pages/CoinsRanking/CoinsRanking';
-import FooterContainer from './containers/Footer/Footer';
-import HeaderContainer from './containers/Header/Header';
-import theme from './theme/theme';
-import Currency from './pages/Currency/Currency';
-import './app.scss';
-import ScrollToTop from './utilities/ScrollToTop';
+} from 'react-router-dom'
+import { Layout } from 'antd'
+import { ThemeProvider } from 'styled-components'
+import CoinsRanking from './pages/CoinsRanking/CoinsRanking'
+import FooterContainer from './containers/Footer/Footer'
+import HeaderContainer from './containers/Header/Header'
+import theme from './theme/theme'
+import Currency from './pages/Currency/Currency'
+import './app.scss'
+import ScrollToTop from './utilities/ScrollToTop'
 
-const { Content } = Layout;
+const { Content } = Layout
 
 const App = () => {
-  const [currency] = useState('usd');
+  const [currency] = useState('usd')
 
   return (
     <Router>
@@ -47,7 +47,7 @@ const App = () => {
         </Layout>
       </ThemeProvider>
     </Router>
-  );
-};
+  )
+}
 
-export default App;
+export default App

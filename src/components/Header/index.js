@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import PropTypes from 'prop-types';
-import { Menu } from '..';
-import { Container, Logo, LogoText } from './styles/header';
+import PropTypes from 'prop-types'
+import { Menu } from '..'
+import { Container, Logo, LogoText } from './styles/header'
 
-const Header = (props) => {
+const Header = props => {
   const {
     children,
     dataSource,
@@ -11,19 +11,19 @@ const Header = (props) => {
     logoText,
     openSider,
     ...restProps
-  } = props;
-  return <Container {...restProps}>{children}</Container>;
-};
+  } = props
+  return <Container {...restProps}>{children}</Container>
+}
 
 Header.Logo = function HeaderLogo(props) {
-  const { logo, children } = props;
+  const { logo, children } = props
   return (
     <Logo>
       {logo}
       <LogoText level={3}>{children}</LogoText>
     </Logo>
-  );
-};
+  )
+}
 
 Header.Menu = function HeaderMenu({ menuButtonProps, menuListProps }) {
   return (
@@ -36,8 +36,8 @@ Header.Menu = function HeaderMenu({ menuButtonProps, menuListProps }) {
         {...menuListProps}
       />
     </Menu>
-  );
-};
+  )
+}
 
 Header.propTypes = {
   children: PropTypes.node,
@@ -45,22 +45,22 @@ Header.propTypes = {
   siderLogo: PropTypes.node,
   logoText: PropTypes.string,
   openSider: PropTypes.func.isRequired,
-};
+}
 Header.defaultProps = {
   children: undefined,
   dataSource: undefined,
   siderLogo: undefined,
   logoText: undefined,
-};
+}
 
 Header.Logo.propTypes = {
   logo: PropTypes.node,
   children: PropTypes.node,
-};
+}
 Header.Logo.defaultProps = {
   logo: undefined,
   children: undefined,
-};
+}
 
 Header.Menu.propTypes = {
   menuButtonProps: PropTypes.shape({
@@ -71,10 +71,10 @@ Header.Menu.propTypes = {
     breakpoint: PropTypes.string,
     spaceSize: PropTypes.string,
   }),
-};
+}
 Header.Menu.defaultProps = {
   menuButtonProps: undefined,
   menuListProps: undefined,
-};
+}
 
-export default Header;
+export default Header

@@ -1,29 +1,29 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Col, Row } from 'antd';
-import CurrencyInfo from './components/CurrencyInfo';
-import CurrencyStats from './components/CurrencyStats';
-import CurrencyPriceChart from './components/CurrencyPriceChart/CurrencyPriceChart';
-import './currency.scss';
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { Col, Row } from 'antd'
+import CurrencyInfo from './components/CurrencyInfo'
+import CurrencyStats from './components/CurrencyStats'
+import CurrencyPriceChart from './components/CurrencyPriceChart/CurrencyPriceChart'
+import './currency.scss'
 import {
   getCoinDataFromApi,
   getCoinPriceDataFromApi,
-} from '../../utilities/api';
+} from '../../utilities/api'
 
 const Currency = () => {
-  const [isLoading, setIsLoading] = useState(undefined);
-  const [coinData, setCoinData] = useState(undefined);
-  const [coinPriceData, setCoinPriceData] = useState(undefined);
-  const { id: coinId } = useParams();
+  const [isLoading, setIsLoading] = useState(undefined)
+  const [coinData, setCoinData] = useState(undefined)
+  const [coinPriceData, setCoinPriceData] = useState(undefined)
+  const { id: coinId } = useParams()
 
   useEffect(() => {
-    (function getCurrencyData() {
-      setIsLoading(true);
-      getCoinDataFromApi(coinId).then((data) => setCoinData(data));
-      getCoinPriceDataFromApi(coinId).then((data) => setCoinPriceData(data));
-      setIsLoading(false);
-    })();
-  }, [coinId]);
+    ;(function getCurrencyData() {
+      setIsLoading(true)
+      getCoinDataFromApi(coinId).then(data => setCoinData(data))
+      getCoinPriceDataFromApi(coinId).then(data => setCoinPriceData(data))
+      setIsLoading(false)
+    })()
+  }, [coinId])
 
   return (
     <Row gutter={[24, 24]}>
@@ -45,7 +45,7 @@ const Currency = () => {
         <CurrencyPriceChart />
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default Currency;
+export default Currency

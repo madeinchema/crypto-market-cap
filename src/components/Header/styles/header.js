@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { Row, Typography } from 'antd';
-import colors from '../../../theme/colors.module.scss';
+import styled from 'styled-components'
+import { Row, Typography } from 'antd'
+import colors from '../../../theme/colors.module.scss'
 
-const { Title } = Typography;
+const { Title } = Typography
 
 const Container = styled(Row)`
   align-items: center;
@@ -17,7 +17,7 @@ const Container = styled(Row)`
     padding-left: 3rem;
     padding-right: 3rem;
   }
-`;
+`
 
 const Logo = styled.div`
   display: flex;
@@ -31,13 +31,13 @@ const Logo = styled.div`
   }
   .logo--text {
   }
-`;
+`
 
 const LogoText = styled(Title)`
   &.ant-typography {
     color: ${colors.gray10};
     margin: 0;
   }
-`;
+`
 
-export { Container, Logo, LogoText };
+export { Container, Logo, LogoText }
