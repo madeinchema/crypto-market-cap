@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import './coins-column.scss';
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import './coins-column.scss'
 
-const CoinColumn = (props) => {
-  const { coin } = props;
-  const { name, image, symbol, id } = coin;
+const CoinColumn = props => {
+  const { coin } = props
+  const { name, image, symbol, id } = coin
   return (
     <div className="coin-column__container">
       <Link to={`/currencies/${id}`}>
@@ -13,8 +13,8 @@ const CoinColumn = (props) => {
         <span className="coin-column__symbol">{symbol.toUpperCase()}</span>
       </Link>
     </div>
-  );
-};
+  )
+}
 
 CoinColumn.propTypes = {
   coin: PropTypes.shape({
@@ -22,10 +22,10 @@ CoinColumn.propTypes = {
     image: PropTypes.string,
     symbol: PropTypes.string,
   }),
-};
+}
 
 CoinColumn.defaultProps = {
   coin: undefined,
-};
+}
 
-export default CoinColumn;
+export default CoinColumn

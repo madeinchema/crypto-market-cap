@@ -1,14 +1,14 @@
-import PropTypes from 'prop-types';
-import { StyledAntdLink, StyledRouterLink } from './styles';
+import PropTypes from 'prop-types'
+import { StyledAntdLink, StyledRouterLink } from './styles'
 
-const CMCLink = (props) => {
-  const { linkData, fontSize, align, colors } = props;
+const CMCLink = props => {
+  const { linkData, fontSize, align, colors } = props
 
-  const isInternalURL = (path) => {
-    const url = new URL(path, window.location.origin);
-    const checkIsInternalURL = url.hostname === window.location.hostname;
-    return checkIsInternalURL;
-  };
+  const isInternalURL = path => {
+    const url = new URL(path, window.location.origin)
+    const checkIsInternalURL = url.hostname === window.location.hostname
+    return checkIsInternalURL
+  }
 
   return isInternalURL(linkData && linkData.href) ? (
     <StyledRouterLink
@@ -32,8 +32,8 @@ const CMCLink = (props) => {
     >
       {linkData && linkData.label}
     </StyledAntdLink>
-  );
-};
+  )
+}
 
 CMCLink.propTypes = {
   linkData: PropTypes.shape({
@@ -49,12 +49,12 @@ CMCLink.propTypes = {
     base: PropTypes.string,
     hover: PropTypes.string,
   }),
-};
+}
 
 CMCLink.defaultProps = {
   fontSize: undefined,
   align: undefined,
   colors: undefined,
-};
+}
 
-export default CMCLink;
+export default CMCLink

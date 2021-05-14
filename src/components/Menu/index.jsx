@@ -1,17 +1,17 @@
-import PropTypes from 'prop-types';
-import { Col } from 'antd';
-import { Link } from '..';
-import { Container, Button, List } from './styles/menu';
+import PropTypes from 'prop-types'
+import { Col } from 'antd'
+import { Link } from '..'
+import { Container, Button, List } from './styles/menu'
 
-const Menu = (props) => {
-  const { children } = props;
-  return <Container>{children}</Container>;
-};
+const Menu = props => {
+  const { children } = props
+  return <Container>{children}</Container>
+}
 
 Menu.Button = function MenuButton(props) {
-  const { onClick } = props;
-  return <Button onClick={onClick} />;
-};
+  const { onClick } = props
+  return <Button onClick={onClick} />
+}
 
 Menu.List = function MenuList(props) {
   const {
@@ -22,7 +22,7 @@ Menu.List = function MenuList(props) {
     spaceSize,
     split,
     wrap,
-  } = props;
+  } = props
   return (
     <List
       breakpoint={breakpoint}
@@ -33,28 +33,28 @@ Menu.List = function MenuList(props) {
       wrap={wrap}
     >
       {dataSource &&
-        dataSource.map((menuItem) => (
+        dataSource.map(menuItem => (
           <Col key={menuItem.id}>
             <Link linkData={menuItem} href={menuItem.href} />
           </Col>
         ))}
     </List>
-  );
-};
+  )
+}
 
 Menu.propTypes = {
   children: PropTypes.node,
-};
+}
 Menu.defaultProps = {
   children: undefined,
-};
+}
 
 Menu.Button.propTypes = {
   onClick: PropTypes.func,
-};
+}
 Menu.Button.defaultProps = {
   onClick: undefined,
-};
+}
 
 Menu.List.propTypes = {
   dataSource: PropTypes.arrayOf(Object).isRequired,
@@ -72,7 +72,7 @@ Menu.List.propTypes = {
   ),
   split: PropTypes.node,
   wrap: PropTypes.bool,
-};
+}
 Menu.List.defaultProps = {
   breakpoint: undefined,
   align: undefined,
@@ -80,6 +80,6 @@ Menu.List.defaultProps = {
   spaceSize: undefined,
   split: undefined,
   wrap: undefined,
-};
+}
 
-export default Menu;
+export default Menu
