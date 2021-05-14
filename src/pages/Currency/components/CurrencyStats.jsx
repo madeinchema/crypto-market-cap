@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import { Card, Col, Row, Statistic, Skeleton } from 'antd'
 
 const CurrencyStats = props => {
-  const { isLoading, coinData, coinPriceData } = props
+  const { isDataReady, coinData } = props
 
-  return !isLoading && coinData && coinPriceData ? (
+  return isDataReady ? (
     <Col xs={{ span: 24 }} xl={{ span: 24 }} xxl={{ span: 12 }}>
       <Row align="middle">
         <Col flex="auto">
@@ -24,7 +24,7 @@ const CurrencyStats = props => {
             <Statistic
               title="24h Volume"
               prefix="USD"
-              value={coinPriceData.usd24hVol}
+              value={coinData.usd24hVol}
               precision={2}
               className="currency__title"
             />
@@ -50,7 +50,7 @@ const CurrencyStats = props => {
 }
 
 CurrencyStats.propTypes = {
-  isLoading: PropTypes.bool,
+  isDataReady: PropTypes.bool,
   coinData: PropTypes.shape({
     description: PropTypes.string,
     image: PropTypes.objectOf(PropTypes.string),
@@ -60,17 +60,14 @@ CurrencyStats.propTypes = {
     symbol: PropTypes.string,
     usd24hChange: PropTypes.number,
     usdMarketCap: PropTypes.number,
-  }),
-  coinPriceData: PropTypes.shape({
     usd24hVol: PropTypes.number,
     usdPrice: PropTypes.number,
   }),
 }
 
 CurrencyStats.defaultProps = {
-  isLoading: false,
+  isDataReady: false,
   coinData: undefined,
-  coinPriceData: undefined,
 }
 
 export default CurrencyStats
