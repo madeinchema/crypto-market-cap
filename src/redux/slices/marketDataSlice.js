@@ -10,9 +10,9 @@ export const fetchMarketData = createAsyncThunk(
 )
 
 const initialState = {
-  data: [],
+  data: undefined,
   loading: false,
-  error: null,
+  error: undefined,
 }
 
 export const marketDataSlice = createSlice({
@@ -22,15 +22,15 @@ export const marketDataSlice = createSlice({
   extraReducers: {
     [fetchMarketData.pending]: state => {
       state.loading = true
-      state.error = null
+      state.error = undefined
     },
     [fetchMarketData.fulfilled]: (state, action) => ({
       data: action.payload,
       loading: false,
-      error: null,
+      error: undefined,
     }),
     [fetchMarketData.rejected]: (state, action) => ({
-      data: [],
+      data: undefined,
       loading: false,
       error: action.error.message,
     }),
