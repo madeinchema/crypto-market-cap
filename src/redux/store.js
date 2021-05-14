@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import cryptocurrenciesSliceReducer from './slices/coinsSlice'
+import coinsSliceReducer from './slices/coinsSlice'
+import marketDataSliceReducer from './slices/marketDataSlice'
 
 export default configureStore({
   reducer: {
-    coins: cryptocurrenciesSliceReducer,
+    coins: coinsSliceReducer,
+    marketData: marketDataSliceReducer,
   },
 })
